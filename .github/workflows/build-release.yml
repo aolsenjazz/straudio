@@ -1,0 +1,41 @@
+name: Build Release
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'plugin/**'
+
+jobs:
+  build-release:
+    runs-on: macos-latest
+
+    steps:
+      - name: Print Xcode version
+        run: xcodebuild -version
+
+      - name: Print notarytool version
+        run: xcrun notarytool --version
+
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Build Release Image
+        run: |
+          # Move to plugin directory
+          cd straudio/plugin
+
+          # Initialize submodules
+          git submodule init
+          git submodule update
+
+          # Download IPlug SDKs
+          cd iPlug2/Dependencies/IPlug
+          ./download-iplug-sdks.sh
+
+          # Go back to the root of the plugin directory
+          cd ../../../
+
+          # Run your build script
+          ./scripts/makedist-mac.sh
