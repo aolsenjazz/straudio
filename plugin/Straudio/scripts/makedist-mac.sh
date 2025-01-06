@@ -32,16 +32,16 @@ ILOK_PWD=TODO
 WRAP_GUID=TODO
 
 # Check for required environment variables
-if [ -z "$EMAIL" ] || [ -z "$PASSWORD" ] || [ -z "$TEAM_ID" ]; then
+if [ -z "$APPLE_EMAIL" ] || [ -z "$APPLE_PASSWORD" ] || [ -z "$APPLE_TEAM_ID" ]; then
   echo "ERROR: Required environment variables are missing."
-  echo "Please set EMAIL, PASSWORD, and TEAM_ID before running this script."
+  echo "Please set APPLE_EMAIL, APPLE_PASSWORD, and APPLE_TEAM_ID before running this script."
   exit 1
 fi
 
 # Notify the user about the variables being used
 echo "Using the following credentials for notarization:"
-echo "Email: $EMAIL"
-echo "Team ID: $TEAM_ID"
+echo "Email: $APPLE_EMAIL"
+echo "Team ID: $APPLE_TEAM_ID"
 
 DEMO=0
 if [ "$1" == "demo" ]; then
@@ -302,9 +302,9 @@ if [ $BUILD_INSTALLER == 1 ]; then
     else
       # Notarize the .dmg using xcrun notarytool
       xcrun notarytool submit "${PWD}/build-mac/${ARCHIVE_NAME}.dmg" \
-        --apple-id "$EMAIL" \
-        --password "$PASSWORD" \
-        --team-id "$TEAM_ID" \
+        --apple-id "$APPLE_EMAIL" \
+        --password "$APPLE_PASSWORD" \
+        --team-id "$APPLE_TEAM_ID" \
         --wait
     fi
 
