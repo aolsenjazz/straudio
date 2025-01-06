@@ -16,7 +16,7 @@ jobs:
         run: xcodebuild -version
 
       - name: Print notarytool version
-        run: xcrun notarytool version
+        run: xcrun notarytool --version
 
       - name: Do nothing
         run: echo "This workflow does nothing except confirm the trigger works."
