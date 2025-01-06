@@ -24,7 +24,7 @@ jobs:
       - name: Build Release Image
         run: |
           # Move to plugin directory
-          cd straudio/plugin
+          cd plugin
 
           # Initialize submodules
           git submodule init
