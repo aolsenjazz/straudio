@@ -35,7 +35,7 @@ jobs:
           ./download-iplug-sdks.sh
 
           # Go back to the root of the plugin directory
-          cd ../../../
+          cd ../../../Straudio
 
           # Run your build script
           ./scripts/makedist-mac.sh
