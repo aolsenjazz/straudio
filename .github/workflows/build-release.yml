@@ -10,6 +10,10 @@ on:
 jobs:
   build-release:
     runs-on: macos-latest
+    env:
+      APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
+      APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
 
     steps:
       - name: Print Xcode version
