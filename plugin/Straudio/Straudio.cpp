@@ -13,10 +13,10 @@ Straudio::Straudio(const InstanceInfo& info)
 //#endif
   
   mEditorInitFunc = [&]() {
-     LoadIndexHtml(__FILE__, GetBundleID());
-//    LoadURL("http://localhost:5173/");
-    EnableScroll(false);
-  };
+//  LoadIndexHtml(__FILE__, GetBundleID());
+  LoadURL("http://localhost:5173/");
+  EnableScroll(false);
+};
   
   MakePreset("One", -70.);
   MakePreset("Two", -30.);
