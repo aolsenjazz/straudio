@@ -1,11 +1,19 @@
 name: Build Release
 
 on:
-  pull_request:
+  push:
     branches:
-      - main
-    paths:
-      - 'plugin/**'
+      - dev
+  schedule:
+    - cron: '0 0 * * *'
+
+# If CI ever becomes too cumbersome, revert to running this script more sparingly:
+# on:
+#   pull_request:
+#     branches:
+#       - main
+#     paths:
+#       - 'plugin/**'
 
 jobs:
   build-release:
