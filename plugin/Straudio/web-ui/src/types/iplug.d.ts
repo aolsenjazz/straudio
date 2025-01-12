@@ -3,15 +3,25 @@ declare global {
   function IPlugSendMsg(message: any): void;
 
   interface Window {
-    // From UI to Plugin
+    // SendParameterValueFromUI
     SPVFUI: (paramIdx: number, value: number) => void;
+
+    // BeginInformHostOfParamChangeFromUI
     BPCFUI: (paramIdx: number) => void;
+
+    // EndInformHostOfParamChangeFromUI
     EPCFUI: (paramIdx: number) => void;
     
-    // From Plugin to UI
+    // SendParameterValueFromDelegate
     SPVFD: (paramIdx: number, value: number) => void;
+
+    // SendControlValueFromDelegate
     SCVFD: (ctrlTag: number, value: number) => void;
+
+    // SendControlMsgFromDelegate
     SCMFD: (ctrlTag: number, msgTag: number, dataSize: number, msg: string) => void;
+
+    // SendArbitraryMsgFromDelegate
     SAMFD: (msgTag: number, dataSize: number, msg: string) => void;
     
     OnParamChange: (paramIdx: number, value: number) => void;

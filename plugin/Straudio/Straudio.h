@@ -41,4 +41,6 @@ private:
   iplug::IPeakSender<2> mSender;
   FastSinOscillator<sample> mOscillator {0., 440.};
   LogParamSmooth<sample, 1> mGainSmoother;
+  const char* mMessage = "Hello World!";
+
 };

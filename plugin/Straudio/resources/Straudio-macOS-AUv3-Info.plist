@@ -21,13 +21,13 @@
 	<key>CFBundleVersion</key>
 	<string>0.1.0</string>
 	<key>LSMinimumSystemVersion</key>
-	<string>11.3.0</string>
+	<string>10.12.0</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>AudioComponentBundle</key>
-			<string>com.AOFX.app.Straudio.AUv3Framework</string>
+			<string>com.AcmeInc.app.Straudio.AUv3Framework</string>
 			<key>AudioComponents</key>
 			<array>
 				<dict>
@@ -55,7 +55,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.AudioUnit-UI</string>
 		<key>NSExtensionPrincipalClass</key>
-		<string>IPlugAUViewController_vStraudio</string>
+		<string>IPlugAUViewController_vIPlugSvelteUI</string>
 	</dict>
 </dict>
 </plist>

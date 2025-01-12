@@ -47,5 +47,7 @@ void Straudio::OnReset()
 
 void Straudio::OnIdle()
 {
-  mSender.TransmitData(*this);
+//  mSender.TransmitData(*this);
+  
+//  Straudio::SendArbitraryMsgFromDelegate(0, strlen(mMessage) + 1, (void*)mMessage);
 }

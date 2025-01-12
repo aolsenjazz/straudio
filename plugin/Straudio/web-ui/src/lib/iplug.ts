@@ -1,5 +1,6 @@
 // FROM UI TO PLUGIN
 
+// SendParameterValueFromUI
 export function SPVFUI(paramIdx: number, value: number) {
   if (paramIdx < 0) {
     console.log("SPVFUI paramIdx must be >= 0")
@@ -15,6 +16,7 @@ export function SPVFUI(paramIdx: number, value: number) {
   IPlugSendMsg(message);
 }
 
+// BeginInformHostOfParamChangeFromUI
 export function BPCFUI(paramIdx: number) {
   if (paramIdx < 0) {
     console.log("BPCFUI paramIdx must be >= 0")
@@ -29,6 +31,7 @@ export function BPCFUI(paramIdx: number) {
   IPlugSendMsg(message);
 }
 
+// EndInformHostOfParamChangeFromUI
 export function EPCFUI(paramIdx: number) {
   if (paramIdx < 0) {
     console.log("EPCFUI paramIdx must be >= 0")
@@ -44,19 +47,31 @@ export function EPCFUI(paramIdx: number) {
 }
 
 // FROM PLUGIN TO UI
+
+// SendParameterValueFromDelegate
 export function SPVFD(paramIdx: number, val: number) {
   OnParamChange(paramIdx, val);
 }
 
+// SendArbitraryMsgFromDelegate
+/**
+ * We can receive messages from the plugin here
+ */
 export function SAMFD(msgTag: number, dataSize: number, msg: string) {
-  //  var decodedData = window.atob(msg);
-  console.log("SAMFD msgTag:" + msgTag + " msg:" + msg);
+   // var decodedData = window.atob(msg);
+  // console.log("SAMFD msgTag:" + msgTag + " msg:" + decodedData);
 }
 
+// SendControlValueFromDelegate
 export function SCVFD(ctrlTag: number, val: number) {
-  console.log("SCVFD ctrlTag: " + ctrlTag + " value:" + val);
+  // console.log("SCVFD ctrlTag: " + ctrlTag + " value:" + val);
 }
 
+// SendControlMsgFromDelegate
+/**
+ * This kind of looks like where raw audio data/processed audio data is transmitted
+ * from the plugin thread
+ */
 export function SCMFD(ctrlTag: number, msgTag: number, dataSize: number, msg: string) {
   console.log("SCMFD ctrlTag: " + ctrlTag + " msgTag:" + msgTag + " dataSize:" + dataSize + " msg:" + msg);
 }
