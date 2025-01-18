@@ -102,6 +102,12 @@ jobs:
           # Run your build script
           ./scripts/makedist-mac.sh
 
+      - name: Zip "folder" artifacts
+        run: |
+          zip -r plugin/Straudio/build-mac/Straudio.app.zip plugin/Straudio/build-mac/Straudio.app
+          zip -r plugin/Straudio/build-mac/Straudio.component.zip plugin/Straudio/build-mac/Straudio.component
+          zip -r plugin/Straudio/build-mac/Straudio.vst3.zip plugin/Straudio/build-mac/Straudio.vst3
+
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
@@ -110,9 +116,9 @@ jobs:
           body: ${{ steps.tag_version.outputs.changelog }}
           artifacts: |
             plugin/Straudio/build-mac/out/Straudio-v0.1.0-mac.dmg
-            plugin/Straudio/build-mac/Straudio.app
-            plugin/Straudio/build-mac/Straudio.component
-            plugin.Straudio/build-mac/Straudio.vst3
+            plugin/Straudio/build-mac/Straudio.app.zip
+            plugin/Straudio/build-mac/Straudio.component.zip
+            plugin.Straudio/build-mac/Straudio.vst3.zip
             replacesArtifacts: true
           allowUpdates: true
           
