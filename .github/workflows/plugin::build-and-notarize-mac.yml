@@ -3,7 +3,7 @@ name: Build and Notarize
 on:
   push:
     branches:
-      - main
+      - dev
     paths:
       - 'plugin/**'
 
@@ -96,24 +96,3 @@ jobs:
           cd plugin/Straudio
           # Run your build script
           ./scripts/makedist-mac.sh
-
-      - name: Zip "folder" artifacts
-        run: |
-          cd plugin/Straudio/build-mac
-          zip -r Straudio.app.zip Straudio.app
-          zip -r Straudio.component.zip Straudio.component
-          zip -r Straudio.vst3.zip Straudio.vst3
-
-      - name: Create a GitHub release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
-          body: ${{ steps.tag_version.outputs.changelog }}
-          artifacts: |
-            plugin/Straudio/build-mac/out/Straudio-v0.1.0-mac.dmg
-            plugin/Straudio/build-mac/Straudio.app.zip
-            plugin/Straudio/build-mac/Straudio.component.zip
-            plugin/Straudio/build-mac/Straudio.vst3.zip
-            replacesArtifacts: true
-          allowUpdates: true
