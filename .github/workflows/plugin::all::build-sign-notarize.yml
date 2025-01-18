@@ -18,6 +18,8 @@ on:
 jobs:
   build-release:
     runs-on: macos-latest
+    permissions:
+      contents: write
     env:
       APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
       APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
@@ -61,7 +63,7 @@ jobs:
 
           # apply provisioning profile
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
+          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profilbuies
       - name: Init submodules, download dependencies
         run: |
           cd plugin
@@ -85,8 +87,21 @@ jobs:
           cd plugin
           xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-AUv2
       
-      - name: Build Release Image
+      - name: Build Release Artifacts
         run: |
           cd plugin/Straudio
           # Run your build script
           ./scripts/makedist-mac.sh
+
+      - name: Publish release assets
+        uses: ncipollo/release-action@v1
+        with:
+          tag: "v0.1.0"
+          prerelease: true
+          artifacts: |
+            plugin/Straudio/build-mac/out/Straudio-v0.1.0-mac.dmg
+            plugin/Straudio/build-mac/Straudio.app
+            plugin/Straudio/build-mac/Straudio.component
+            plugin.Straudio/build-mac/Straudio.vst3
+          replacesArtifacts: true
+          allowUpdates: true
