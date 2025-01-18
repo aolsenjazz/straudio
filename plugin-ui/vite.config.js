@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [react()],
   build: {
-    outDir: '../resources/web',
+    outDir: '../plugin/Straudio/resources/web',
     emptyOutDir: true
   },
   base: './'

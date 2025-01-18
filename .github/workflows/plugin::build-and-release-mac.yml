@@ -78,8 +78,11 @@ jobs:
           cd iPlug2/Dependencies/IPlug
           ./download-iplug-sdks.sh
 
-          # back to root
-          cd ../../..
+      - name: Build frontend
+        run: |
+          cd plugin-ui
+          npm i
+          npm run build
 
       - name: Build and sign VST3
         run: |
