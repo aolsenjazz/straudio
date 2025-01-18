@@ -1,11 +1,11 @@
-name: build-and-release-mac
+name: Build Release
 
 on:
   push:
     branches:
-      - main
-    paths:
-      - 'plugin/**'
+      - dev
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
   build-release:
@@ -25,6 +25,10 @@ jobs:
 
       - name: Print notarytool version
         run: xcrun notarytool --version
+
+      - name: Check out repository
+        uses: actions/checkout@v3
+
 
       - name: Bump version and push tag
         id: tag_version
@@ -104,12 +108,13 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
           artifacts: |
             plugin/Straudio/build-mac/out/Straudio-v0.1.0-mac.dmg
             plugin/Straudio/build-mac/Straudio.app.zip
             plugin/Straudio/build-mac/Straudio.component.zip
             plugin/Straudio/build-mac/Straudio.vst3.zip
+            replacesArtifacts: true
           allowUpdates: true
           
