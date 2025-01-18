@@ -35,19 +35,29 @@ jobs:
 
       - name: Build Release Image
         run: |
-          # Move to plugin directory
           cd plugin
 
-          # Initialize submodules
           git submodule init
           git submodule update
 
-          # Download IPlug SDKs
           cd iPlug2/Dependencies/IPlug
           ./download-iplug-sdks.sh
 
-          # Go back to the root of the plugin directory
           cd ../../../Straudio
 
+      - name: Build and sign VST3
+        run: |
+          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-VST3
+
+      - name: Build and sign AU
+        run: |
+          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-AU
+
+      - name: Build and sign App
+        run: |
+          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-App
+      
+      - name: Build Release Image
+        run: |
           # Run your build script
           ./scripts/makedist-mac.sh
