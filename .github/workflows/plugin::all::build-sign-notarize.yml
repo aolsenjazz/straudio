@@ -105,9 +105,9 @@ jobs:
       - name: Zip "folder" artifacts
         run: |
           cd plugin/Straudio/build-mac
-          zip Straudio.app.zip Straudio.app
-          zip Straudio.component.zip Straudio.component
-          zip Straudio.vst3.zip Straudio.vst3
+          zip -r Straudio.app.zip Straudio.app
+          zip -r Straudio.component.zip Straudio.component
+          zip -r Straudio.vst3.zip Straudio.vst3
 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
