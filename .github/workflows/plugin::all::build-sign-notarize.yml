@@ -83,7 +83,7 @@ jobs:
       - name: Build and sign AU
         run: |
           cd plugin
-          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-AU
+          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-AUv2
 
       - name: Build and sign App
         run: |
