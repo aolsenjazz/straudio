@@ -3,9 +3,10 @@ name: Build And Release
 on:
   push:
     branches:
-      - dev
+      - main
     paths:
       - 'plugin/**'
+      - 'plugin-ui/**'
 
 jobs:
   build-release:
