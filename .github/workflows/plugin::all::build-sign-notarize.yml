@@ -48,7 +48,7 @@ jobs:
 
       - name: Build and sign VST3
         run: |
-          pwd
+          ls
           xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-VST3
 
       - name: Build and sign AU
