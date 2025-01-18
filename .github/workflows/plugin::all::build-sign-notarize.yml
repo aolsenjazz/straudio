@@ -88,7 +88,7 @@ jobs:
       - name: Build and sign App
         run: |
           cd plugin
-          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-App
+          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-APP
       
       - name: Build Release Image
         run: |
