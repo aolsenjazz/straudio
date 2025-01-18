@@ -48,18 +48,21 @@ jobs:
 
       - name: Build and sign VST3
         run: |
-          ls
+          cd plugin
           xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-VST3
 
       - name: Build and sign AU
         run: |
+          cd plugin
           xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-AU
 
       - name: Build and sign App
         run: |
+          cd plugin
           xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-App
       
       - name: Build Release Image
         run: |
+          cd plugin/Straudio
           # Run your build script
           ./scripts/makedist-mac.sh
