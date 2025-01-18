@@ -84,11 +84,6 @@ jobs:
         run: |
           cd plugin
           xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-AUv2
-
-      - name: Build and sign App
-        run: |
-          cd plugin
-          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-APP
       
       - name: Build Release Image
         run: |
