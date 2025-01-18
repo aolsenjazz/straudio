@@ -80,7 +80,7 @@ REM echo Building 32 bit binaries...
 REM msbuild Straudio.sln /p:configuration=release /p:platform=win32 /nologo /verbosity:minimal /fileLogger /m /flp:logfile=build-win.log;errorsonly 
 
 REM echo Building 64 bit binaries...
-REM add projects with /t to build VST2 and AAX
+REM add projects with /t to build AAX
 msbuild Straudio.sln /t:Straudio-app;Straudio-vst3 /p:configuration=release /p:platform=x64 /nologo /verbosity:minimal /fileLogger /m /flp:logfile=build-win.log;errorsonly;append
 
 REM --echo Copying AAX Presets

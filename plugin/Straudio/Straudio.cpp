@@ -1,66 +1,53 @@
 #include "Straudio.h"
 #include "IPlug_include_in_plug_src.h"
-
-#if IPLUG_EDITOR
-#include "IControls.h"
-#endif
+#include "IPlugPaths.h"
 
 Straudio::Straudio(const InstanceInfo& info)
 : Plugin(info, MakeConfig(kNumParams, kNumPresets))
 {
-  GetParam(kParamGain)->InitDouble("Gain", 0., 0., 100.0, 0.01, "%");
-
-#if IPLUG_EDITOR // http://bit.ly/2S64BDd
-  mMakeGraphicsFunc = [&]() {
-    return MakeGraphics(*this, PLUG_WIDTH, PLUG_HEIGHT, PLUG_FPS);
+  GetParam(kGain)->InitGain("Gain", -70., -70, 0.);
+  
+//#ifdef DEBUG
+  SetCustomUrlScheme("iplug2");
+  SetEnableDevTools(true);
+//#endif
+  
+  mEditorInitFunc = [&]() {
+//    LoadURL("http://localhost:5173/");
+    LoadIndexHtml(__FILE__, GetBundleID());
+    EnableScroll(false);
   };
   
-  mLayoutFunc = [&](IGraphics* pGraphics) {
-    const IRECT bounds = pGraphics->GetBounds();
-    const IRECT innerBounds = bounds.GetPadded(-10.f);
-    const IRECT sliderBounds = innerBounds.GetFromLeft(150).GetMidVPadded(100);
-    const IRECT versionBounds = innerBounds.GetFromTRHC(300, 20);
-    const IRECT titleBounds = innerBounds.GetCentredInside(200, 50);
-
-    if (pGraphics->NControls()) {
-      pGraphics->GetBackgroundControl()->SetTargetAndDrawRECTs(bounds);
-      pGraphics->GetControlWithTag(kCtrlTagSlider)->SetTargetAndDrawRECTs(sliderBounds);
-      pGraphics->GetControlWithTag(kCtrlTagTitle)->SetTargetAndDrawRECTs(titleBounds);
-      pGraphics->GetControlWithTag(kCtrlTagVersionNumber)->SetTargetAndDrawRECTs(versionBounds);
-      return;
-    }
-
-    pGraphics->SetLayoutOnResize(true);
-    pGraphics->AttachCornerResizer(EUIResizerMode::Size, true);
-    pGraphics->LoadFont("Roboto-Regular", ROBOTO_FN);
-    pGraphics->AttachPanelBackground(COLOR_LIGHT_GRAY);
-    pGraphics->AttachControl(new IVSliderControl(sliderBounds, kParamGain), kCtrlTagSlider);
-    pGraphics->AttachControl(new ITextControl(titleBounds, "Straudio", IText(30)), kCtrlTagTitle);
-    WDL_String buildInfoStr;
-    GetBuildInfoStr(buildInfoStr, __DATE__, __TIME__);
-    pGraphics->AttachControl(new ITextControl(versionBounds, buildInfoStr.Get(), DEFAULT_TEXT.WithAlign(EAlign::Far)), kCtrlTagVersionNumber);
-  };
-#endif
+  MakePreset("One", -70.);
+  MakePreset("Two", -30.);
+  MakePreset("Three", 0.);
 }
 
-#if IPLUG_EDITOR
-void Straudio::OnParentWindowResize(int width, int height)
-{
-  if(GetUI())
-    GetUI()->Resize(width, height, 1.f, false);
-}
-#endif
-
-#if IPLUG_DSP
 void Straudio::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
-{ 
-  const int nChans = NOutChansConnected();
-  const double gain = GetParam(kParamGain)->Value() / 100.;
-  
-  for (int s = 0; s < nFrames; s++) {
-    for (int c = 0; c < nChans; c++) {
-      outputs[c][s] = inputs[c][s] * gain;
-    }
+{
+  const double gain = GetParam(kGain)->DBToAmp();
+    
+  mOscillator.ProcessBlock(inputs[0], nFrames); // comment for audio in
+
+  for (int s = 0; s < nFrames; s++)
+  {
+    outputs[0][s] = inputs[0][s] * mGainSmoother.Process(gain);
+    outputs[1][s] = outputs[0][s]; // copy left
   }
+  
+  mSender.ProcessBlock(outputs, nFrames, kCtrlTagMeter);
 }
-#endif
+
+void Straudio::OnReset()
+{
+  auto sr = GetSampleRate();
+  mOscillator.SetSampleRate(sr);
+  mGainSmoother.SetSmoothTime(20., sr);
+}
+
+void Straudio::OnIdle()
+{
+//  mSender.TransmitData(*this);
+  
+//  Straudio::SendArbitraryMsgFromDelegate(0, strlen(mMessage) + 1, (void*)mMessage);
+}
