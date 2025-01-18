@@ -26,6 +26,8 @@ jobs:
       APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
 
     steps:
+      - uses: actions/checkout@v4
+
       - name: Print Xcode version
         run: xcodebuild -version
 
@@ -34,6 +36,13 @@ jobs:
 
       - name: Check out repository
         uses: actions/checkout@v3
+
+
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install Apple certificate, provisioning profile
         env:
@@ -93,15 +102,17 @@ jobs:
           # Run your build script
           ./scripts/makedist-mac.sh
 
-      - name: Publish release assets
+      - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: "v0.1.0"
-          prerelease: true
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
           artifacts: |
             plugin/Straudio/build-mac/out/Straudio-v0.1.0-mac.dmg
             plugin/Straudio/build-mac/Straudio.app
             plugin/Straudio/build-mac/Straudio.component
             plugin.Straudio/build-mac/Straudio.vst3
-          replacesArtifacts: true
+            replacesArtifacts: true
           allowUpdates: true
+          
