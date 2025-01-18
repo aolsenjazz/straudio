@@ -6,6 +6,7 @@ on:
       - dev
     paths:
       - 'plugin/**'
+      - 'plugin-ui/**'
 
 jobs:
   build-release:
