@@ -1,9 +1,10 @@
 {
   "name": "straudio",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Straudio monorepo",
   "author": "Alexander Olsen",
   "license": "MIT",
+  "type": "module",
   "scripts:": {
     "test": ""
   },
