@@ -33,7 +33,7 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Build Release Image
+      - name: Init submodules, download dependencies
         run: |
           cd plugin
 
@@ -43,7 +43,8 @@ jobs:
           cd iPlug2/Dependencies/IPlug
           ./download-iplug-sdks.sh
 
-          cd ../../../Straudio
+          # back to root
+          cd ../../..
 
       - name: Build and sign VST3
         run: |
