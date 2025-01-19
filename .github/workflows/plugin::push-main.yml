@@ -22,9 +22,8 @@ jobs:
 
   upload:
     runs-on: macos-latest
+    permissions: write-all
     # needs: build-release
-    permissions:
-      issues: write
     steps:
       - name: Bump version and push tag
         id: tag_version
