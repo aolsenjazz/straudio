@@ -1,4 +1,4 @@
-name: [Plugin]: Publish
+name: "[Plugin] Publish"
 
 on:
   workflow_dispatch:
