@@ -6,6 +6,7 @@ on:
 jobs:
   build-mac-all:
     runs-on: macos-latest
+    secrets: inherit
     outputs:
       vst-path: ${{ steps.zip.outputs.vst-path }}
       au-path: ${{ steps.zip.outputs.au-path }}
