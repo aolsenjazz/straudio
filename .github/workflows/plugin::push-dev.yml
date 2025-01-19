@@ -3,10 +3,10 @@ name: Dev
 on:
   push:
     branches:
-      - main
-    # paths:
-    #   - 'plugin/**'
-    #   - 'plugin-ui/**'
+      - dev
+    paths:
+      - 'plugin/**'
+      - 'plugin-ui/**'
 
 jobs:
   build-release:
