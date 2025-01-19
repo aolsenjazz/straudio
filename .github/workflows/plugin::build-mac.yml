@@ -34,6 +34,8 @@ on:
 jobs:
   build-mac-all:
     runs-on: macos-latest
+    permissions:
+      contents: write
     outputs:
       vst-path: ${{ steps.zip-.outputs.vst-path }}
       au-path: ${{ steps.zip.outputs.au-path }}
@@ -130,10 +132,10 @@ jobs:
         with:
           name: build-artifacts
           path: |
-            Straudio.app.zip
-            Straudio.component.zip
-            Straudio.vst3.zip
-            out/Straudio-mac.pkg
+            plugin/Straudio/build-mac/Straudio.app.zip
+            plugin/Straudio/build-mac/Straudio.component.zip
+            plugin/Straudio/build-mac/Straudio.vst3.zip
+            plugin/Straudio/build-mac/out/Straudio-mac.pkg
 
       # ----- Collect the artifact paths into a single output -----
       # - name: Collect artifact outputs
