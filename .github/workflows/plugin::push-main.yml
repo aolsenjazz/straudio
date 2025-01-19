@@ -1,0 +1,54 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - dev
+    # paths:
+    #   - 'plugin/**'
+    #   - 'plugin-ui/**'
+
+jobs:
+  build-release:
+    uses: ./.github/workflows/plugin::build-mac.yml
+    secrets:
+      APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
+      APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      DEVELOPER_ID_APPLICATION_BASE64: ${{ secrets.DEVELOPER_ID_APPLICATION_BASE64 }}
+      DEVELOPER_ID_INSTALLER_BASE64: ${{ secrets.DEVELOPER_ID_INSTALLER_BASE64 }}
+      BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
+      KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+
+  upload:
+    runs-on: macos-latest
+    needs: build-release
+    steps:
+      - name: Bump version and push tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Test files
+        uses: actions/download-artifact@v4
+        run: ls -R
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+
+      - name: List all files
+        run: ls
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          body: ${{ steps.tag_version.outputs.changelog }}
+          artifacts: |
+            Straudio-v0.1.0-mac.dmg
+            Straudio.app.zip
+            Straudio.component.zip
+            Straudio.vst3.zip
+          allowUpdates: true
