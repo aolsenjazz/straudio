@@ -1,4 +1,4 @@
-name: release
+name: [Plugin]: Publish
 
 on:
   workflow_dispatch:

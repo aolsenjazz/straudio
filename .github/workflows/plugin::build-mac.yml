@@ -1,4 +1,4 @@
-name: Build-Mac
+name: [Plugin] build-mac
 
 on:
   workflow_call:

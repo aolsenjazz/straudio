@@ -1,4 +1,4 @@
-name: push-main
+name: [Plugin]: on-push-main
 
 on:
   push:
