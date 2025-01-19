@@ -3,16 +3,17 @@
   <PropertyGroup Label="UserMacros">
     <IPLUG2_ROOT>$(ProjectDir)..\..\iPlug2</IPLUG2_ROOT>
     <BINARY_NAME>Straudio</BINARY_NAME>
-    <EXTRA_ALL_DEFS>IGRAPHICS_NANOVG;IGRAPHICS_GL2</EXTRA_ALL_DEFS>
+    <EXTRA_ALL_DEFS>WEBVIEW_EDITOR_DELEGATE;NO_IGRAPHICS;IDLE_TIMER_RATE=50</EXTRA_ALL_DEFS>
     <EXTRA_DEBUG_DEFS />
     <EXTRA_RELEASE_DEFS />
     <EXTRA_TRACER_DEFS />
     <PDB_FILE>$(SolutionDir)build-win\pdbs\$(TargetName)_$(Platform).pdb</PDB_FILE>
     <BUILD_DIR>$(SolutionDir)build-win</BUILD_DIR>
     <CREATE_BUNDLE_SCRIPT>$(IPLUG2_ROOT)\Scripts\create_bundle.bat</CREATE_BUNDLE_SCRIPT>
+    <EXTRA_INC_PATHS>$(IPLUG2_ROOT)\Dependencies\Extras\json11</EXTRA_INC_PATHS>
   </PropertyGroup>
   <ImportGroup Label="PropertySheets">
-    <Import Project="$(IPLUG2_ROOT)\..\common-win.props" />
+    <Import Project="$(IPLUG2_ROOT)\common-win.props" />
   </ImportGroup>
   <PropertyGroup>
     <TargetName>$(BINARY_NAME)</TargetName>
@@ -27,7 +28,7 @@
       <ProgramDatabaseFile>$(PDB_FILE)</ProgramDatabaseFile>
     </Link>
     <PostBuildEvent>
-      <Command>CALL "$(SolutionDir)scripts\postbuild-win.bat" "$(TargetExt)" "$(BINARY_NAME)" "$(Platform)" "$(TargetPath)" "$(VST3_32_PATH)" "$(VST3_64_PATH)" "$(AAX_32_PATH)" "$(AAX_64_PATH)" "$(BUILD_DIR)" "$(VST_ICON)" "$(AAX_ICON)" "$(CREATE_BUNDLE_SCRIPT)"</Command>
+      <Command>CALL "$(SolutionDir)scripts\postbuild-win.bat" "$(TargetExt)" "$(BINARY_NAME)" "$(Platform)" "$(TargetPath)" "$(VST3_32_PATH)" "$(VST3_64_PATH)" "$(AAX_32_PATH)" "$(AAX_64_PATH)" "$(CLAP_PATH)" "$(BUILD_DIR)" "$(VST_ICON)" "$(AAX_ICON)" "$(CREATE_BUNDLE_SCRIPT)" "$(ICUDAT_PATH)"</Command>
     </PostBuildEvent>
     <PreBuildEvent>
       <Command>CALL "$(SolutionDir)scripts\prebuild-win.bat" "$(TargetExt)" "$(BINARY_NAME)" "$(Platform)" "$(TargetPath)" "$(OutDir)"</Command>
@@ -58,6 +59,9 @@
     </BuildMacro>
     <BuildMacro Include="CREATE_BUNDLE_SCRIPT">
       <Value>$(CREATE_BUNDLE_SCRIPT)</Value>
+    </BuildMacro>
+    <BuildMacro Include="EXTRA_INC_PATHS">
+      <Value>$(EXTRA_INC_PATHS)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
