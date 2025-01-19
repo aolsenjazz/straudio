@@ -40,8 +40,8 @@ jobs:
       - name: Create release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.tag_version.outputs.new_tag }}
-          name: Release ${{ steps.tag_version.outputs.new_tag }}
+          tag: ${{ steps.tag_version.outputs.new_version }}-prerelease
+          name: ${{ steps.tag_version.outputs.new_version }}-prerelease
           body: ${{ steps.tag_version.outputs.changelog }}
           artifacts: |
             build-artifacts/Straudio-mac.dmg
