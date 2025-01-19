@@ -26,6 +26,10 @@ jobs:
       au-path: ${{ steps.zip.outputs.au-path }}
       app-path: ${{ steps.zip.outputs.app-path }}
       pkg-path: ${{ steps.zip.outputs.pkg-path }}
+    env:
+      APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
+      APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
     steps:
       - name: Check out
         uses: actions/checkout@v3
@@ -37,9 +41,6 @@ jobs:
 
       - name: Install Apple certificate, provisioning profile
         env:
-          APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
-          APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
-          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
           DEVELOPER_ID_APPLICATION_BASE64: ${{ secrets.DEVELOPER_ID_APPLICATION_BASE64 }}
           DEVELOPER_ID_INSTALLER_BASE64: ${{ secrets.DEVELOPER_ID_INSTALLER_BASE64 }}
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
