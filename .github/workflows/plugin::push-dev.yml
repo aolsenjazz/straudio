@@ -3,7 +3,7 @@ name: Dev
 on:
   push:
     branches:
-      - dev
+      - main
     # paths:
     #   - 'plugin/**'
     #   - 'plugin-ui/**'
@@ -19,3 +19,17 @@ jobs:
       DEVELOPER_ID_INSTALLER_BASE64: ${{ secrets.DEVELOPER_ID_INSTALLER_BASE64 }}
       BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
       KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+
+  upload:
+    runs-on: macos-latest
+    needs: build-release
+    steps:
+      - name: Upload the artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            ${{ needs.build-release.outputs.vst-path }}
+            ${{ needs.build-release.outputs.app-path }}
+            ${{ needs.build-release.outputs.pkg-path }}
+            ${{ needs.build-release.outputs.au-path }}
