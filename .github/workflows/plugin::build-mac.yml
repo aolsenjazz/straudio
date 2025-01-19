@@ -2,21 +2,6 @@ name: Build-Mac
 
 on:
   workflow_call:
-    secrets:
-      APPLE_EMAIL:
-        required: true
-      APPLE_PASSWORD:
-        required: true
-      APPLE_TEAM_ID:
-        required: true
-      DEVELOPER_ID_APPLICATION_BASE64:
-        required: true
-      DEVELOPER_ID_INSTALLER_BASE64:
-        required: true
-      BUILD_PROVISION_PROFILE_BASE64:
-        required: true
-      KEYCHAIN_PASSWORD:
-        required: true
 
 jobs:
   build-mac-all:
