@@ -1,4 +1,4 @@
-name: Main
+name: push-main
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
       BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
       KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
 
-  upload:
+  upload-prerelease:
     runs-on: macos-latest
     permissions: write-all
     needs: build-release
@@ -33,9 +33,6 @@ jobs:
 
       - name: Download all artifacts
         uses: actions/download-artifact@v4
-
-      - name: List all files
-        run: ls build-artifacts
 
       - name: Create release
         uses: ncipollo/release-action@v1
