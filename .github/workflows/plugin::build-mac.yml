@@ -125,10 +125,15 @@ jobs:
           zip -r Straudio.component.zip Straudio.component
           zip -r Straudio.vst3.zip Straudio.vst3
 
-          echo "vst-path=plugin/Straudio/build-mac/Straudio.vst3.zip" >> $GITHUB_OUTPUT
-          echo "app-path=plugin/Straudio/build-mac/Straudio.app.zip" >> $GITHUB_OUTPUT
-          echo "pkg-path=plugin/Straudio/build-mac/Straudio-mac.pkg" >> $GITHUB_OUTPUT
-          echo "au-path=plugin/Straudio/build-mac/Straudio.component.zip" >> $GITHUB_OUTPUT
+      - name: Upload the artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            Straudio.app.zip
+            Straudio.component.zip
+            Straudio.vst3.zip
+            out/Straudio-mac.pkg
 
       # ----- Collect the artifact paths into a single output -----
       # - name: Collect artifact outputs
