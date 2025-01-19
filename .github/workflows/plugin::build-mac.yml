@@ -2,6 +2,19 @@ name: Build-Mac
 
 on:
   workflow_call:
+    outputs:
+      vst-path:
+        description: "VST3 .zip path"
+        value: ${{ jobs.build-mac-all.outputs.vst-path }}
+      app-path:
+        description: "App .zip path"
+        value: ${{ jobs.build-mac-all.outputs.app-path }}
+      pkg-path:
+        description: "pkg path"
+        value: ${{ jobs.build-mac-all.outputs.pkg-path }}
+      au-path:
+        description: "AUv2 .zip path"
+        value: ${{ jobs.build-mac-all.outputs.au-path }}
     secrets:
       APPLE_EMAIL:
         required: true
@@ -22,7 +35,7 @@ jobs:
   build-mac-all:
     runs-on: macos-latest
     outputs:
-      vst-path: ${{ steps.zip.outputs.vst-path }}
+      vst-path: ${{ steps.zip-.outputs.vst-path }}
       au-path: ${{ steps.zip.outputs.au-path }}
       app-path: ${{ steps.zip.outputs.app-path }}
       pkg-path: ${{ steps.zip.outputs.pkg-path }}
@@ -104,8 +117,8 @@ jobs:
           # Run your build script
           ./scripts/makedist-mac.sh
 
-      - name: Zip app
-        id: zip-app
+      - name: Zip and set outputs
+        id: zip
         run: |
           cd plugin/Straudio/build-mac
           zip -r Straudio.app.zip Straudio.app

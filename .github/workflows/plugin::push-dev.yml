@@ -30,3 +30,6 @@ jobs:
           name: build-artifacts
           path: |
             ${{ needs.build-release.outputs.vst-path }}
+            ${{ needs.build-release.outputs.app-path }}
+            ${{ needs.build-release.outputs.pkg-path }}
+            ${{ needs.build-release.outputs.au-path }}
