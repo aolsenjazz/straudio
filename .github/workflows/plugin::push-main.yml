@@ -35,7 +35,7 @@ jobs:
         uses: actions/download-artifact@v4
 
       - name: List all files
-        run: ls
+        run: ls build-artifacts
 
       - name: Create release
         uses: ncipollo/release-action@v1
@@ -44,8 +44,8 @@ jobs:
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
           artifacts: |
-            Straudio-v0.1.0-mac.dmg
-            Straudio.app.zip
-            Straudio.component.zip
-            Straudio.vst3.zip
+            build-artifacts/Straudio-mac.dmg
+            build-artifacts/Straudio.app.zip
+            build-artifacts/Straudio.component.zip
+            build-artifacts/Straudio.vst3.zip
           allowUpdates: true

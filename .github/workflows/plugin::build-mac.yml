@@ -132,4 +132,4 @@ jobs:
             plugin/Straudio/build-mac/Straudio.app.zip
             plugin/Straudio/build-mac/Straudio.component.zip
             plugin/Straudio/build-mac/Straudio.vst3.zip
-            plugin/Straudio/build-mac/out/Straudio-mac.dmg
+            plugin/Straudio/build-mac/Straudio-mac.dmg
