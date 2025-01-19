@@ -339,18 +339,6 @@ zip -r ./build-mac/$ARCHIVE_NAME-dSYMs.zip ./build-mac/*.dSYM
 
 #---------------------------------------------------------------------------------------------------------
 
-# prepare out folder for CI
-
-echo "preparing output folder"
-echo ""
-mkdir -p ./build-mac/out
-if [ -f ./build-mac/$ARCHIVE_NAME.dmg ]; then
-  mv ./build-mac/$ARCHIVE_NAME.dmg ./build-mac/out
-fi
-mv ./build-mac/*.zip ./build-mac/out
-
-#---------------------------------------------------------------------------------------------------------
-
 #if [ $DEMO == 1 ]
 #then
 #  git checkout installer/Straudio.iss

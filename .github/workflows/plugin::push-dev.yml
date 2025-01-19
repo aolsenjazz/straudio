@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - dev
-    # paths:
-    #   - 'plugin/**'
-    #   - 'plugin-ui/**'
+    paths:
+      - 'plugin/**'
+      - 'plugin-ui/**'
 
 jobs:
   build-release:
