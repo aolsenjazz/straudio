@@ -1,0 +1,114 @@
+name: Build-Mac
+
+on:
+  workflow_call:
+    secrets:
+      APPLE_EMAIL:
+        required: true
+      APPLE_PASSWORD:
+        required: true
+      APPLE_TEAM_ID:
+        required: true
+      DEVELOPER_ID_APPLICATION_BASE64:
+        required: true
+      DEVELOPER_ID_INSTALLER_BASE64:
+        required: true
+      BUILD_PROVISION_PROFILE_BASE64:
+        required: true
+      KEYCHAIN_PASSWORD:
+        required: true
+
+jobs:
+  build-mac-all:
+    runs-on: macos-latest
+    outputs:
+      artifact-paths: ${{ steps.collect-outputs.outputs.artifact-paths }}
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Print versions
+        run: |
+          xcodebuild -version
+          xcrun notarytool --version
+
+      - name: Install Apple certificate, provisioning profile
+        env:
+          DEVELOPER_ID_APPLICATION_BASE64: ${{ secrets.DEVELOPER_ID_APPLICATION_BASE64 }}
+          DEVELOPER_ID_INSTALLER_BASE64: ${{ secrets.DEVELOPER_ID_INSTALLER_BASE64 }}
+          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
+          KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+        run: |
+          # create variables
+          DEVELOPER_ID_APPLICATION_CERT_PATH=$RUNNER_TEMP/application_cert.p12
+          DEVELOPER_ID_INSTALLER_CERT_PATH=$RUNNER_TEMP/installer_cert.p12
+          PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
+          KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
+
+          # import certificate and provisioning profile from secrets
+          echo -n "$DEVELOPER_ID_APPLICATION_BASE64" | base64 --decode -o $DEVELOPER_ID_APPLICATION_CERT_PATH
+          echo -n "$DEVELOPER_ID_INSTALLER_BASE64" | base64 --decode -o $DEVELOPER_ID_INSTALLER_CERT_PATH
+          echo -n "$BUILD_PROVISION_PROFILE_BASE64" | base64 --decode -o $PP_PATH
+
+          # create temporary keychain
+          security create-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security set-keychain-settings -lut 21600 $KEYCHAIN_PATH
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+
+          # import certificate to keychain
+          security import $DEVELOPER_ID_APPLICATION_CERT_PATH -P "$KEYCHAIN_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security import $DEVELOPER_ID_INSTALLER_CERT_PATH -P "$KEYCHAIN_PASSWORD" -A -t cert -f pkcs12 -k $KEYCHAIN_PATH
+          security set-key-partition-list -S apple-tool:,apple: -k "$KEYCHAIN_PASSWORD" $KEYCHAIN_PATH
+          security list-keychain -d user -s $KEYCHAIN_PATH
+
+          # apply provisioning profile
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
+
+      - name: Init submodules, download dependencies
+        run: |
+          cd plugin
+
+          git submodule init
+          git submodule update
+
+          cd iPlug2/Dependencies/IPlug
+          ./download-iplug-sdks.sh
+
+      - name: Build frontend
+        run: |
+          cd plugin-ui
+          npm i
+          npm run build
+
+      - name: Build and sign VST3
+        run: |
+          cd plugin
+          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-VST3
+
+      - name: Build and sign AU
+        run: |
+          cd plugin
+          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-AUv2
+      
+      - name: Build Release Artifacts
+        run: |
+          cd plugin/Straudio
+          # Run your build script
+          ./scripts/makedist-mac.sh
+
+      - name: Zip "folder" artifacts
+        run: |
+          cd plugin/Straudio/build-mac
+          zip -r Straudio.app.zip Straudio.app
+          zip -r Straudio.component.zip Straudio.component
+          zip -r Straudio.vst3.zip Straudio.vst3
+
+      # ----- Collect the artifact paths into a single output -----
+      # - name: Collect artifact outputs
+      #   id: collect-outputs
+      #   run: |
+      #     # Let's assume final artifacts land in plugin/Straudio/build-mac
+      #     # and your script names them consistently.
+
+      #     echo "artifact-paths=plugin/Straudio/build-mac/*.zip,plugin/Straudio/build-mac/*.pkg" >> $GITHUB_OUTPUT
