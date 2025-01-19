@@ -22,7 +22,7 @@ jobs:
 
   upload:
     runs-on: macos-latest
-    needs: build-release
+    # needs: build-release
     permissions:
       issues: write
     steps:
