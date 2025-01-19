@@ -117,8 +117,7 @@ jobs:
           # Run your build script
           ./scripts/makedist-mac.sh
 
-      - name: Zip and set outputs
-        id: zip
+      - name: Zip
         run: |
           cd plugin/Straudio/build-mac
           zip -r Straudio.app.zip Straudio.app
@@ -133,13 +132,4 @@ jobs:
             plugin/Straudio/build-mac/Straudio.app.zip
             plugin/Straudio/build-mac/Straudio.component.zip
             plugin/Straudio/build-mac/Straudio.vst3.zip
-            plugin/Straudio/build-mac/out/Straudio-mac.pkg
-
-      # ----- Collect the artifact paths into a single output -----
-      # - name: Collect artifact outputs
-      #   id: collect-outputs
-      #   run: |
-      #     # Let's assume final artifacts land in plugin/Straudio/build-mac
-      #     # and your script names them consistently.
-
-      #     echo "artifact-paths=plugin/Straudio/build-mac/*.zip,plugin/Straudio/build-mac/*.pkg" >> $GITHUB_OUTPUT
+            plugin/Straudio/build-mac/out/Straudio-mac.dmg
