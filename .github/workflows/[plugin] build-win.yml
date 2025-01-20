@@ -44,10 +44,10 @@ jobs:
           cd plugin/Straudio
           msbuild Straudio.sln -target:Straudio-app /property:Configuration=Release
       
-      # - name: Build Release Artifacts
-      #   run: |
-      #     cd plugin/Straudio
-      #     ./scripts/makedist-mac.sh
+      - name: Build Release Artifacts
+        run: |
+          cd plugin/Straudio
+          ./scripts/makedist-win.bat
 
       # - name: Zip
       #   run: |
