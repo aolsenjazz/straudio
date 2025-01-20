@@ -74,24 +74,7 @@ def main():
 
   with open(plistpath, 'wb') as fp:
     plistlib.dump(vst3, fp)
-# VST2
 
-  plistpath = projectpath + "/resources/" + config['BUNDLE_NAME'] + "-VST2-Info.plist"
-  with open(plistpath, 'rb') as fp:
-    vst2 = plistlib.load(fp)
-  vst2['CFBundleExecutable'] = config['BUNDLE_NAME']
-  vst2['CFBundleGetInfoString'] = CFBundleGetInfoString
-  vst2['CFBundleIdentifier'] = config['BUNDLE_DOMAIN'] + "." + config['BUNDLE_MFR'] + ".vst." + config['BUNDLE_NAME'] + ""
-  vst2['CFBundleName'] = config['BUNDLE_NAME']
-  vst2['CFBundleVersion'] = CFBundleVersion
-  vst2['CFBundleShortVersionString'] = CFBundleVersion
-  vst2['LSMinimumSystemVersion'] = LSMinimumSystemVersion
-  vst2['CFBundlePackageType'] = CFBundlePackageType
-  vst2['CFBundleSignature'] = config['PLUG_UNIQUE_ID']
-  vst2['CSResourcesFileMapped'] = CSResourcesFileMapped
-
-  with open(plistpath, 'wb') as fp:
-    plistlib.dump(vst2, fp)
 # AUDIOUNIT v2
 
   plistpath = projectpath + "/resources/" + config['BUNDLE_NAME'] + "-AU-Info.plist"
