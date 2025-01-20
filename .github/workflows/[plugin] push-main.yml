@@ -9,7 +9,7 @@ on:
       - 'plugin-ui/**'
 
 jobs:
-  build-release:
+  build-mac:
     uses: ./.github/workflows/[plugin] build-mac.yml
     secrets:
       APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
@@ -19,6 +19,9 @@ jobs:
       DEVELOPER_ID_INSTALLER_BASE64: ${{ secrets.DEVELOPER_ID_INSTALLER_BASE64 }}
       BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
       KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+
+  build-win:
+    uses: ./.github/workflows/[plugin] build-win.yml
 
   upload-prerelease:
     runs-on: macos-latest
@@ -44,7 +47,10 @@ jobs:
           generateReleaseNotes: true
           artifacts: |
             build-artifacts/Straudio-mac.dmg
-            build-artifacts/Straudio.app.zip
-            build-artifacts/Straudio.component.zip
-            build-artifacts/Straudio.vst3.zip
+            build-artifacts/Straudio-mac.app.zip
+            build-artifacts/Straudio-mac.component.zip
+            build-artifacts/Straudio-mac.vst3.zip
+            build-artifacts/Straudio-win.vst3.zip
+            build-artifacts/Straudio-win.exe
+            build-artifacts/Straudio-winInstaller.exe
 

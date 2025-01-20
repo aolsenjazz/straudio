@@ -43,7 +43,7 @@ jobs:
         run: |
           Compress-Archive -Path plugin/Straudio/build-win/vst3/x64/Release/Straudio.vst3 -DestinationPath ./Straudio-win.vst3.zip
           mv "plugin/Straudio/build-win/installer/Straudio Installer.exe" ./Straudio-winInstaller.exe
-          mv plugin/Straudio/build-win/app/x64/Release/Straudio.exe ./Straudio.exe
+          mv plugin/Straudio/build-win/app/x64/Release/Straudio.exe ./Straudio-win.exe
 
       - name: Upload the artifacts
         uses: actions/upload-artifact@v4
@@ -51,5 +51,5 @@ jobs:
           name: build-artifacts
           path: |
             Straudio-win.vst3.zip
-            Straudio.exe
+            Straudio-win.exe
             Straudio-winInstaller.exe
