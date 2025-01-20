@@ -8,9 +8,6 @@ REM - AAX codesigning requires wraptool tool added to %PATH% env variable and aa
 
 if %1 == 1 (echo Making Straudio Windows DEMO VERSION distribution ...) else (echo Making Straudio Windows FULL VERSION distribution ...)
 
-echo "Restoring dependencies in projects/packages.config..."
-msbuild -p:RestorePackagesConfig=true -t:restore
-
 echo "touching source"
 
 copy /b ..\*.cpp+,,
@@ -22,6 +19,9 @@ call python prepare_resources-win.py %1
 call python update_installer_version.py %1
 
 cd ..\
+
+echo "Restoring dependencies in projects/packages.config..."
+msbuild -p:RestorePackagesConfig=true -t:restore "$PROJECT_ROOT/projects/packages.config"
 
 echo ------------------------------------------------------------------
 echo Building ...
