@@ -1,11 +1,7 @@
 name: "[Plugin] build-win"
 
-# on:
-#   workflow_call:
 on:
-  push:
-    branches:
-      - dev
+  workflow_call:
 
 jobs:
   build-win-all:
