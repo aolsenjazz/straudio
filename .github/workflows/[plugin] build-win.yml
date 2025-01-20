@@ -1,0 +1,51 @@
+name: "[Plugin] build-win"
+
+on:
+  workflow_call:
+
+jobs:
+  build-win-all:
+    runs-on: windows-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Init submodules, download dependencies
+        shell: bash
+        run: |
+          cd plugin
+
+          git submodule init
+          git submodule update
+
+          cd iPlug2/Dependencies/IPlug
+          ./download-iplug-sdks.sh
+
+      - name: Build frontend
+        run: |
+          cd plugin-ui
+          npm i
+          npm run build
+      
+      - name: Build Release Artifacts
+        run: |
+          cd plugin/Straudio/scripts
+          ./makedist-win.bat 0
+
+      - name: Prepare for upload
+        run: |
+          Compress-Archive -Path plugin/Straudio/build-win/vst3/x64/Release/Straudio.vst3 -DestinationPath ./Straudio-win.vst3.zip
+          mv "plugin/Straudio/build-win/installer/Straudio Installer.exe" ./Straudio-winInstaller.exe
+          mv plugin/Straudio/build-win/app/x64/Release/Straudio.exe ./Straudio-win.exe
+
+      - name: Upload the artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-win
+          path: |
+            Straudio-win.vst3.zip
+            Straudio-win.exe
+            Straudio-winInstaller.exe

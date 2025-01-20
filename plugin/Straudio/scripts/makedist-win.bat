@@ -73,11 +73,11 @@ echo Making Installer ...
 if exist "%ProgramFiles(x86)%" (goto 64-Bit-is) else (goto 32-Bit-is)
 
 :32-Bit-is
-"%ProgramFiles%\Inno Setup 5\iscc" /Q /cc ".\installer\Straudio.iss"
+"%ProgramFiles%\Inno Setup 6\iscc" /Q ".\installer\Straudio.iss"
 goto END-is
 
 :64-Bit-is
-"%ProgramFiles(x86)%\Inno Setup 5\iscc" /Q /cc ".\installer\Straudio.iss"
+"%ProgramFiles(x86)%\Inno Setup 6\iscc" /Q ".\installer\Straudio.iss"
 goto END-is
 
 :END-is
@@ -91,12 +91,12 @@ REM -del ".\installer\Straudio Installer.exe"
 REM -)
 
 REM - ZIP
-echo ------------------------------------------------------------------
-echo Making Zip File ...
+rem echo ------------------------------------------------------------------
+rem echo Making Zip File ...
 
-call python scripts\make_zip.py %1
+rem call python scripts\make_zip.py %1
 
-echo ------------------------------------------------------------------
-echo Printing log file to console...
+rem echo ------------------------------------------------------------------
+rem echo Printing log file to console...
 
-type build-win.log
+rem type build-win.log

@@ -2,19 +2,6 @@ name: "[Plugin] build-mac"
 
 on:
   workflow_call:
-    outputs:
-      vst-path:
-        description: "VST3 .zip path"
-        value: ${{ jobs.build-mac-all.outputs.vst-path }}
-      app-path:
-        description: "App .zip path"
-        value: ${{ jobs.build-mac-all.outputs.app-path }}
-      pkg-path:
-        description: "pkg path"
-        value: ${{ jobs.build-mac-all.outputs.pkg-path }}
-      au-path:
-        description: "AUv2 .zip path"
-        value: ${{ jobs.build-mac-all.outputs.au-path }}
     secrets:
       APPLE_EMAIL:
         required: true
@@ -34,11 +21,6 @@ on:
 jobs:
   build-mac-all:
     runs-on: macos-latest
-    outputs:
-      vst-path: ${{ steps.zip-.outputs.vst-path }}
-      au-path: ${{ steps.zip.outputs.au-path }}
-      app-path: ${{ steps.zip.outputs.app-path }}
-      pkg-path: ${{ steps.zip.outputs.pkg-path }}
     env:
       APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
       APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
@@ -100,16 +82,6 @@ jobs:
           cd plugin-ui
           npm i
           npm run build
-
-      - name: Build and sign VST3
-        run: |
-          cd plugin
-          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-VST3
-
-      - name: Build and sign AU
-        run: |
-          cd plugin
-          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-AUv2
       
       - name: Build Release Artifacts
         run: |
@@ -120,16 +92,16 @@ jobs:
       - name: Zip
         run: |
           cd plugin/Straudio/build-mac
-          zip -r Straudio.app.zip Straudio.app
-          zip -r Straudio.component.zip Straudio.component
-          zip -r Straudio.vst3.zip Straudio.vst3
+          zip -r Straudio-mac.app.zip Straudio.app
+          zip -r Straudio-mac.component.zip Straudio.component
+          zip -r Straudio-mac.vst3.zip Straudio.vst3
 
       - name: Upload the artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-artifacts
+          name: build-mac
           path: |
-            plugin/Straudio/build-mac/Straudio.app.zip
-            plugin/Straudio/build-mac/Straudio.component.zip
-            plugin/Straudio/build-mac/Straudio.vst3.zip
+            plugin/Straudio/build-mac/Straudio-mac.app.zip
+            plugin/Straudio/build-mac/Straudio-mac.component.zip
+            plugin/Straudio/build-mac/Straudio-mac.vst3.zip
             plugin/Straudio/build-mac/Straudio-mac.dmg
