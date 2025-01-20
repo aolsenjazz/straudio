@@ -73,11 +73,11 @@ echo Making Installer ...
 if exist "%ProgramFiles(x86)%" (goto 64-Bit-is) else (goto 32-Bit-is)
 
 :32-Bit-is
-"%ProgramFiles%\Inno Setup 6\iscc" /Q /cc ".\installer\Straudio.iss"
+"%ProgramFiles%\Inno Setup 6\iscc" /Q ".\installer\Straudio.iss"
 goto END-is
 
 :64-Bit-is
-"%ProgramFiles(x86)%\Inno Setup 6\iscc" /Q /cc ".\installer\Straudio.iss"
+"%ProgramFiles(x86)%\Inno Setup 6\iscc" /Q ".\installer\Straudio.iss"
 goto END-is
 
 :END-is
