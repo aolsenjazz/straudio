@@ -34,15 +34,15 @@ jobs:
           npm i
           npm run build
 
-      - name: Build and sign VST3
-        run: |
-          cd plugin/Straudio
-          msbuild Straudio.sln -target:Straudio-vst3 /property:Configuration=Release
+      # - name: Build and sign VST3
+      #   run: |
+      #     cd plugin/Straudio
+      #     msbuild Straudio.sln -target:Straudio-vst3 /property:Configuration=Release
 
-      - name: Build and sign app
-        run: |
-          cd plugin/Straudio
-          msbuild Straudio.sln -target:Straudio-app /property:Configuration=Release
+      # - name: Build and sign app
+      #   run: |
+      #     cd plugin/Straudio
+      #     msbuild Straudio.sln -target:Straudio-app /property:Configuration=Release
       
       - name: Build Release Artifacts
         run: |
