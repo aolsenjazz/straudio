@@ -10,6 +10,9 @@ on:
 jobs:
   build-win-all:
     runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Check out
         uses: actions/checkout@v3
@@ -25,7 +28,7 @@ jobs:
           git submodule update
 
           cd iPlug2/Dependencies/IPlug
-          ./download-vst3-sdk.sh
+          ./download-iplug-sdks.sh
 
       - name: Build frontend
         run: |
