@@ -82,16 +82,6 @@ jobs:
           cd plugin-ui
           npm i
           npm run build
-
-      - name: Build and sign VST3
-        run: |
-          cd plugin
-          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-VST3
-
-      - name: Build and sign AU
-        run: |
-          cd plugin
-          xcodebuild -workspace Straudio/Straudio.xcworkspace -scheme macOS-AUv2
       
       - name: Build Release Artifacts
         run: |
