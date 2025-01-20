@@ -41,9 +41,9 @@ jobs:
           makeLatest: true
           generateReleaseNotes: true
           artifacts: |
-            build-artifacts/Straudio-mac.dmg
-            build-artifacts/Straudio.app.zip
-            build-artifacts/Straudio.component.zip
-            build-artifacts/Straudio.vst3.zip
+            build-mac/Straudio-mac.dmg
+            build-mac/Straudio.app.zip
+            build-mac/Straudio.component.zip
+            build-mac/Straudio.vst3.zip
 
 
