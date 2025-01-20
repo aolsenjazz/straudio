@@ -28,11 +28,11 @@ jobs:
           cd iPlug2/Dependencies/IPlug
           ./download-iplug-sdks.sh
 
-      - name: Build frontend
-        run: |
-          cd plugin-ui
-          npm i
-          npm run build
+      # - name: Build frontend
+      #   run: |
+      #     cd plugin-ui
+      #     npm i
+      #     npm run build
 
       # - name: Build and sign VST3
       #   run: |
@@ -47,7 +47,7 @@ jobs:
       - name: Build Release Artifacts
         run: |
           cd plugin/Straudio
-          ./scripts/makedist-win.bat
+          ./scripts/makedist-win.bat 0
 
       # - name: Zip
       #   run: |
