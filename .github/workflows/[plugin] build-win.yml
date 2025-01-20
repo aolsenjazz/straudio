@@ -8,7 +8,7 @@ on:
       - dev
 
 jobs:
-  build-mac-all:
+  build-win-all:
     runs-on: windows-latest
     steps:
       - name: Check out
@@ -25,7 +25,7 @@ jobs:
           git submodule update
 
           cd iPlug2/Dependencies/IPlug
-          ./download-iplug-sdks.sh
+          ./download-vst3-sdk.sh
 
       - name: Build frontend
         run: |
