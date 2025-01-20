@@ -48,6 +48,8 @@ jobs:
         run: |
           cd plugin/Straudio/scripts
           ./makedist-win.bat 0
+          ls ../build-win/
+          ls ../build-win/installer
 
       # - name: Zip
       #   run: |
