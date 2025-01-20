@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - dev
-    paths:
-      - 'plugin/**'
-      - 'plugin-ui/**'
+    # paths:
+    #   - 'plugin/**'
+    #   - 'plugin-ui/**'
 
 jobs:
   build-mac:
@@ -20,5 +20,5 @@ jobs:
       BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
       KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
 
-  build-win:
-    uses: ./.github/workflows/[plugin] build-win.yml
+  # build-win:
+  #   uses: ./.github/workflows/[plugin] build-win.yml
