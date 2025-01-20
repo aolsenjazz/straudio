@@ -42,8 +42,11 @@ jobs:
           generateReleaseNotes: true
           artifacts: |
             build-mac/Straudio-mac.dmg
-            build-mac/Straudio.app.zip
-            build-mac/Straudio.component.zip
-            build-mac/Straudio.vst3.zip
+            build-mac/Straudio-mac.app.zip
+            build-mac/Straudio-mac.component.zip
+            build-mac/Straudio-mac.vst3.zip
+            build-win/Straudio-win.vst3.zip
+            build-win/Straudio-win.exe
+            build-win/Straudio-winInstaller.exe
 
 
