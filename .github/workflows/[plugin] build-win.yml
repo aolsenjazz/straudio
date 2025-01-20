@@ -39,16 +39,17 @@ jobs:
           cd plugin/Straudio/scripts
           ./makedist-win.bat 0
 
-      - name: Zip
+      - name: Prepare for upload
         run: |
-          cd plugin/Straudio
-          Compress-Archive -Path ./build-win/vst3/x64/Release/Straudio.vst3 -DestinationPath ./Straudio-win.vst3.zip
+          Compress-Archive -Path plugin/Straudio/build-win/vst3/x64/Release/Straudio.vst3 -DestinationPath ./Straudio-win.vst3.zip
+          mv "plugin/Straudio/build/build-win/installer/Straudio Installer.exe" ./Straudio-winInstaller.exe
+          mv plugin/Straudio/build-win/app/x64/Release/Straudio.exe ./Straudio.exe
 
       - name: Upload the artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
           path: |
-            plugin/Straudio/build-win/app/x64/Release/Straudio.exe
-            plugin/Straudio/Straudio-win.vst3.zip
-            plugin/Straudio/build-win/installer/Straudio\ Installer.exe
+            Straudio-win.vst3.zip
+            Straudio.exe
+            Straudio-winInstaller.exe
