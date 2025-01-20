@@ -46,8 +46,8 @@ jobs:
       
       - name: Build Release Artifacts
         run: |
-          cd plugin/Straudio
-          ./scripts/makedist-win.bat 0
+          cd plugin/Straudio/scripts
+          ./makedist-win.bat 0
 
       # - name: Zip
       #   run: |
