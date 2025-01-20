@@ -9,3 +9,6 @@ build-*
 */.vs
 *.pem
 mkcert*
+
+Straudio/packages
+Straudio/scripts/Straudio.cpp
