@@ -10,9 +10,6 @@ on:
 jobs:
   build-win-all:
     runs-on: windows-latest
-    defaults:
-      run:
-        shell: bash
     steps:
       - name: Check out
         uses: actions/checkout@v3
@@ -21,6 +18,7 @@ jobs:
         uses: microsoft/setup-msbuild@v2
 
       - name: Init submodules, download dependencies
+        shell: bash
         run: |
           cd plugin
 
