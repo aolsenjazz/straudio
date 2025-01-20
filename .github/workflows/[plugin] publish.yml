@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-release:
-    uses: ./.github/workflows/plugin::build-mac.yml
+    uses: ./.github/workflows/[plugin] build-mac.yml
     secrets:
       APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
       APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
