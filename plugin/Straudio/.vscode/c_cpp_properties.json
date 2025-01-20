@@ -11,7 +11,8 @@
             "APP_API",
             "IPLUG_DSP=1",
             "IPLUG_EDITOR=1",
-            "IGRAPHICS_NANOVG",
+            "WEBVIEW_EDITOR_DELEGATE",
+            "NO_IGRAPHICS",
             "NOMINMAX"
         ]
       },
@@ -20,7 +21,7 @@
             "name": "Mac",
             "includePath": [
                 "${commonIncludePaths}",
-                "${workspaceFolder}/../../Dependencies/Build/mac/include/**"
+                "${workspaceFolder}/../iPlug2/Dependencies/Build/mac/include/**"
             ],
             "defines": [
                 "${commonDefs}",
