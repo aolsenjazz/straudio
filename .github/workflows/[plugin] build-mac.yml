@@ -2,19 +2,6 @@ name: "[Plugin] build-mac"
 
 on:
   workflow_call:
-    outputs:
-      vst-path:
-        description: "VST3 .zip path"
-        value: ${{ jobs.build-mac-all.outputs.vst-path }}
-      app-path:
-        description: "App .zip path"
-        value: ${{ jobs.build-mac-all.outputs.app-path }}
-      pkg-path:
-        description: "pkg path"
-        value: ${{ jobs.build-mac-all.outputs.pkg-path }}
-      au-path:
-        description: "AUv2 .zip path"
-        value: ${{ jobs.build-mac-all.outputs.au-path }}
     secrets:
       APPLE_EMAIL:
         required: true
@@ -34,11 +21,6 @@ on:
 jobs:
   build-mac-all:
     runs-on: macos-latest
-    outputs:
-      vst-path: ${{ steps.zip-.outputs.vst-path }}
-      au-path: ${{ steps.zip.outputs.au-path }}
-      app-path: ${{ steps.zip.outputs.app-path }}
-      pkg-path: ${{ steps.zip.outputs.pkg-path }}
     env:
       APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
       APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
