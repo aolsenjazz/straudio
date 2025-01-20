@@ -28,42 +28,27 @@ jobs:
           cd iPlug2/Dependencies/IPlug
           ./download-iplug-sdks.sh
 
-      # - name: Build frontend
-      #   run: |
-      #     cd plugin-ui
-      #     npm i
-      #     npm run build
-
-      # - name: Build and sign VST3
-      #   run: |
-      #     cd plugin/Straudio
-      #     msbuild Straudio.sln -target:Straudio-vst3 /property:Configuration=Release
-
-      # - name: Build and sign app
-      #   run: |
-      #     cd plugin/Straudio
-      #     msbuild Straudio.sln -target:Straudio-app /property:Configuration=Release
+      - name: Build frontend
+        run: |
+          cd plugin-ui
+          npm i
+          npm run build
       
       - name: Build Release Artifacts
         run: |
           cd plugin/Straudio/scripts
           ./makedist-win.bat 0
-          ls ../build-win/
-          ls ../build-win/installer
 
-      # - name: Zip
-      #   run: |
-      #     cd plugin/Straudio/build-mac
-      #     zip -r Straudio.app.zip Straudio.app
-      #     zip -r Straudio.component.zip Straudio.component
-      #     zip -r Straudio.vst3.zip Straudio.vst3
+      - name: Zip
+        run: |
+          cd plugin/Straudio
+          Compress-Archive -Path ./build-win/vst3/x64/Release/Straudio.vst3 -DestinationPath ./Straudio-win.vst3.zip
 
-      # - name: Upload the artifacts
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: build-artifacts
-      #     path: |
-      #       plugin/Straudio/build-mac/Straudio.app.zip
-      #       plugin/Straudio/build-mac/Straudio.component.zip
-      #       plugin/Straudio/build-mac/Straudio.vst3.zip
-      #       plugin/Straudio/build-mac/Straudio-mac.dmg
+      - name: Upload the artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            plugin/Straudio/build-win/app/x64/Release/Straudio.exe
+            plugin/Straudio/Straudio-win.vst3.zip
+            plugin/Straudio/build-win/installer/Straudio\ Installer.exe
