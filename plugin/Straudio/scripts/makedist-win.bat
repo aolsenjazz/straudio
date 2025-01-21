@@ -21,7 +21,7 @@ call python update_installer_version.py %1
 cd ..\
 
 echo "Restoring dependencies in projects/packages.config..."
-msbuild -p:RestorePackagesConfig=true -t:restore "$PROJECT_ROOT/projects/packages.config"
+msbuild -p:RestorePackagesConfig=true -t:restore
 
 echo ------------------------------------------------------------------
 echo Building ...
