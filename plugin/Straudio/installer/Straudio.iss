@@ -32,8 +32,6 @@ SelectDirBrowseLabel=To continue, click Next. If you would like to select a diff
 
 [Components]
 Name: "app"; Description: "Standalone application (.exe)"; Types: full custom;
-;Name: "vst2_32"; Description: "32-bit VST2 Plugin (.dll)"; Types: full custom;
-;Name: "vst2_64"; Description: "64-bit VST2 Plugin (.dll)"; Types: full custom; Check: Is64BitInstallMode;
 ;Name: "vst3_32"; Description: "32-bit VST3 Plugin (.vst3)"; Types: full custom;
 Name: "vst3_64"; Description: "64-bit VST3 Plugin (.vst3)"; Types: full custom; Check: Is64BitInstallMode;
 ;Name: "aax_32"; Description: "32-bit AAX Plugin (.aaxplugin)"; Types: full custom;
@@ -49,10 +47,6 @@ Name: "{cf64}\VST3\Straudio.vst3\"; Attribs: readonly; Check: Is64BitInstallMode
 [Files]
 ;Source: "..\build-win\Straudio_Win32.exe"; DestDir: "{app}"; Check: not Is64BitInstallMode; Components:app; Flags: ignoreversion;
 Source: "..\build-win\Straudio_x64.exe"; DestDir: "{app}"; Check: Is64BitInstallMode; Components:app; Flags: ignoreversion;
-
-;Source: "..\build-win\Straudio_Win32.dll"; DestDir: {code:GetVST2Dir_32}; Check: not Is64BitInstallMode; Components:vst2_32; Flags: ignoreversion;
-;Source: "..\build-win\Straudio_Win32.dll"; DestDir: {code:GetVST2Dir_32}; Check: Is64BitInstallMode; Components:vst2_32; Flags: ignoreversion;
-;Source: "..\build-win\Straudio_x64.dll"; DestDir: {code:GetVST2Dir_64}; Check: Is64BitInstallMode; Components:vst2_64; Flags: ignoreversion;
 
 ;Source: "..\build-win\Straudio.vst3\*.*"; Excludes: "\Contents\x86_64\*,*.pdb,*.exp,*.lib,*.ilk,*.ico,*.ini"; DestDir: "{cf32}\VST3\Straudio.vst3\"; Components:vst3_32; Flags: ignoreversion recursesubdirs;
 ;Source: "..\build-win\Straudio.vst3\Desktop.ini"; DestDir: "{cf32}\VST3\Straudio.vst3\"; Components:vst3_32; Flags: overwritereadonly ignoreversion; Attribs: hidden system;
@@ -84,46 +78,6 @@ Name: "{group}\Uninstall Straudio"; Filename: "{app}\unins000.exe"
 [Code]
 var
   OkToCopyLog : Boolean;
-(*
-  VST2DirPage_32: TInputDirWizardPage;
-  VST2DirPage_64: TInputDirWizardPage;
-
-procedure InitializeWizard;
-begin
-  if IsWin64 then begin
-    VST2DirPage_64 := CreateInputDirPage(wpSelectDir,
-    'Confirm 64-Bit VST2 Plugin Directory', '',
-    'Select the folder in which setup should install the 64-bit VST2 Plugin, then click Next.',
-    False, '');
-    VST2DirPage_64.Add('');
-    VST2DirPage_64.Values[0] := ExpandConstant('{reg:HKLM\SOFTWARE\VST,VSTPluginsPath|{pf}\Steinberg\VSTPlugins}\');
-
-    VST2DirPage_32 := CreateInputDirPage(wpSelectDir,
-      'Confirm 32-Bit VST2 Plugin Directory', '',
-      'Select the folder in which setup should install the 32-bit VST2 Plugin, then click Next.',
-      False, '');
-    VST2DirPage_32.Add('');
-    VST2DirPage_32.Values[0] := ExpandConstant('{reg:HKLM\SOFTWARE\WOW6432NODE\VST,VSTPluginsPath|{pf32}\Steinberg\VSTPlugins}\');
-  end else begin
-    VST2DirPage_32 := CreateInputDirPage(wpSelectDir,
-      'Confirm 32-Bit VST2 Plugin Directory', '',
-      'Select the folder in which setup should install the 32-bit VST2 Plugin, then click Next.',
-      False, '');
-    VST2DirPage_32.Add('');
-    VST2DirPage_32.Values[0] := ExpandConstant('{reg:HKLM\SOFTWARE\VST,VSTPluginsPath|{pf}\Steinberg\VSTPlugins}\');
-  end;
-end;
-
-function GetVST2Dir_32(Param: String): String;
-begin
-  Result := VST2DirPage_32.Values[0]
-end;
-
-function GetVST2Dir_64(Param: String): String;
-begin
-  Result := VST2DirPage_64.Values[0]
-end;
-*)
 
 procedure CurStepChanged(CurStep: TSetupStep);
 begin

@@ -243,12 +243,6 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\config\Straudio-ios.xcconfig">
-      <Filter>config</Filter>
-    </None>
-    <None Include="..\config\Straudio-web.mk">
-      <Filter>config</Filter>
-    </None>
     <None Include="..\config\Straudio-win.props">
       <Filter>config</Filter>
     </None>

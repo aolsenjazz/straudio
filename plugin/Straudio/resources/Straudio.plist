@@ -53,8 +53,6 @@
 				</dict>
 			</array>
 		</dict>
-		<key>NSExtensionMainStoryboard</key>
-		<string>Straudio-iOS-MainInterface</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.AudioUnit-UI</string>
 	</dict>

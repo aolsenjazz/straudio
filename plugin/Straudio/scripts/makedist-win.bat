@@ -20,6 +20,9 @@ call python update_installer_version.py %1
 
 cd ..\
 
+echo "Restoring dependencies in projects/packages.config..."
+msbuild -p:RestorePackagesConfig=true -t:restore
+
 echo ------------------------------------------------------------------
 echo Building ...
 
@@ -89,14 +92,3 @@ REM -if %1 == 1 (
 REM -copy ".\installer\Straudio Installer.exe" ".\installer\Straudio Demo Installer.exe"
 REM -del ".\installer\Straudio Installer.exe"
 REM -)
-
-REM - ZIP
-rem echo ------------------------------------------------------------------
-rem echo Making Zip File ...
-
-rem call python scripts\make_zip.py %1
-
-rem echo ------------------------------------------------------------------
-rem echo Printing log file to console...
-
-rem type build-win.log

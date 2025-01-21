@@ -322,8 +322,6 @@
     <Image Include="..\resources\Straudio.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\config\Straudio-ios.xcconfig" />
-    <None Include="..\config\Straudio-web.mk" />
     <None Include="..\config\Straudio-win.props">
       <SubType>Designer</SubType>
     </None>
