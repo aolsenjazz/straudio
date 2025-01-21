@@ -14,7 +14,7 @@ cd iPlug2/Dependencies/IPlug
 cd ../../../plugin-ui
 npm i
 npm run build
-
+ 
 Open XCode/VSCode and run App target in Debug
 ```
 
