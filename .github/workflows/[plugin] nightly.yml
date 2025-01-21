@@ -2,10 +2,10 @@ name: "[Plugin] nightly-build"
 
 on:
   schedule:
-    - cron: "27 1 * * *"
+    - cron: "27 5 * * *"
 
 jobs:
-  build-release:
+  build-mac:
     uses: ./.github/workflows/[plugin] build-mac.yml
     secrets:
       APPLE_EMAIL: ${{ secrets.APPLE_EMAIL }}
@@ -15,3 +15,6 @@ jobs:
       DEVELOPER_ID_INSTALLER_BASE64: ${{ secrets.DEVELOPER_ID_INSTALLER_BASE64 }}
       BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
       KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
+
+    build-win:
+    uses: ./.github/workflows/[plugin] build-win.yml
