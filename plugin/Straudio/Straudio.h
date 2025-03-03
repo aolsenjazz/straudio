@@ -43,4 +43,6 @@ private:
   LogParamSmooth<sample, 1> mGainSmoother;
   const char* mMessage = "Hello World!";
 
+  static void ServerInitCallback(const struct mg_context* ctx);
+  static int BeginRequestHandler(struct mg_connection* conn);
 };
