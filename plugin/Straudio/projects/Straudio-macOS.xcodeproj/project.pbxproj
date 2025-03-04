@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 73;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -261,34 +261,6 @@
 		FAB8D75D2D3424C60011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAB8D75E2D3425660011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAB8D75F2D3426640011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
-		FAC523F32D62A5180045F951 /* civetweb.h in Sources */ = {isa = PBXBuildFile; fileRef = FAC523F22D62A4970045F951 /* civetweb.h */; };
-		FAC523F42D62A5200045F951 /* civetweb.h in Sources */ = {isa = PBXBuildFile; fileRef = FAC523F22D62A4970045F951 /* civetweb.h */; };
-		FAC523F52D62A5220045F951 /* civetweb.h in Sources */ = {isa = PBXBuildFile; fileRef = FAC523F22D62A4970045F951 /* civetweb.h */; };
-		FAC523F62D62A5250045F951 /* civetweb.h in Sources */ = {isa = PBXBuildFile; fileRef = FAC523F22D62A4970045F951 /* civetweb.h */; };
-		FAC523F82D62AAC60045F951 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = FAC523F72D62AABF0045F951 /* civetweb.c */; };
-		FAC523F92D62AAC60045F951 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = FAC523F72D62AABF0045F951 /* civetweb.c */; };
-		FAC523FA2D62AAC60045F951 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = FAC523F72D62AABF0045F951 /* civetweb.c */; };
-		FAC523FB2D62AAC60045F951 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = FAC523F72D62AABF0045F951 /* civetweb.c */; };
-		FAC523FD2D62AB290045F951 /* md5.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC523FC2D62AB250045F951 /* md5.inl */; };
-		FAC523FE2D62AB290045F951 /* md5.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC523FC2D62AB250045F951 /* md5.inl */; };
-		FAC523FF2D62AB290045F951 /* md5.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC523FC2D62AB250045F951 /* md5.inl */; };
-		FAC524002D62AB290045F951 /* md5.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC523FC2D62AB250045F951 /* md5.inl */; };
-		FAC524022D62ABC80045F951 /* sort.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524012D62ABC40045F951 /* sort.inl */; };
-		FAC524032D62ABC80045F951 /* sort.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524012D62ABC40045F951 /* sort.inl */; };
-		FAC524042D62ABC80045F951 /* sort.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524012D62ABC40045F951 /* sort.inl */; };
-		FAC524052D62ABC80045F951 /* sort.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524012D62ABC40045F951 /* sort.inl */; };
-		FAC524072D62ABDF0045F951 /* match.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524062D62ABD20045F951 /* match.inl */; };
-		FAC524082D62ABDF0045F951 /* match.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524062D62ABD20045F951 /* match.inl */; };
-		FAC524092D62ABDF0045F951 /* match.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524062D62ABD20045F951 /* match.inl */; };
-		FAC5240A2D62ABDF0045F951 /* match.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524062D62ABD20045F951 /* match.inl */; };
-		FAC5240C2D62AC090045F951 /* response.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC5240B2D62AC050045F951 /* response.inl */; };
-		FAC5240D2D62AC090045F951 /* response.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC5240B2D62AC050045F951 /* response.inl */; };
-		FAC5240E2D62AC090045F951 /* response.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC5240B2D62AC050045F951 /* response.inl */; };
-		FAC5240F2D62AC090045F951 /* response.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC5240B2D62AC050045F951 /* response.inl */; };
-		FAC524112D62AC420045F951 /* handle_form.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524102D62AC3E0045F951 /* handle_form.inl */; };
-		FAC524122D62AC420045F951 /* handle_form.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524102D62AC3E0045F951 /* handle_form.inl */; };
-		FAC524132D62AC420045F951 /* handle_form.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524102D62AC3E0045F951 /* handle_form.inl */; };
-		FAC524142D62AC420045F951 /* handle_form.inl in Resources */ = {isa = PBXBuildFile; fileRef = FAC524102D62AC3E0045F951 /* handle_form.inl */; };
 		FAF3B4922D2E178A0024724B /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAF3B4942D2E18950024724B /* web in Resources */ = {isa = PBXBuildFile; fileRef = 4FC46E57231440B4000045E7 /* web */; };
 		FAF3B4962D2E1A460024724B /* IPlugWebView_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = FAF3B4952D2E1A460024724B /* IPlugWebView_mac.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -475,8 +447,8 @@
 		4F2EA977203A50E9008E4850 /* IPlugAPP_dialog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugAPP_dialog.cpp; path = ../../iPlug2/IPlug/APP/IPlugAPP_dialog.cpp; sourceTree = "<group>"; tabWidth = 2; };
 		4F35DEAB207E5C5A00867D8F /* IPlugPluginBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugPluginBase.cpp; path = ../../iPlug2/IPlug/IPlugPluginBase.cpp; sourceTree = "<group>"; tabWidth = 2; };
 		4F35DEAC207E5C5A00867D8F /* IPlugPluginBase.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugPluginBase.h; path = ../../iPlug2/IPlug/IPlugPluginBase.h; sourceTree = "<group>"; tabWidth = 2; };
-		4F3862ED2014BBEC0009F402 /* Straudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; name = Straudio.cpp; path = ../Straudio.cpp; sourceTree = "<group>"; tabWidth = 2; };
-		4F3862EE2014BBEC0009F402 /* Straudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Straudio.h; path = ../Straudio.h; sourceTree = "<group>"; };
+		4F3862ED2014BBEC0009F402 /* Straudio.cpp */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; name = Straudio.cpp; path = ../../Straudio.cpp; sourceTree = "<group>"; tabWidth = 2; };
+		4F3862EE2014BBEC0009F402 /* Straudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Straudio.h; path = ../../Straudio.h; sourceTree = "<group>"; };
 		4F3862FF2014BCC70009F402 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = ../scripts; sourceTree = "<group>"; };
 		4F3907602013EBA300DDA490 /* Straudio.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Straudio.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F3907772013EC0400DDA490 /* IPlugAUViewController.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; name = IPlugAUViewController.mm; path = ../../iPlug2/IPlug/AUv3/IPlugAUViewController.mm; sourceTree = "<group>"; };
@@ -816,15 +788,97 @@
 		B8E22A0A220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugVST3_ProcessorBase.cpp; path = ../../iPlug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp; sourceTree = "<group>"; tabWidth = 2; };
 		B8E22A0B220268C4007CBF4C /* IPlugVST3_ProcessorBase.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_ProcessorBase.h; path = ../../iPlug2/IPlug/VST3/IPlugVST3_ProcessorBase.h; sourceTree = "<group>"; tabWidth = 2; };
 		B8EA6B932203868500D23A86 /* IPlugVST3_Common.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_Common.h; path = ../../iPlug2/IPlug/VST3/IPlugVST3_Common.h; sourceTree = "<group>"; tabWidth = 2; };
-		FAC523F22D62A4970045F951 /* civetweb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = civetweb.h; sourceTree = "<group>"; };
-		FAC523F72D62AABF0045F951 /* civetweb.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = civetweb.c; sourceTree = "<group>"; };
-		FAC523FC2D62AB250045F951 /* md5.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = md5.inl; sourceTree = "<group>"; };
-		FAC524012D62ABC40045F951 /* sort.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = sort.inl; sourceTree = "<group>"; };
-		FAC524062D62ABD20045F951 /* match.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = match.inl; sourceTree = "<group>"; };
-		FAC5240B2D62AC050045F951 /* response.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = response.inl; sourceTree = "<group>"; };
-		FAC524102D62AC3E0045F951 /* handle_form.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = handle_form.inl; sourceTree = "<group>"; };
 		FAF3B4952D2E1A460024724B /* IPlugWebView_mac.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IPlugWebView_mac.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		FACAF1462D7688E70065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NetworkUtils.h,
+				ResourceUtils.h,
+			);
+			target = 4FC3EFC32086C0A600BD11FA /* VST3C */;
+		};
+		FACAF1472D7688E70065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NetworkUtils.h,
+				ResourceUtils.h,
+			);
+			target = 4F78BE0122E73D0800AD537E /* StraudioAU */;
+		};
+		FACAF14E2D7689EC0065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WebServer.h,
+				WebSocketManager.h,
+			);
+			target = 4FC3EFC32086C0A600BD11FA /* VST3C */;
+		};
+		FACAF14F2D7689EC0065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WebServer.h,
+				WebSocketManager.h,
+			);
+			target = 4F78BE0122E73D0800AD537E /* StraudioAU */;
+		};
+		FACAF16F2D768A680065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				WebServer.cpp,
+				WebSocketManager.cpp,
+			);
+			target = 4F39075F2013EBA300DDA490 /* AUv3 */;
+		};
+		FACAF1872D7692C20065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NetworkUtils.cpp,
+			);
+			target = 4F39075F2013EBA300DDA490 /* AUv3 */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		FACAF13C2D7687810065C77C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 4FD16A0613B63081001D0217 /* Sources */;
+			membershipExceptions = (
+				civetweb.h,
+			);
+		};
+		FACAF13D2D7687810065C77C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 4F9828B5140A9EB700F3FCC1 /* Sources */;
+			membershipExceptions = (
+				civetweb.h,
+			);
+		};
+		FACAF13E2D7687810065C77C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 4F3AE1A212C0E5E2001FD7A4 /* Sources */;
+			membershipExceptions = (
+				civetweb.h,
+			);
+		};
+		FACAF13F2D7687810065C77C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 4FB600171567CB0A0020189A /* Sources */;
+			membershipExceptions = (
+				civetweb.h,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		FACAF13A2D7686FA0065C77C /* civetweb */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FACAF13C2D7687810065C77C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, FACAF13D2D7687810065C77C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, FACAF13E2D7687810065C77C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, FACAF13F2D7687810065C77C /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = civetweb; sourceTree = "<group>"; };
+		FACAF1442D7688BE0065C77C /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FACAF1872D7692C20065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
+		FACAF1452D7688D00065C77C /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FACAF1462D7688E70065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FACAF1472D7688E70065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
+		FACAF1482D7688FA0065C77C /* WebServer */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FACAF16F2D768A680065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = WebServer; sourceTree = "<group>"; };
+		FACAF14A2D7689040065C77C /* WebServer */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FACAF14E2D7689EC0065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FACAF14F2D7689EC0065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = WebServer; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		4F39075D2013EBA300DDA490 /* Frameworks */ = {
@@ -893,10 +947,10 @@
 			isa = PBXGroup;
 			children = (
 				52FBBED30D0CF143001C8B8A /* config.h */,
-				4F3862EE2014BBEC0009F402 /* Straudio.h */,
-				4F3862ED2014BBEC0009F402 /* Straudio.cpp */,
 				4F9313232315CA1100DB2383 /* README.md */,
-				FAC523F12D62A4910045F951 /* include */,
+				FACAF1432D7688920065C77C /* src */,
+				FACAF13B2D7687760065C77C /* include */,
+				FACAF1422D7687F60065C77C /* vendor */,
 				089C167CFE841241C02AAC07 /* Resources */,
 				32C88E010371C26100C91783 /* Other Sources */,
 				089C1671FE841209C02AAC07 /* Frameworks */,
@@ -1680,18 +1734,32 @@
 			name = WDL;
 			sourceTree = "<group>";
 		};
-		FAC523F12D62A4910045F951 /* include */ = {
+		FACAF13B2D7687760065C77C /* include */ = {
 			isa = PBXGroup;
 			children = (
-				FAC524102D62AC3E0045F951 /* handle_form.inl */,
-				FAC5240B2D62AC050045F951 /* response.inl */,
-				FAC524062D62ABD20045F951 /* match.inl */,
-				FAC524012D62ABC40045F951 /* sort.inl */,
-				FAC523FC2D62AB250045F951 /* md5.inl */,
-				FAC523F72D62AABF0045F951 /* civetweb.c */,
-				FAC523F22D62A4970045F951 /* civetweb.h */,
+				FACAF14A2D7689040065C77C /* WebServer */,
+				FACAF1452D7688D00065C77C /* Utils */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		FACAF1422D7687F60065C77C /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				FACAF13A2D7686FA0065C77C /* civetweb */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		FACAF1432D7688920065C77C /* src */ = {
+			isa = PBXGroup;
+			children = (
+				FACAF1482D7688FA0065C77C /* WebServer */,
+				FACAF1442D7688BE0065C77C /* Utils */,
+				4F3862EE2014BBEC0009F402 /* Straudio.h */,
+				4F3862ED2014BBEC0009F402 /* Straudio.cpp */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1774,6 +1842,11 @@
 			dependencies = (
 				B87FD1F62351C77100CF7307 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				FACAF13A2D7686FA0065C77C /* civetweb */,
+				FACAF1442D7688BE0065C77C /* Utils */,
+				FACAF1482D7688FA0065C77C /* WebServer */,
+			);
 			name = AU;
 			productName = IPlugExampleAU;
 			productReference = 4F78DB5F13B6462B0032E0F3 /* Straudio.component */;
@@ -1797,6 +1870,10 @@
 				4F3EE1BB231438D000004786 /* PBXTargetDependency */,
 				B87FD2022351C78700CF7307 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				FACAF1442D7688BE0065C77C /* Utils */,
+				FACAF1482D7688FA0065C77C /* WebServer */,
+			);
 			name = AUv3App;
 			productName = AUv3App;
 			productReference = 4F3EE1F0231438D000004786 /* Straudio.app */;
@@ -1814,6 +1891,10 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				FACAF1442D7688BE0065C77C /* Utils */,
+				FACAF1482D7688FA0065C77C /* WebServer */,
 			);
 			name = StraudioAU;
 			productName = AUv3Framework;
@@ -1833,6 +1914,11 @@
 			);
 			dependencies = (
 				B87FD1F42351C76E00CF7307 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FACAF13A2D7686FA0065C77C /* civetweb */,
+				FACAF1442D7688BE0065C77C /* Utils */,
+				FACAF1482D7688FA0065C77C /* WebServer */,
 			);
 			name = VST3;
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -1855,6 +1941,11 @@
 				4F815998205D525600393585 /* PBXTargetDependency */,
 				B87FD1F82351C77600CF7307 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				FACAF13A2D7686FA0065C77C /* civetweb */,
+				FACAF1442D7688BE0065C77C /* Utils */,
+				FACAF1482D7688FA0065C77C /* WebServer */,
+			);
 			name = AAX;
 			productInstallPath = "$(HOME)/Library/Bundles";
 			productName = IPlugExample;
@@ -1874,6 +1965,10 @@
 			dependencies = (
 				B87FD1FE2351C78000CF7307 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				FACAF1442D7688BE0065C77C /* Utils */,
+				FACAF1482D7688FA0065C77C /* WebServer */,
+			);
 			name = VST3C;
 			productName = "Straudio-VST3Controller";
 			productReference = 4FC3EFC42086C0A600BD11FA /* StraudioVST3Controller.a */;
@@ -1891,6 +1986,11 @@
 			);
 			dependencies = (
 				B87FD1F02351C74300CF7307 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FACAF13A2D7686FA0065C77C /* civetweb */,
+				FACAF1442D7688BE0065C77C /* Utils */,
+				FACAF1482D7688FA0065C77C /* WebServer */,
 			);
 			name = APP;
 			productName = macOSApp;
@@ -1911,6 +2011,10 @@
 			dependencies = (
 				4FC3EFD32086C46800BD11FA /* PBXTargetDependency */,
 				B87FD1FA2351C77A00CF7307 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				FACAF1442D7688BE0065C77C /* Utils */,
+				FACAF1482D7688FA0065C77C /* WebServer */,
 			);
 			name = VST3P;
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -1978,7 +2082,6 @@
 				};
 			};
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "Straudio-macOS" */;
-			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -1989,6 +2092,7 @@
 				Base,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* IPlugExample */;
+			preferredProjectObjectVersion = 47;
 			projectDirPath = "";
 			projectReferences = (
 				{
@@ -2028,11 +2132,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC524002D62AB290045F951 /* md5.inl in Resources */,
-				FAC524042D62ABC80045F951 /* sort.inl in Resources */,
-				FAC524132D62AC420045F951 /* handle_form.inl in Resources */,
-				FAC5240F2D62AC090045F951 /* response.inl in Resources */,
-				FAC5240A2D62ABDF0045F951 /* match.inl in Resources */,
 				FA6155D62D3D6ADA003AB0A9 /* web in Resources */,
 				FA5CF0B42D3ED5F8001DFD3A /* IPlugAU.r in Resources */,
 			);
@@ -2066,12 +2165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC523FD2D62AB290045F951 /* md5.inl in Resources */,
-				FAC524032D62ABC80045F951 /* sort.inl in Resources */,
 				FA6155D52D3D6AD1003AB0A9 /* web in Resources */,
-				FAC524112D62AC420045F951 /* handle_form.inl in Resources */,
-				FAC524072D62ABDF0045F951 /* match.inl in Resources */,
-				FAC5240D2D62AC090045F951 /* response.inl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2079,12 +2173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC523FE2D62AB290045F951 /* md5.inl in Resources */,
-				FAC524052D62ABC80045F951 /* sort.inl in Resources */,
 				FA6155D72D3D6AE5003AB0A9 /* web in Resources */,
-				FAC524122D62AC420045F951 /* handle_form.inl in Resources */,
-				FAC524092D62ABDF0045F951 /* match.inl in Resources */,
-				FAC5240C2D62AC090045F951 /* response.inl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2092,13 +2181,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC524022D62ABC80045F951 /* sort.inl in Resources */,
 				FAF3B4942D2E18950024724B /* web in Resources */,
 				4F1B4AE42014D33600BC64D4 /* Straudio-macOS-MainMenu.xib in Resources */,
-				FAC524142D62AC420045F951 /* handle_form.inl in Resources */,
-				FAC5240E2D62AC090045F951 /* response.inl in Resources */,
-				FAC524082D62ABDF0045F951 /* match.inl in Resources */,
-				FAC523FF2D62AB290045F951 /* md5.inl in Resources */,
 				4F037D76261F9DB400A752B5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2290,10 +2374,8 @@
 				4FDAC0ED207D76C600299363 /* IPlugTimer.cpp in Sources */,
 				4F78D94513B63BA50032E0F3 /* IPlugAPIBase.cpp in Sources */,
 				4FD52136202A5BD000A4D22A /* dfx-au-utilities.c in Sources */,
-				FAC523F62D62A5250045F951 /* civetweb.h in Sources */,
 				4F5F344420C0226200487201 /* IPlugPaths.mm in Sources */,
 				4F35DEB0207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */,
-				FAC523F82D62AAC60045F951 /* civetweb.c in Sources */,
 				FAB8D75D2D3424C60011E751 /* IPlugWebViewEditorDelegate.mm in Sources */,
 				4F78D95C13B63BA50032E0F3 /* IPlugParameter.cpp in Sources */,
 				4F3862F22014BBEC0009F402 /* Straudio.cpp in Sources */,
@@ -2364,7 +2446,6 @@
 				4F81591F205D50EB00393585 /* pluginfactory.cpp in Sources */,
 				4F815973205D50EB00393585 /* vstinitiids.cpp in Sources */,
 				4F81597E205D50EB00393585 /* fdebug.cpp in Sources */,
-				FAC523F42D62A5200045F951 /* civetweb.h in Sources */,
 				4F9828B8140A9EB700F3FCC1 /* IPlugAPIBase.cpp in Sources */,
 				4F81597F205D50EB00393585 /* fdynlib.cpp in Sources */,
 				4F815919205D50EB00393585 /* memorystream.cpp in Sources */,
@@ -2377,7 +2458,6 @@
 				4F81598E205D51F000393585 /* vstbus.cpp in Sources */,
 				4F35DEAF207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */,
 				4F81591E205D50EB00393585 /* macmain.cpp in Sources */,
-				FAC523F92D62AAC60045F951 /* civetweb.c in Sources */,
 				4F993F7323055C96000313AF /* IPlugProcessor.cpp in Sources */,
 				FAF3B49C2D2E1A460024724B /* IPlugWebView_mac.mm in Sources */,
 				4F815986205D50EB00393585 /* flock.cpp in Sources */,
@@ -2414,7 +2494,6 @@
 				4F8C10E420BA2796006320CD /* IGraphicsEditorDelegate.cpp in Sources */,
 				4F6369E120A464BB0022C370 /* IGraphicsNanoVG_src.m in Sources */,
 				4FB6001A1567CB0A0020189A /* IPlugAPIBase.cpp in Sources */,
-				FAC523F52D62A5220045F951 /* civetweb.h in Sources */,
 				4F6369EF20A466470022C370 /* IControl.cpp in Sources */,
 				4F03A5B020A4621100EBDFFB /* IGraphics.cpp in Sources */,
 				4F35DEB1207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */,
@@ -2427,7 +2506,6 @@
 				4FB600231567CB0A0020189A /* IPlugParameter.cpp in Sources */,
 				4FB600261567CB0A0020189A /* AAX_Exports.cpp in Sources */,
 				4F6FD2B522675B6300FC59E6 /* IGraphicsCoreText.mm in Sources */,
-				FAC523FA2D62AAC60045F951 /* civetweb.c in Sources */,
 				4FB600281567CB0A0020189A /* IPlugAAX_Describe.cpp in Sources */,
 				4FB1F58D20E4B007004157C8 /* IGraphicsMac.mm in Sources */,
 				4F7C4962255DDFC600DF7588 /* IPopupMenuControl.cpp in Sources */,
@@ -2468,7 +2546,6 @@
 				4FD16D1613B634D2001D0217 /* swell-ini.cpp in Sources */,
 				FAF3B4982D2E1A460024724B /* IPlugWebView_mac.mm in Sources */,
 				4F5C5F6921BED05B00E024A7 /* swellappmain.mm in Sources */,
-				FAC523F32D62A5180045F951 /* civetweb.h in Sources */,
 				4FD16D3A13B63582001D0217 /* swell-kb.mm in Sources */,
 				4F5F344120C0226200487201 /* IPlugPaths.mm in Sources */,
 				4FD16D3C13B6358C001D0217 /* swell-miscdlg.mm in Sources */,
@@ -2485,7 +2562,6 @@
 				4F3862EF2014BBEC0009F402 /* Straudio.cpp in Sources */,
 				4F78D90B13B63BA50032E0F3 /* IPlugAPIBase.cpp in Sources */,
 				4F35DEAD207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */,
-				FAC523FB2D62AAC60045F951 /* civetweb.c in Sources */,
 				4FF0A83221BE708700B2C9D1 /* swell-gdi.mm in Sources */,
 				4F78D91813B63BA50032E0F3 /* IPlugParameter.cpp in Sources */,
 				4FDAC0EA207D76C600299363 /* IPlugTimer.cpp in Sources */,

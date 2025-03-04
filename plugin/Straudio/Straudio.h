@@ -4,6 +4,7 @@
 #include "Oscillator.h"
 #include "Smoothers.h"
 #include "ISender.h"
+#include "WebServer.h"
 
 using namespace iplug;
 
@@ -36,13 +37,13 @@ public:
   void ProcessBlock(sample** inputs, sample** outputs, int nFrames) override;
   void OnReset() override;
   void OnIdle() override;
+  void OnUIOpen() override;
 
 private:
   iplug::IPeakSender<2> mSender;
   FastSinOscillator<sample> mOscillator {0., 440.};
   LogParamSmooth<sample, 1> mGainSmoother;
-  const char* mMessage = "Hello World!";
-
-  static void ServerInitCallback(const struct mg_context* ctx);
-  static int BeginRequestHandler(struct mg_connection* conn);
+  
+  std::unique_ptr<WebServer> mWebServer;
+  void initializeWebServer();
 };

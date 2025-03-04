@@ -66,7 +66,7 @@ export function SPVFD(paramIdx: number, val: number) {
  * @param msg Base64 encoded data. Decode with window.atob()
  */
 export function SAMFD(_msgTag: number, _dataSize: number, _msg: string) {
-  // no-op
+  console.log(_msg);
 }
 
 /**
