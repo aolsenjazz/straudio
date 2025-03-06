@@ -261,6 +261,10 @@
 		FAB8D75D2D3424C60011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAB8D75E2D3425660011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAB8D75F2D3426640011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
+		FACAF1932D79355F0065C77C /* MessageTags.h in Headers */ = {isa = PBXBuildFile; fileRef = FACAF1922D79355F0065C77C /* MessageTags.h */; };
+		FACAF1942D79355F0065C77C /* MessageTags.h in Headers */ = {isa = PBXBuildFile; fileRef = FACAF1922D79355F0065C77C /* MessageTags.h */; };
+		FACAF1962D793EDA0065C77C /* MessageHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = FACAF1952D793EDA0065C77C /* MessageHandler.h */; };
+		FACAF1972D793EDA0065C77C /* MessageHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = FACAF1952D793EDA0065C77C /* MessageHandler.h */; };
 		FAF3B4922D2E178A0024724B /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAF3B4942D2E18950024724B /* web in Resources */ = {isa = PBXBuildFile; fileRef = 4FC46E57231440B4000045E7 /* web */; };
 		FAF3B4962D2E1A460024724B /* IPlugWebView_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = FAF3B4952D2E1A460024724B /* IPlugWebView_mac.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -788,6 +792,8 @@
 		B8E22A0A220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugVST3_ProcessorBase.cpp; path = ../../iPlug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp; sourceTree = "<group>"; tabWidth = 2; };
 		B8E22A0B220268C4007CBF4C /* IPlugVST3_ProcessorBase.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_ProcessorBase.h; path = ../../iPlug2/IPlug/VST3/IPlugVST3_ProcessorBase.h; sourceTree = "<group>"; tabWidth = 2; };
 		B8EA6B932203868500D23A86 /* IPlugVST3_Common.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_Common.h; path = ../../iPlug2/IPlug/VST3/IPlugVST3_Common.h; sourceTree = "<group>"; tabWidth = 2; };
+		FACAF1922D79355F0065C77C /* MessageTags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTags.h; sourceTree = "<group>"; };
+		FACAF1952D793EDA0065C77C /* MessageHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageHandler.h; sourceTree = "<group>"; };
 		FAF3B4952D2E1A460024724B /* IPlugWebView_mac.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IPlugWebView_mac.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -839,6 +845,20 @@
 			);
 			target = 4F39075F2013EBA300DDA490 /* AUv3 */;
 		};
+		FACAF1902D791E750065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				json.hpp,
+			);
+			target = 4FC3EFC32086C0A600BD11FA /* VST3C */;
+		};
+		FACAF1912D791E750065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				json.hpp,
+			);
+			target = 4F78BE0122E73D0800AD537E /* StraudioAU */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
@@ -878,6 +898,7 @@
 		FACAF1452D7688D00065C77C /* Utils */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FACAF1462D7688E70065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FACAF1472D7688E70065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Utils; sourceTree = "<group>"; };
 		FACAF1482D7688FA0065C77C /* WebServer */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FACAF16F2D768A680065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = WebServer; sourceTree = "<group>"; };
 		FACAF14A2D7689040065C77C /* WebServer */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FACAF14E2D7689EC0065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FACAF14F2D7689EC0065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = WebServer; sourceTree = "<group>"; };
+		FACAF18C2D791E600065C77C /* nlohmann */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (FACAF1902D791E750065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, FACAF1912D791E750065C77C /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = nlohmann; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1746,6 +1767,7 @@
 		FACAF1422D7687F60065C77C /* vendor */ = {
 			isa = PBXGroup;
 			children = (
+				FACAF18C2D791E600065C77C /* nlohmann */,
 				FACAF13A2D7686FA0065C77C /* civetweb */,
 			);
 			path = vendor;
@@ -1758,6 +1780,8 @@
 				FACAF1442D7688BE0065C77C /* Utils */,
 				4F3862EE2014BBEC0009F402 /* Straudio.h */,
 				4F3862ED2014BBEC0009F402 /* Straudio.cpp */,
+				FACAF1922D79355F0065C77C /* MessageTags.h */,
+				FACAF1952D793EDA0065C77C /* MessageHandler.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -1772,6 +1796,8 @@
 				4F4856862773C3B5005BCF8E /* IPlugAUAudioUnit.h in Headers */,
 				4F78BE1222E73DD900AD537E /* StraudioAU.h in Headers */,
 				4F4856852773C3B5005BCF8E /* IPlugAUViewController.h in Headers */,
+				FACAF1942D79355F0065C77C /* MessageTags.h in Headers */,
+				FACAF1962D793EDA0065C77C /* MessageHandler.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1787,6 +1813,7 @@
 				4FC3F0012086CE5700BD11FA /* uid.h in Headers */,
 				4F03A5B620A4621100EBDFFB /* IGraphics_select.h in Headers */,
 				4F03A5AB20A4621100EBDFFB /* IGraphics_include_in_plug_hdr.h in Headers */,
+				FACAF1972D793EDA0065C77C /* MessageHandler.h in Headers */,
 				4FC3EFF22086CE5700BD11FA /* hostclasses.h in Headers */,
 				4F03A5D420A4621100EBDFFB /* IGraphicsUtilities.h in Headers */,
 				4F03A5AA20A4621100EBDFFB /* IGraphicsLiveEdit.h in Headers */,
@@ -1798,6 +1825,7 @@
 				4F03A5D220A4621100EBDFFB /* IGraphicsPopupMenu.h in Headers */,
 				4FC3EFFE2086CE5700BD11FA /* processdata.h in Headers */,
 				4FC3F0002086CE5700BD11FA /* stringconvert.h in Headers */,
+				FACAF1932D79355F0065C77C /* MessageTags.h in Headers */,
 				4F8C10E720BA2796006320CD /* IGraphicsEditorDelegate.h in Headers */,
 				4FC3EFFA2086CE5700BD11FA /* parameterchanges.h in Headers */,
 				4F03A5B320A4621100EBDFFB /* IGraphics_include_in_plug_src.h in Headers */,
@@ -1846,6 +1874,7 @@
 				FACAF13A2D7686FA0065C77C /* civetweb */,
 				FACAF1442D7688BE0065C77C /* Utils */,
 				FACAF1482D7688FA0065C77C /* WebServer */,
+				FACAF18C2D791E600065C77C /* nlohmann */,
 			);
 			name = AU;
 			productName = IPlugExampleAU;
@@ -1919,6 +1948,7 @@
 				FACAF13A2D7686FA0065C77C /* civetweb */,
 				FACAF1442D7688BE0065C77C /* Utils */,
 				FACAF1482D7688FA0065C77C /* WebServer */,
+				FACAF18C2D791E600065C77C /* nlohmann */,
 			);
 			name = VST3;
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -1945,6 +1975,7 @@
 				FACAF13A2D7686FA0065C77C /* civetweb */,
 				FACAF1442D7688BE0065C77C /* Utils */,
 				FACAF1482D7688FA0065C77C /* WebServer */,
+				FACAF18C2D791E600065C77C /* nlohmann */,
 			);
 			name = AAX;
 			productInstallPath = "$(HOME)/Library/Bundles";
@@ -1991,6 +2022,7 @@
 				FACAF13A2D7686FA0065C77C /* civetweb */,
 				FACAF1442D7688BE0065C77C /* Utils */,
 				FACAF1482D7688FA0065C77C /* WebServer */,
+				FACAF18C2D791E600065C77C /* nlohmann */,
 			);
 			name = APP;
 			productName = macOSApp;

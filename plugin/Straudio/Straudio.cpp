@@ -1,14 +1,18 @@
+#include <iostream>
+
 #include "Straudio.h"
 #include "IPlug_include_in_plug_src.h"
 #include "IPlugPaths.h"
-#include "ResourceUtils.h"
-#include <iostream>
 
+#include "ResourceUtils.h"
+#include "MessageHandler.h"
+#include "json.hpp"
 #include "civetweb.h"
 
+using json = nlohmann::json;
+
 Straudio::Straudio(const InstanceInfo& info)
-: Plugin(info, MakeConfig(kNumParams, kNumPresets))
-{
+: Plugin(info, MakeConfig(kNumParams, kNumPresets)) {
   GetParam(kGain)->InitGain("Gain", -70., -70, 0.);
   
 //#ifdef DEBUG
@@ -18,7 +22,7 @@ Straudio::Straudio(const InstanceInfo& info)
 
   mEditorInitFunc = [&]() {
     LoadURL("http://localhost:5173/");
-//    LoadIndexHtml(__FILE__, GetBundleID());
+//  LoadIndexHtml(__FILE__, GetBundleID());
     EnableScroll(false);
   };
 
@@ -27,17 +31,14 @@ Straudio::Straudio(const InstanceInfo& info)
   MakePreset("Three", 0.);
   
   initializeWebServer();
-  std::cout << mWebServer->getFullUrl();
 }
 
-void Straudio::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
-{
+void Straudio::ProcessBlock(sample** inputs, sample** outputs, int nFrames) {
   const double gain = GetParam(kGain)->DBToAmp();
     
   mOscillator.ProcessBlock(inputs[0], nFrames); // comment for audio in
 
-  for (int s = 0; s < nFrames; s++)
-  {
+  for (int s = 0; s < nFrames; s++) {
     outputs[0][s] = inputs[0][s] * mGainSmoother.Process(gain);
     outputs[1][s] = outputs[0][s]; // copy left
   }
@@ -45,21 +46,13 @@ void Straudio::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
   mSender.ProcessBlock(outputs, nFrames, kCtrlTagMeter);
 }
 
-void Straudio::OnReset()
-{
+void Straudio::OnReset() {
   auto sr = GetSampleRate();
   mOscillator.SetSampleRate(sr);
   mGainSmoother.SetSmoothTime(20., sr);
 }
 
-void Straudio::OnIdle()
-{
-  mSender.TransmitData(*this);
-    const char* mMessage = __FILE__;
-     const char* mM = GetBundleID();
-     Straudio::SendArbitraryMsgFromDelegate(0, strlen(mM) + 1, (void*)mM);
-    
-}
+void Straudio::OnIdle() {}
 
 void Straudio::initializeWebServer() {
   mWebServer = std::make_unique<WebServer>();
@@ -70,8 +63,6 @@ void Straudio::initializeWebServer() {
   }
 }
 
-void Straudio::OnUIOpen() {
-  const char* url = mWebServer->getFullUrl().c_str();
-  std::cout << url;
-  Straudio::SendArbitraryMsgFromDelegate(0, strlen(url) + 1, url);
+void Straudio::OnMessageFromWebView(const char* jsonStr) {
+  MessageHandler::HandleMessage(this, jsonStr);
 }

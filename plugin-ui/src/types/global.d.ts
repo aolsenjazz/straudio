@@ -1,9 +1,10 @@
 /* eslint-disable no-var */
 
+import { MessageToPlugin } from './message-to-plugin';
+
 declare global {
   // Declare IPlugSendMsg as a global function
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  function IPlugSendMsg(message: any): void;
+  function IPlugSendMsg<T>(jsonData: MessageToPlugin<T>): void;
 
   // SendParameterValueFromUI
   var SPVFUI: (paramIdx: number, value: number) => void;

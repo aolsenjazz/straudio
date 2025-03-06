@@ -37,13 +37,15 @@ public:
   void ProcessBlock(sample** inputs, sample** outputs, int nFrames) override;
   void OnReset() override;
   void OnIdle() override;
-  void OnUIOpen() override;
+  void OnMessageFromWebView(const char* json) override;
+  
+  std::unique_ptr<WebServer> mWebServer;
 
 private:
   iplug::IPeakSender<2> mSender;
   FastSinOscillator<sample> mOscillator {0., 440.};
   LogParamSmooth<sample, 1> mGainSmoother;
   
-  std::unique_ptr<WebServer> mWebServer;
+  
   void initializeWebServer();
 };

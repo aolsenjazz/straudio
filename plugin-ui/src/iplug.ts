@@ -1,53 +1,25 @@
+import { handleMessage } from './ipc/message-handler';
+import { MessageToPlugin } from './types/message-to-plugin';
+
 /**
  * SendParameterValueFromUI
  */
-export function SPVFUI(paramIdx: number, value: number) {
-  if (paramIdx < 0) {
-    console.log('SPVFUI paramIdx must be >= 0');
-    return;
-  }
-
-  const message = {
-    msg: 'SPVFUI',
-    paramIdx: parseInt(String(paramIdx)),
-    value: value,
-  };
-
-  IPlugSendMsg(message);
+export function SPVFUI(_paramIdx: number, _value: number) {
+  // no-op
 }
 
 /**
  * BeginInformHostOfParamChangeFromUI
  */
-export function BPCFUI(paramIdx: number) {
-  if (paramIdx < 0) {
-    console.log('BPCFUI paramIdx must be >= 0');
-    return;
-  }
-
-  const message = {
-    msg: 'BPCFUI',
-    paramIdx: parseInt(String(paramIdx)),
-  };
-
-  IPlugSendMsg(message);
+export function BPCFUI(_paramIdx: number) {
+  // no-op
 }
 
 /**
  * EndInformHostOfParamChangeFromUI
  */
-export function EPCFUI(paramIdx: number) {
-  if (paramIdx < 0) {
-    console.log('EPCFUI paramIdx must be >= 0');
-    return;
-  }
-
-  const message = {
-    msg: 'EPCFUI',
-    paramIdx: parseInt(String(paramIdx)),
-  };
-
-  IPlugSendMsg(message);
+export function EPCFUI(_paramIdx: number) {
+  // no-op
 }
 
 /**
@@ -65,8 +37,8 @@ export function SPVFD(paramIdx: number, val: number) {
  * @param dataSize Size of data in bytes
  * @param msg Base64 encoded data. Decode with window.atob()
  */
-export function SAMFD(_msgTag: number, _dataSize: number, _msg: string) {
-  console.log(_msg);
+export function SAMFD(msgTag: number, _dataSize: number, msg: string) {
+  handleMessage(msgTag, atob(msg));
 }
 
 /**
@@ -95,10 +67,18 @@ export function SCMFD(
 /**
  * ?
  */
-export function OnParamChange(paramIdx: number, value: number) {
-  if (SPVFD) {
-    SPVFD(paramIdx, value);
-  }
+export function OnParamChange(_paramIdx: number, _value: number) {
+  // if (SPVFD) {
+  //   SPVFD(paramIdx, value);
+  // }
+}
+
+// We want to be able to run the frontend in a browser for testing purposes.
+// To keep from runtime errors, add this function to the window object if necessary.
+if (window.IPlugSendMsg === undefined) {
+  window.IPlugSendMsg = <T>(_msg: MessageToPlugin<T>) => {
+    // no-op
+  };
 }
 
 // Make these functions globally available
