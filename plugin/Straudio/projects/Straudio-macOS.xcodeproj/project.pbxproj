@@ -2124,7 +2124,7 @@
 				Base,
 			);
 			mainGroup = 089C166AFE841209C02AAC07 /* IPlugExample */;
-			preferredProjectObjectVersion = 47;
+			preferredProjectObjectVersion = 55;
 			projectDirPath = "";
 			projectReferences = (
 				{
