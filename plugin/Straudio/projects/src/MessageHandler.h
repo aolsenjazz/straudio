@@ -42,7 +42,7 @@ private:
     std::string url = plugin->mWebServer->getFullUrl();
     plugin->SendArbitraryMsgFromDelegate(
       static_cast<int>(EMessageTag::URL_RESPONSE),
-      url.size(),
+      static_cast<int>(url.size()),
       url.c_str()
     );
   }

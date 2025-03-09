@@ -41,7 +41,8 @@ void Straudio::OnIdle() {}
 void Straudio::initializeWebServer() {
   mWebServer = std::make_unique<WebServer>();
   
-  auto webRoot = FileSystem::getResourceSubdirectory("web");
+  const char* bundleId = GetBundleID();
+  auto webRoot = FileSystem::getResourceSubdirectory(bundleId, "web");
   if (webRoot) {
     mWebServer->start(*webRoot);
   }
