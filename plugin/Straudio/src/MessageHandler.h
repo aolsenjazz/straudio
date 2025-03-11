@@ -1,6 +1,8 @@
 #pragma once
 #include "MessageTags.h"
+#include "src/Utils/Logger.h"
 #include "Straudio.h"
+#include "src/WebServer/WebServer.h"
 #include <json.hpp>
 
 class MessageHandler {
@@ -40,9 +42,12 @@ private:
   
   static void HandleUrlRequest(Straudio* plugin, const nlohmann::json& data) {
     std::string url = plugin->mWebServer->getFullUrl();
+    Logger::info(url);
+
+
     plugin->SendArbitraryMsgFromDelegate(
       static_cast<int>(EMessageTag::URL_RESPONSE),
-      static_cast<int>(url.size()),
+     static_cast<int>(url.size()),
       url.c_str()
     );
   }

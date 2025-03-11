@@ -291,8 +291,21 @@
     <ClInclude Include="..\..\iPlug2\IPlug\IPlug_include_in_plug_hdr.h" />
     <ClInclude Include="..\..\iPlug2\IPlug\IPlug_include_in_plug_src.h" />
     <ClInclude Include="..\..\iPlug2\IPlug\ISender.h" />
+    <ClInclude Include="..\src\Bitch.hpp" />
+    <ClInclude Include="..\src\firewall.h" />
+    <ClInclude Include="..\src\FirewallHelper.hpp" />
+    <ClInclude Include="..\src\MessageHandler.h" />
+    <ClInclude Include="..\src\MessageTags.h" />
+    <ClInclude Include="..\src\Utils\GetHMODULE.h" />
+    <ClInclude Include="..\src\Utils\Logger.h" />
+    <ClInclude Include="..\src\Utils\NetworkUtils.h" />
+    <ClInclude Include="..\src\Utils\ResourceUtils.h" />
+    <ClInclude Include="..\src\webclient.hpp" />
+    <ClInclude Include="..\src\WebServer\WebServer.h" />
+    <ClInclude Include="..\src\WebServer\WebSocketManager.h" />
     <ClInclude Include="..\Straudio.h" />
     <ClInclude Include="..\resources\resource.h" />
+    <ClInclude Include="..\vendor\civetweb\civetweb.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\iPlug2\Dependencies\IPlug\RTAudio\include\asio.cpp" />
@@ -313,7 +326,11 @@
     <ClCompile Include="..\..\iPlug2\IPlug\IPlugPluginBase.cpp" />
     <ClCompile Include="..\..\iPlug2\IPlug\IPlugProcessor.cpp" />
     <ClCompile Include="..\..\iPlug2\IPlug\IPlugTimer.cpp" />
+    <ClCompile Include="..\src\Bitch.cpp" />
+    <ClCompile Include="..\src\FirewallHelper.cpp" />
+    <ClCompile Include="..\src\webclient.cpp" />
     <ClCompile Include="..\Straudio.cpp" />
+    <ClCompile Include="..\vendor\civetweb\civetweb.c" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\main.rc" />
@@ -326,6 +343,11 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="..\config\Straudio-mac.xcconfig" />
+    <None Include="..\vendor\civetweb\handle_form.inl" />
+    <None Include="..\vendor\civetweb\match.inl" />
+    <None Include="..\vendor\civetweb\md5.inl" />
+    <None Include="..\vendor\civetweb\response.inl" />
+    <None Include="..\vendor\civetweb\sort.inl" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

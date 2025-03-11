@@ -4,7 +4,7 @@
 #include "Oscillator.h"
 #include "Smoothers.h"
 #include "ISender.h"
-#include "WebServer.h"
+#include "src/WebServer/WebServer.h"
 
 using namespace iplug;
 

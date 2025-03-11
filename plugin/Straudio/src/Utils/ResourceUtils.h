@@ -3,10 +3,15 @@
 #include <string>
 #include <optional>
 #include <filesystem>
+#include "src/Utils/Logger.h"
 #include <algorithm>
 #include "IPlugConstants.h"
 #include "WDLString.h"
 #include "IPlugPaths.h"
+
+#include <windows.h>
+#include <sstream>
+#include <string>
 
 namespace fs = std::filesystem;
 
@@ -16,7 +21,13 @@ inline std::optional<std::string> getResourceDirectory(const char* bundleID) {
     WDL_String bundlePath;
 
     // Get the bundle path using IPlug's infrastructure
+#ifdef _WIN32
+    Logger::info("trying");
+
+    iplug::BundleResourcePath(bundlePath);
+#else
     iplug::BundleResourcePath(bundlePath, bundleID);
+#endif
 
     if (bundlePath.GetLength() > 0) {
         std::string pathStr(bundlePath.Get());
@@ -43,9 +54,10 @@ inline bool iequals(const std::string& a, const std::string& b) {
 
 inline std::optional<std::string> getResourceSubdirectory(const char* bundleID, const std::string& subdir) {
     auto baseDir = getResourceDirectory(bundleID);
-    
+    Logger::info("is there abaseDir?");
     if (!baseDir) return std::nullopt;
-    
+    Logger::info("yes!");
+    Logger::info(baseDir.value());
     try {
         fs::path fullPath = fs::path(*baseDir) / subdir;
 
