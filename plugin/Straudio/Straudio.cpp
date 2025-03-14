@@ -1,8 +1,6 @@
 #define WIN32_LEAN_AND_MEAN
 
 #include <iostream>
-//#include <windows.h>
-//#include <shellapi.h>  // Required for ShellExecuteEx()
 
 #include "Straudio.h"
 #include "IPlug_include_in_plug_src.h"
@@ -11,7 +9,6 @@
 #include "src/WebServer/WebServer.h"
 #include "src/MessageHandler.h"
 
-//#include "src/firewall.h"
 #include <windows.h>
 #include <iostream>
 #include <shellapi.h>

@@ -1,5 +1,7 @@
 /* eslint-disable no-var */
 
+declare module '*.png';
+
 import { MessageToPlugin } from './message-to-plugin';
 
 declare global {

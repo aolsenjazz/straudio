@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
-import QRCode from 'react-qr-code';
 
 import { MessageTag } from './ipc/message-tags';
 import { useLocalFrontendUrl } from './hooks/use-local-frontend-url';
+import { Knob } from './components/Knob';
+import HorizontalSlider from './components/HorizontalSlider';
+import Screen from './components/Screen';
 
 export default function App() {
   const frontendUrl = useLocalFrontendUrl();
@@ -12,9 +14,17 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      Hello world!
-      {frontendUrl && <QRCode value={frontendUrl} />}
+    <div id="ui-container">
+      <Screen frontendUrl={frontendUrl} />
+      <div id="monitor-knob-container">
+        <Knob />
+      </div>
+      <div id="transmit-knob-container">
+        <Knob />
+      </div>
+      <div id="latency-slider-container">
+        <HorizontalSlider />
+      </div>
     </div>
   );
 }
