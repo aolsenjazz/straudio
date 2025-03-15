@@ -24,8 +24,8 @@ Straudio::Straudio(const InstanceInfo& info)
   RegisterRoute("plugin-ui.html", "text/html", PLUGIN_UI, PLUGIN_UI_length);
 
   mEditorInitFunc = [&]() {
-    LoadURL("http://localhost:5173/");
-//    LoadURL("straudio:///plugin-ui.html");
+//    LoadURL("http://localhost:5173/");
+    LoadURL("straudio:///plugin-ui.html");
     
     EnableScroll(false);
   };
