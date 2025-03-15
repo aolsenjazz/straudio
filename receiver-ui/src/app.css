@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Gotham Bold';
+  src: url('./assets/Gotham-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overscroll-behavior: none;
+}
