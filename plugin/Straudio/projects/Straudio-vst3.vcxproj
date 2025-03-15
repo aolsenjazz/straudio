@@ -300,8 +300,19 @@
     <ClInclude Include="..\..\iPlug2\IPlug\VST3\IPlugVST3_Parameter.h" />
     <ClInclude Include="..\..\iPlug2\IPlug\VST3\IPlugVST3_ProcessorBase.h" />
     <ClInclude Include="..\..\iPlug2\IPlug\VST3\IPlugVST3_View.h" />
+    <ClInclude Include="..\src\MessageHandler.h" />
+    <ClInclude Include="..\src\MessageTags.h" />
+    <ClInclude Include="..\src\PluginUI\PluginUI.hpp" />
+    <ClInclude Include="..\src\ReceiverUI\ReceiverUI.hpp" />
+    <ClInclude Include="..\src\Utils\Logger.h" />
+    <ClInclude Include="..\src\Utils\NetworkUtils.h" />
+    <ClInclude Include="..\src\Utils\ResourceUtils.h" />
+    <ClInclude Include="..\src\WebServer\WebServer.h" />
+    <ClInclude Include="..\src\WebServer\WebSocketManager.h" />
     <ClInclude Include="..\Straudio.h" />
     <ClInclude Include="..\resources\resource.h" />
+    <ClInclude Include="..\vendor\civetweb\civetweb.h" />
+    <ClInclude Include="..\vendor\nlohmann\json.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\iPlug2\Dependencies\IPlug\VST3_SDK\base\source\baseiids.cpp" />
@@ -349,7 +360,10 @@
     <ClCompile Include="..\..\iPlug2\IPlug\IPlugTimer.cpp" />
     <ClCompile Include="..\..\iPlug2\IPlug\VST3\IPlugVST3.cpp" />
     <ClCompile Include="..\..\iPlug2\IPlug\VST3\IPlugVST3_ProcessorBase.cpp" />
+    <ClCompile Include="..\src\PluginUI\PluginUI.cpp" />
+    <ClCompile Include="..\src\ReceiverUI\ReceiverUI.cpp" />
     <ClCompile Include="..\Straudio.cpp" />
+    <ClCompile Include="..\vendor\civetweb\civetweb.c" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="..\resources\main.rc" />
@@ -359,6 +373,11 @@
     <None Include="..\config\Straudio-win.props">
       <SubType>Designer</SubType>
     </None>
+    <None Include="..\vendor\civetweb\handle_form.inl" />
+    <None Include="..\vendor\civetweb\match.inl" />
+    <None Include="..\vendor\civetweb\md5.inl" />
+    <None Include="..\vendor\civetweb\response.inl" />
+    <None Include="..\vendor\civetweb\sort.inl" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

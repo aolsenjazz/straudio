@@ -1,14 +1,92 @@
+@font-face {
+  font-family: 'Gotham Bold';
+  src: url('./assets/Gotham-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overscroll-behavior: none;
+}
+
+body.dragging {
+  cursor: grabbing !important;
 }
 
 #root {
   width: 100%;
   height: 100%;
+  text-align: center;
+}
+
+#ui-container {
+  height: 616px;
+  width: 459px;
+  margin: 0 auto;
+  background-image: url('./assets/base.png');
+  background-size: cover;
+  position: relative;
+}
+
+#monitor-knob-container {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  left: 157px;
+  top: 320px;
+}
+
+#transmit-knob-container {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right: 157px;
+  top: 320px;
+}
+
+.knob {
+  transform: rotate(180deg);
+}
+
+#monitor-knob-container img,
+#transmit-knob-container img {
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+}
+
+#latency-slider-container {
+  position: absolute;
+  width: 150px;
+  top: 429px;
+  left: 160px;
+  height: 24px;
+}
+
+.horizontal-slider {
+  position: relative;
+}
+
+.horizontal-slider img {
+  position: absolute;
+  left: 0;
+  width: 23px;
+  height: 24px;
+  cursor: grab;
+}
+
+body.dragging .horizontal-slider img {
+  cursor: grabbing;
+}
+
+body.dragging .knob img {
+  cursor: grabbing;
 }

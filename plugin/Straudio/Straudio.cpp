@@ -1,55 +1,54 @@
+#define WIN32_LEAN_AND_MEAN
+
+#include <iostream>
+
 #include "Straudio.h"
 #include "IPlug_include_in_plug_src.h"
 #include "IPlugPaths.h"
+#include "src/PluginUI/PluginUI.hpp"
+#include "src/Utils/FileUtils.h"
+
+#include "src/WebServer/WebServer.h"
+#include "src/MessageHandler.h"
+
+using json = nlohmann::json;
+
 
 Straudio::Straudio(const InstanceInfo& info)
-: Plugin(info, MakeConfig(kNumParams, kNumPresets))
-{
-  GetParam(kGain)->InitGain("Gain", -70., -70, 0.);
-  
+  : Plugin(info, MakeConfig(0, 0)) {
 //#ifdef DEBUG
-  SetCustomUrlScheme("iplug2");
   SetEnableDevTools(true);
 //#endif
+  
 
   mEditorInitFunc = [&]() {
-//    LoadURL("http://localhost:5173/");
-    LoadIndexHtml(__FILE__, GetBundleID());
+    LoadFile(mPluginFilePath.c_str(), nullptr);
     EnableScroll(false);
   };
-
-  MakePreset("One", -70.);
-  MakePreset("Two", -30.);
-  MakePreset("Three", 0.);
+    
+  mPluginFilePath = AppDataFileHelper::WriteDataToAppDir("plugin-ui.html", PLUGIN_UI, PLUGIN_UI_length);
+  initializeWebServer();
 }
 
-void Straudio::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
-{
-  const double gain = GetParam(kGain)->DBToAmp();
-    
-  mOscillator.ProcessBlock(inputs[0], nFrames); // comment for audio in
-
-  for (int s = 0; s < nFrames; s++)
-  {
-    outputs[0][s] = inputs[0][s] * mGainSmoother.Process(gain);
-    outputs[1][s] = outputs[0][s]; // copy left
+void Straudio::ProcessBlock(sample** inputs, sample** outputs, int nFrames) {
+  for (int s = 0; s < nFrames; s++) {
+    outputs[0][s] = inputs[0][s];
+    outputs[1][s] = outputs[0][s];
   }
+}
+
+void Straudio::OnReset() {}
+
+void Straudio::OnIdle() {}
+
+void Straudio::initializeWebServer() {
+  mWebServer = std::make_unique<WebServer>();
+    mWebServer->start();
   
-  mSender.ProcessBlock(outputs, nFrames, kCtrlTagMeter);
 }
 
-void Straudio::OnReset()
-{
-  auto sr = GetSampleRate();
-  mOscillator.SetSampleRate(sr);
-  mGainSmoother.SetSmoothTime(20., sr);
-}
-
-void Straudio::OnIdle()
-{
-//  mSender.TransmitData(*this);
-    //const char* mMessage = __FILE__;
-    // const char* mMessage = GetBundleID();
-    // Straudio::SendArbitraryMsgFromDelegate(0, strlen(mMessage) + 1, (void*)mMessage);
-    
+void Straudio::OnMessageFromWebView(const char* jsonStr) {
+    auto port = mWebServer->getPort();
+    Logger::info(std::to_string(port));
+  MessageHandler::HandleMessage(this, jsonStr);
 }

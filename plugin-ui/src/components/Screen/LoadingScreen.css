@@ -1,0 +1,25 @@
+.marquee {
+  position: absolute;
+  white-space: nowrap;
+  color: white;
+  font-family: 'Gotham Bold';
+  font-size: 12px;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Fade-in animation, applied only if enabled */
+.fade-in {
+  animation: fadeInAnimation forwards;
+}
+
+@keyframes fadeInAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
