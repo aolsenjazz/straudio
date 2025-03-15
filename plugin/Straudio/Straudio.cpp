@@ -6,7 +6,6 @@
 #include "IPlug_include_in_plug_src.h"
 #include "IPlugPaths.h"
 #include "src/PluginUI/PluginUI.hpp"
-#include "src/ReceiverUI/ReceiverUI.hpp"
 
 #include "src/WebServer/WebServer.h"
 #include "src/MessageHandler.h"
@@ -20,13 +19,8 @@ Straudio::Straudio(const InstanceInfo& info)
   SetEnableDevTools(true);
 //#endif
 
-  SetCustomUrlScheme("straudio");
-  RegisterRoute("plugin-ui.html", "text/html", PLUGIN_UI, PLUGIN_UI_length);
-
   mEditorInitFunc = [&]() {
-//    LoadURL("http://localhost:5173/");
-    LoadURL("straudio:///plugin-ui.html");
-    
+    LoadHTML(PLUGIN_UI);
     EnableScroll(false);
   };
     
