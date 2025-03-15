@@ -1,4 +1,4 @@
 [submodule "plugin/iPlug2"]
 	path = plugin/iPlug2
-	url = https://github.com/iPlug2/iPlug2
+	url = https://github.com/aolsenjazz/iPlug2
 	branch = master
