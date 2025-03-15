@@ -22,4 +22,5 @@ public:
 
 private:
   void initializeWebServer();
+  std::string mPluginFilePath;
 };

@@ -57,9 +57,9 @@
       <Filter>IPlug\Extras\WebView</Filter>
     </ClCompile>
     <ClCompile Include="..\vendor\civetweb\civetweb.c" />
-    <ClCompile Include="..\src\webclient.cpp" />
     <ClCompile Include="..\src\FirewallHelper.cpp" />
-    <ClCompile Include="..\src\Bitch.cpp" />
+    <ClCompile Include="..\src\PluginUI\PluginUI.cpp" />
+    <ClCompile Include="..\src\ReceiverUI\ReceiverUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Straudio.h" />
@@ -173,10 +173,11 @@
     <ClInclude Include="..\vendor\civetweb\civetweb.h" />
     <ClInclude Include="..\src\Utils\NetworkUtils.h" />
     <ClInclude Include="..\src\Utils\GetHMODULE.h" />
-    <ClInclude Include="..\src\webclient.hpp" />
     <ClInclude Include="..\src\firewall.h" />
     <ClInclude Include="..\src\FirewallHelper.hpp" />
-    <ClInclude Include="..\src\Bitch.hpp" />
+    <ClInclude Include="..\src\PluginUI\PluginUI.hpp" />
+    <ClInclude Include="..\src\ReceiverUI\ReceiverUI.hpp" />
+    <ClInclude Include="..\src\Utils\FileUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resources">

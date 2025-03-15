@@ -6,6 +6,7 @@
 #include "IPlug_include_in_plug_src.h"
 #include "IPlugPaths.h"
 #include "src/PluginUI/PluginUI.hpp"
+#include "src/Utils/FileUtils.h"
 
 #include "src/WebServer/WebServer.h"
 #include "src/MessageHandler.h"
@@ -18,13 +19,15 @@ Straudio::Straudio(const InstanceInfo& info)
 //#ifdef DEBUG
   SetEnableDevTools(true);
 //#endif
+  
 
   mEditorInitFunc = [&]() {
-    LoadHTML(PLUGIN_UI);
+    LoadFile(mPluginFilePath.c_str(), nullptr);
     EnableScroll(false);
   };
     
-  initializeWebServer();    
+  mPluginFilePath = AppDataFileHelper::WriteDataToAppDir("plugin-ui.html", PLUGIN_UI, PLUGIN_UI_length);
+  initializeWebServer();
 }
 
 void Straudio::ProcessBlock(sample** inputs, sample** outputs, int nFrames) {
