@@ -4,11 +4,11 @@ import './LoadingScreen.css';
 interface PropTypes {
   onFinish: () => void;
   loadingText: string;
-  loadingDurationSeconds?: number; // How long the text stays visible after it appears (default 1 second)
-  startDelayMs?: number; // How long to wait before showing the text (default 500ms)
-  finishDelayMs?: number; // Additional delay after the text disappears before finishing (default 500ms)
+  loadingDurationSeconds?: number; // How long the text stays visible after it appears
+  startDelayMs?: number; // How long to wait before showing the text
+  finishDelayMs?: number; // Additional delay after the text disappears before finishing
   fadeIn?: boolean; // Whether to apply a fade in
-  fadeInDurationMs?: number; // Duration of the fade in animation (default 200ms)
+  fadeInDurationMs?: number; // Duration of the fade in animation
 }
 
 function LoadingScreen(props: PropTypes) {
