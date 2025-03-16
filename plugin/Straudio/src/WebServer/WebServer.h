@@ -29,7 +29,7 @@ public:
   
   WebServer()
   : mCtx(nullptr)
-  , preferredPort(8080)
+  , preferredPort(57441)
   , currentPort(-1)
   {}
   
@@ -42,10 +42,16 @@ public:
   {
     int port = findAvailablePort(preferredPort);
     currentPort = port;
+    std:: string portString = std::to_string(port);
+    
+    Boolean hasAccess = verifyPortAccess();
+    if (!hasAccess) {
+      return false;
+    }
     
     const char* options[] = {
       "num_threads", "4",
-      "listening_ports", "0.0.0.0:9000",
+      "listening_ports", portString.c_str(),
       "enable_directory_listing", "no",
       nullptr
     };
@@ -59,7 +65,6 @@ public:
       return false;
     }
     
-    // Use our private static callback for the root path
     mg_set_request_handler(mCtx, "/", &WebServer::handleRequest, this);
     
     return true;
@@ -115,17 +120,22 @@ private:
   int preferredPort;
   int currentPort;
   
+  Boolean verifyPortAccess() {
+    // at this point, we know that the port is available on the host OS
+    // we still need to verify:
+    // has firewall access been granted to local devices for this port?
+    // reachable from local devices
+    // THIS IS THE ENTRYPOINT FOR WINDOWS FIREWALL BS
+    return true;
+  }
+  
   // The request callback used in 'start()'
   static int handleRequest(mg_connection* conn, void* cbdata)
   {
-    auto* self = static_cast<WebServer*>(cbdata);
-    
-    // If you have multiple routes, you can look them up here
-    // using req->local_uri and self->mRoutes
-    // For now, just serve the embedded HTML file
-    
     mg_printf(conn,
               "HTTP/1.1 200 OK\r\n"
+              "Access-Control-Allow-Origin: *\r\n"
+              "Access-Control-Allow-Methods: GET, POST, OPTIONS\r\n"
               "Content-Type: text/html\r\n"
               "Content-Length: %u\r\n\r\n",
               RECEIVER_UI_length);

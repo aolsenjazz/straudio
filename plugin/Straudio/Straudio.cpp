@@ -15,17 +15,17 @@ using json = nlohmann::json;
 
 
 Straudio::Straudio(const InstanceInfo& info)
-  : Plugin(info, MakeConfig(0, 0)) {
-//#ifdef DEBUG
+: Plugin(info, MakeConfig(0, 0)) {
+  //#ifdef DEBUG
   SetEnableDevTools(true);
-//#endif
+  //#endif
   
-
   mEditorInitFunc = [&]() {
-    LoadFile(mPluginFilePath.c_str(), nullptr);
+    //    LoadFile(mPluginFilePath.c_str(), nullptr);
+    LoadURL("http://localhost:5173");
     EnableScroll(false);
   };
-    
+  
   mPluginFilePath = AppDataFileHelper::WriteDataToAppDir("plugin-ui.html", PLUGIN_UI, PLUGIN_UI_length);
   initializeWebServer();
 }
@@ -43,12 +43,17 @@ void Straudio::OnIdle() {}
 
 void Straudio::initializeWebServer() {
   mWebServer = std::make_unique<WebServer>();
-    mWebServer->start();
+  Boolean success = mWebServer->start();
   
+  if (!success) {
+    // long-term the correct thing todo will be pass error to
+    // frontend, to be handled and give user feedback
+    abort();
+  }
 }
 
 void Straudio::OnMessageFromWebView(const char* jsonStr) {
-    auto port = mWebServer->getPort();
-    Logger::info(std::to_string(port));
+  auto port = mWebServer->getPort();
+  Logger::info(std::to_string(port));
   MessageHandler::HandleMessage(this, jsonStr);
 }
