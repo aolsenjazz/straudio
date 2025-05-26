@@ -11,5 +11,5 @@ struct resource_t {
 #endif
 
 // Declarations for the embedded HTML data
-extern const uint8_t RECEIVER_UI[408221];
+extern const uint8_t RECEIVER_UI[451037];
 extern const int RECEIVER_UI_length;

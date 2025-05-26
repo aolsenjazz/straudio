@@ -62,9 +62,6 @@ private:
 #elif _WIN32
         OutputDebugStringA((formattedMessage + "\n").c_str());
 #endif
-
-        // Always print to stdout
-        std::cout << formattedMessage << std::endl;
     }
 
     static std::string levelToString(Level level) {

@@ -7,11 +7,10 @@
 
 #ifndef IndexRoute_h
 #define IndexRoute_h
-
-
 #endif /* IndexRoute_h */
 
-#include "src/ReceiverUI/ReceiverUI.hpp"
+#include "src/Util/Logger.h"
+#include "src/ReceiverServer/ReceiverUI/ReceiverUI.hpp"
 
 namespace IndexRoute {
 // The request callback used in 'start()'

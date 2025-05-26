@@ -1,0 +1,38 @@
+.connection-indicator {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-family: sans-serif;
+  z-index: 9999;
+}
+
+/* Simple spinner animation */
+.spinner {
+  margin-right: 0.5rem;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-top-color: #666;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* "Connected" styling */
+.connected {
+  color: green;
+  font-weight: bold;
+}
+
+/* Keyframe animation for spinner rotation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

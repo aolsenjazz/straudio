@@ -253,6 +253,39 @@
 		B885CBC52304AE7300D73128 /* IPlugProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F61A8202807B9003F2573 /* IPlugProcessor.cpp */; };
 		B8E22A0C220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8E22A0A220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp */; };
 		B8E22A0D220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B8E22A0A220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp */; };
+		FA244A222DA2EF00006DAD02 /* sha1.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA244A212DA2EF00006DAD02 /* sha1.inl */; };
+		FA244A232DA2EF00006DAD02 /* sha1.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA244A212DA2EF00006DAD02 /* sha1.inl */; };
+		FA244A242DA2EF00006DAD02 /* sha1.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA244A212DA2EF00006DAD02 /* sha1.inl */; };
+		FA244A252DA2EF00006DAD02 /* sha1.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA244A212DA2EF00006DAD02 /* sha1.inl */; };
+		FA244A262DA2EF00006DAD02 /* sha1.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA244A212DA2EF00006DAD02 /* sha1.inl */; };
+		FA244A272DA2EF00006DAD02 /* sha1.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA244A212DA2EF00006DAD02 /* sha1.inl */; };
+		FA244A282DA2EF00006DAD02 /* sha1.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA244A212DA2EF00006DAD02 /* sha1.inl */; };
+		FA244A292DA2EF00006DAD02 /* sha1.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA244A212DA2EF00006DAD02 /* sha1.inl */; };
+		FA244A372DA30525006DAD02 /* PeerConnectionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA244A352DA30525006DAD02 /* PeerConnectionManager.h */; };
+		FA244A382DA30525006DAD02 /* PeerConnectionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA244A352DA30525006DAD02 /* PeerConnectionManager.h */; };
+		FA3625512DABDEA300DBD1A9 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625502DABDEA300DBD1A9 /* Util.h */; };
+		FA3625522DABDEA300DBD1A9 /* Util.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625502DABDEA300DBD1A9 /* Util.h */; };
+		FA3625562DABDF8800DBD1A9 /* FileUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625552DABDF8800DBD1A9 /* FileUtil.h */; };
+		FA3625572DABDF8800DBD1A9 /* FileUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625552DABDF8800DBD1A9 /* FileUtil.h */; };
+		FA36255B2DABF82000DBD1A9 /* Routes.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625582DABF82000DBD1A9 /* Routes.h */; };
+		FA36255C2DABF82000DBD1A9 /* Server.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625592DABF82000DBD1A9 /* Server.h */; };
+		FA36255D2DABF82000DBD1A9 /* Routes.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625582DABF82000DBD1A9 /* Routes.h */; };
+		FA36255E2DABF82000DBD1A9 /* Server.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625592DABF82000DBD1A9 /* Server.h */; };
+		FA36256C2DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */; };
+		FA36256D2DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */; };
+		FA36256E2DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */; };
+		FA36256F2DABF86400DBD1A9 /* Server.h in Headers */ = {isa = PBXBuildFile; fileRef = FA36256A2DABF86400DBD1A9 /* Server.h */; };
+		FA3625702DABF86400DBD1A9 /* ReceiverUI.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FA3625662DABF86400DBD1A9 /* ReceiverUI.hpp */; };
+		FA3625712DABF86400DBD1A9 /* Routes.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625692DABF86400DBD1A9 /* Routes.h */; };
+		FA3625722DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */; };
+		FA3625732DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */; };
+		FA3625742DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */; };
+		FA3625752DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */; };
+		FA3625762DABF86400DBD1A9 /* Server.h in Headers */ = {isa = PBXBuildFile; fileRef = FA36256A2DABF86400DBD1A9 /* Server.h */; };
+		FA3625772DABF86400DBD1A9 /* ReceiverUI.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FA3625662DABF86400DBD1A9 /* ReceiverUI.hpp */; };
+		FA3625782DABF86400DBD1A9 /* Routes.h in Headers */ = {isa = PBXBuildFile; fileRef = FA3625692DABF86400DBD1A9 /* Routes.h */; };
+		FA3625792DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */; };
+		FA36257A2DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */; };
 		FA4B579F2D85ACAC0059C5E8 /* FirewallManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA4B579E2D85ACAC0059C5E8 /* FirewallManager.h */; };
 		FA4B57A02D85ACAC0059C5E8 /* FirewallManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA4B579E2D85ACAC0059C5E8 /* FirewallManager.h */; };
 		FA4B57A62D85B1970059C5E8 /* PluginUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA4B57A52D85B1970059C5E8 /* PluginUI.cpp */; };
@@ -267,18 +300,12 @@
 		FA4B57AF2D85B1970059C5E8 /* PluginUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA4B57A52D85B1970059C5E8 /* PluginUI.cpp */; };
 		FA4B57B02D85B1970059C5E8 /* PluginUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FA4B57A52D85B1970059C5E8 /* PluginUI.cpp */; };
 		FA5C62992D7DD69200973AE0 /* MessageHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62962D7DD69200973AE0 /* MessageHandler.h */; };
-		FA5C629A2D7DD69200973AE0 /* WebServer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62932D7DD69200973AE0 /* WebServer.h */; };
-		FA5C629B2D7DD69200973AE0 /* ResourceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62912D7DD69200973AE0 /* ResourceUtils.h */; };
-		FA5C629C2D7DD69200973AE0 /* WebSocketManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62942D7DD69200973AE0 /* WebSocketManager.h */; };
 		FA5C629D2D7DD69200973AE0 /* MessageTags.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62972D7DD69200973AE0 /* MessageTags.h */; };
-		FA5C629E2D7DD69200973AE0 /* NetworkUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62902D7DD69200973AE0 /* NetworkUtils.h */; };
+		FA5C629E2D7DD69200973AE0 /* NetworkUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62902D7DD69200973AE0 /* NetworkUtil.h */; };
 		FA5C629F2D7DD69200973AE0 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C628F2D7DD69200973AE0 /* Logger.h */; };
 		FA5C62A02D7DD69200973AE0 /* MessageHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62962D7DD69200973AE0 /* MessageHandler.h */; };
-		FA5C62A12D7DD69200973AE0 /* WebServer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62932D7DD69200973AE0 /* WebServer.h */; };
-		FA5C62A22D7DD69200973AE0 /* ResourceUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62912D7DD69200973AE0 /* ResourceUtils.h */; };
-		FA5C62A32D7DD69200973AE0 /* WebSocketManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62942D7DD69200973AE0 /* WebSocketManager.h */; };
 		FA5C62A42D7DD69200973AE0 /* MessageTags.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62972D7DD69200973AE0 /* MessageTags.h */; };
-		FA5C62A52D7DD69200973AE0 /* NetworkUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62902D7DD69200973AE0 /* NetworkUtils.h */; };
+		FA5C62A52D7DD69200973AE0 /* NetworkUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C62902D7DD69200973AE0 /* NetworkUtil.h */; };
 		FA5C62A62D7DD69200973AE0 /* Logger.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5C628F2D7DD69200973AE0 /* Logger.h */; };
 		FA5C62B22D7DD6E200973AE0 /* md5.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62AB2D7DD6E200973AE0 /* md5.inl */; };
 		FA5C62B32D7DD6E200973AE0 /* sort.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62AD2D7DD6E200973AE0 /* sort.inl */; };
@@ -306,7 +333,7 @@
 		FA5C62C92D7DD6E200973AE0 /* response.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62AC2D7DD6E200973AE0 /* response.inl */; };
 		FA5C62CA2D7DD6E200973AE0 /* handle_form.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62A92D7DD6E200973AE0 /* handle_form.inl */; };
 		FA5C62CB2D7DD6E200973AE0 /* match.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62AA2D7DD6E200973AE0 /* match.inl */; };
-		FA5C62CC2D7DD6E200973AE0 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = FA5C62A82D7DD6E200973AE0 /* civetweb.c */; };
+		FA5C62CC2D7DD6E200973AE0 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = FA5C62A82D7DD6E200973AE0 /* civetweb.c */; settings = {COMPILER_FLAGS = "-DUSE_WEBSOCKET"; }; };
 		FA5C62CD2D7DD6E200973AE0 /* md5.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62AB2D7DD6E200973AE0 /* md5.inl */; };
 		FA5C62CE2D7DD6E200973AE0 /* sort.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62AD2D7DD6E200973AE0 /* sort.inl */; };
 		FA5C62CF2D7DD6E200973AE0 /* response.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62AC2D7DD6E200973AE0 /* response.inl */; };
@@ -333,6 +360,10 @@
 		FA5C62E42D7DD6E200973AE0 /* handle_form.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62A92D7DD6E200973AE0 /* handle_form.inl */; };
 		FA5C62E52D7DD6E200973AE0 /* match.inl in Resources */ = {isa = PBXBuildFile; fileRef = FA5C62AA2D7DD6E200973AE0 /* match.inl */; };
 		FA5C62E62D7DD6E200973AE0 /* civetweb.c in Sources */ = {isa = PBXBuildFile; fileRef = FA5C62A82D7DD6E200973AE0 /* civetweb.c */; };
+		FA5CC2942DB3E9CE00E3300C /* SignalClient.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5CC2932DB3E9CE00E3300C /* SignalClient.h */; };
+		FA5CC2952DB3E9CE00E3300C /* SignalClient.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5CC2932DB3E9CE00E3300C /* SignalClient.h */; };
+		FA5CC2972DB3EA8D00E3300C /* PeerConnectionRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5CC2962DB3EA8D00E3300C /* PeerConnectionRegistry.h */; };
+		FA5CC2982DB3EA8D00E3300C /* PeerConnectionRegistry.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5CC2962DB3EA8D00E3300C /* PeerConnectionRegistry.h */; };
 		FA5CF0B42D3ED5F8001DFD3A /* IPlugAU.r in Resources */ = {isa = PBXBuildFile; fileRef = 4FD52130202A5B9B00A4D22A /* IPlugAU.r */; };
 		FA6155D52D3D6AD1003AB0A9 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 4FC46E57231440B4000045E7 /* web */; };
 		FA6155D62D3D6ADA003AB0A9 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 4FC46E57231440B4000045E7 /* web */; };
@@ -341,26 +372,11 @@
 		FAB8D75D2D3424C60011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAB8D75E2D3425660011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAB8D75F2D3426640011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
-		FAC100152D87136E00A61D45 /* IndexRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = FAC100142D87136E00A61D45 /* IndexRoute.h */; };
-		FAC100162D87136E00A61D45 /* IndexRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = FAC100142D87136E00A61D45 /* IndexRoute.h */; };
-		FAC100182D87145900A61D45 /* SignallingRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = FAC100172D87145900A61D45 /* SignallingRoute.h */; };
-		FAC100192D87145900A61D45 /* SignallingRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = FAC100172D87145900A61D45 /* SignallingRoute.h */; };
 		FAC100202D8720C100A61D45 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC1001B2D8720C100A61D45 /* libcrypto.a */; };
 		FAC100212D8720C100A61D45 /* libusrsctp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC1001C2D8720C100A61D45 /* libusrsctp.a */; };
 		FAC100222D8720C100A61D45 /* libjuice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC1001D2D8720C100A61D45 /* libjuice.a */; };
 		FAC100232D8720C100A61D45 /* libdatachannel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC1001E2D8720C100A61D45 /* libdatachannel.a */; };
 		FAC100242D8720C100A61D45 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC1001F2D8720C100A61D45 /* libssl.a */; };
-		FAC2EE7D2D85C46000697D40 /* ReceiverUI.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FAC2EE7A2D85C46000697D40 /* ReceiverUI.hpp */; };
-		FAC2EE7E2D85C46000697D40 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */; };
-		FAC2EE7F2D85C46000697D40 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */; };
-		FAC2EE802D85C46000697D40 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */; };
-		FAC2EE812D85C46000697D40 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */; };
-		FAC2EE822D85C46000697D40 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */; };
-		FAC2EE832D85C46000697D40 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */; };
-		FAC2EE842D85C46000697D40 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */; };
-		FAC2EE852D85C46000697D40 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */; };
-		FAC2EE862D85C46000697D40 /* ReceiverUI.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */; };
-		FAC2EE872D85C46000697D40 /* ReceiverUI.hpp in Headers */ = {isa = PBXBuildFile; fileRef = FAC2EE7A2D85C46000697D40 /* ReceiverUI.hpp */; };
 		FAF3B4922D2E178A0024724B /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAF3B4942D2E18950024724B /* web in Resources */ = {isa = PBXBuildFile; fileRef = 4FC46E57231440B4000045E7 /* web */; };
 		FAF3B4962D2E1A460024724B /* IPlugWebView_mac.mm in Sources */ = {isa = PBXBuildFile; fileRef = FAF3B4952D2E1A460024724B /* IPlugWebView_mac.mm */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -888,14 +904,21 @@
 		B8E22A0A220268C4007CBF4C /* IPlugVST3_ProcessorBase.cpp */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.cpp.cpp; name = IPlugVST3_ProcessorBase.cpp; path = ../../iPlug2/IPlug/VST3/IPlugVST3_ProcessorBase.cpp; sourceTree = "<group>"; tabWidth = 2; };
 		B8E22A0B220268C4007CBF4C /* IPlugVST3_ProcessorBase.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_ProcessorBase.h; path = ../../iPlug2/IPlug/VST3/IPlugVST3_ProcessorBase.h; sourceTree = "<group>"; tabWidth = 2; };
 		B8EA6B932203868500D23A86 /* IPlugVST3_Common.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; name = IPlugVST3_Common.h; path = ../../iPlug2/IPlug/VST3/IPlugVST3_Common.h; sourceTree = "<group>"; tabWidth = 2; };
+		FA244A212DA2EF00006DAD02 /* sha1.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = sha1.inl; sourceTree = "<group>"; };
+		FA244A352DA30525006DAD02 /* PeerConnectionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeerConnectionManager.h; sourceTree = "<group>"; };
+		FA3625502DABDEA300DBD1A9 /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		FA3625552DABDF8800DBD1A9 /* FileUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileUtil.h; sourceTree = "<group>"; };
+		FA3625582DABF82000DBD1A9 /* Routes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Routes.h; sourceTree = "<group>"; };
+		FA3625592DABF82000DBD1A9 /* Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		FA3625662DABF86400DBD1A9 /* ReceiverUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReceiverUI.hpp; sourceTree = "<group>"; };
+		FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReceiverUI.cpp; sourceTree = "<group>"; };
+		FA3625692DABF86400DBD1A9 /* Routes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Routes.h; sourceTree = "<group>"; };
+		FA36256A2DABF86400DBD1A9 /* Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
 		FA4B579E2D85ACAC0059C5E8 /* FirewallManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirewallManager.h; sourceTree = "<group>"; };
 		FA4B57A42D85B1970059C5E8 /* PluginUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = PluginUI.hpp; sourceTree = "<group>"; };
 		FA4B57A52D85B1970059C5E8 /* PluginUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = PluginUI.cpp; sourceTree = "<group>"; };
 		FA5C628F2D7DD69200973AE0 /* Logger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
-		FA5C62902D7DD69200973AE0 /* NetworkUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkUtils.h; sourceTree = "<group>"; };
-		FA5C62912D7DD69200973AE0 /* ResourceUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResourceUtils.h; sourceTree = "<group>"; };
-		FA5C62932D7DD69200973AE0 /* WebServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebServer.h; sourceTree = "<group>"; };
-		FA5C62942D7DD69200973AE0 /* WebSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebSocketManager.h; sourceTree = "<group>"; };
+		FA5C62902D7DD69200973AE0 /* NetworkUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkUtil.h; sourceTree = "<group>"; };
 		FA5C62962D7DD69200973AE0 /* MessageHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageHandler.h; sourceTree = "<group>"; };
 		FA5C62972D7DD69200973AE0 /* MessageTags.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTags.h; sourceTree = "<group>"; };
 		FA5C62A72D7DD6E200973AE0 /* civetweb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = civetweb.h; sourceTree = "<group>"; };
@@ -906,15 +929,13 @@
 		FA5C62AC2D7DD6E200973AE0 /* response.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = response.inl; sourceTree = "<group>"; };
 		FA5C62AD2D7DD6E200973AE0 /* sort.inl */ = {isa = PBXFileReference; lastKnownFileType = text; path = sort.inl; sourceTree = "<group>"; };
 		FA5C62AF2D7DD6E200973AE0 /* json.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
-		FAC100142D87136E00A61D45 /* IndexRoute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IndexRoute.h; sourceTree = "<group>"; };
-		FAC100172D87145900A61D45 /* SignallingRoute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignallingRoute.h; sourceTree = "<group>"; };
+		FA5CC2932DB3E9CE00E3300C /* SignalClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignalClient.h; sourceTree = "<group>"; };
+		FA5CC2962DB3EA8D00E3300C /* PeerConnectionRegistry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeerConnectionRegistry.h; sourceTree = "<group>"; };
 		FAC1001B2D8720C100A61D45 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../vendor/libdatachannel/lib/libcrypto.a; sourceTree = "<group>"; };
 		FAC1001C2D8720C100A61D45 /* libusrsctp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libusrsctp.a; path = ../vendor/libdatachannel/lib/libusrsctp.a; sourceTree = "<group>"; };
 		FAC1001D2D8720C100A61D45 /* libjuice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjuice.a; path = ../vendor/libdatachannel/lib/libjuice.a; sourceTree = "<group>"; };
 		FAC1001E2D8720C100A61D45 /* libdatachannel.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libdatachannel.a; path = ../vendor/libdatachannel/lib/libdatachannel.a; sourceTree = "<group>"; };
 		FAC1001F2D8720C100A61D45 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = ../vendor/libdatachannel/lib/libssl.a; sourceTree = "<group>"; };
-		FAC2EE7A2D85C46000697D40 /* ReceiverUI.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ReceiverUI.hpp; sourceTree = "<group>"; };
-		FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ReceiverUI.cpp; sourceTree = "<group>"; };
 		FAF3B4952D2E1A460024724B /* IPlugWebView_mac.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IPlugWebView_mac.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1790,6 +1811,42 @@
 			name = WDL;
 			sourceTree = "<group>";
 		};
+		FA244A362DA30525006DAD02 /* PeerConnectionManager */ = {
+			isa = PBXGroup;
+			children = (
+				FA244A352DA30525006DAD02 /* PeerConnectionManager.h */,
+			);
+			path = PeerConnectionManager;
+			sourceTree = "<group>";
+		};
+		FA36255A2DABF82000DBD1A9 /* SignalServer */ = {
+			isa = PBXGroup;
+			children = (
+				FA3625582DABF82000DBD1A9 /* Routes.h */,
+				FA3625592DABF82000DBD1A9 /* Server.h */,
+			);
+			path = SignalServer;
+			sourceTree = "<group>";
+		};
+		FA3625682DABF86400DBD1A9 /* ReceiverUI */ = {
+			isa = PBXGroup;
+			children = (
+				FA3625662DABF86400DBD1A9 /* ReceiverUI.hpp */,
+				FA3625672DABF86400DBD1A9 /* ReceiverUI.cpp */,
+			);
+			path = ReceiverUI;
+			sourceTree = "<group>";
+		};
+		FA36256B2DABF86400DBD1A9 /* ReceiverServer */ = {
+			isa = PBXGroup;
+			children = (
+				FA3625682DABF86400DBD1A9 /* ReceiverUI */,
+				FA3625692DABF86400DBD1A9 /* Routes.h */,
+				FA36256A2DABF86400DBD1A9 /* Server.h */,
+			);
+			path = ReceiverServer;
+			sourceTree = "<group>";
+		};
 		FA4B57912D84F2960059C5E8 /* PluginUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1800,37 +1857,30 @@
 			path = ../src/PluginUI;
 			sourceTree = SOURCE_ROOT;
 		};
-		FA5C62922D7DD69200973AE0 /* Utils */ = {
+		FA5C62922D7DD69200973AE0 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				FA5C628F2D7DD69200973AE0 /* Logger.h */,
-				FA5C62902D7DD69200973AE0 /* NetworkUtils.h */,
-				FA5C62912D7DD69200973AE0 /* ResourceUtils.h */,
+				FA3625552DABDF8800DBD1A9 /* FileUtil.h */,
+				FA5C62902D7DD69200973AE0 /* NetworkUtil.h */,
 				FA4B579E2D85ACAC0059C5E8 /* FirewallManager.h */,
+				FA3625502DABDEA300DBD1A9 /* Util.h */,
 			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		FA5C62952D7DD69200973AE0 /* WebServer */ = {
-			isa = PBXGroup;
-			children = (
-				FA5C62932D7DD69200973AE0 /* WebServer.h */,
-				FA5C62942D7DD69200973AE0 /* WebSocketManager.h */,
-				FAC100142D87136E00A61D45 /* IndexRoute.h */,
-				FAC100172D87145900A61D45 /* SignallingRoute.h */,
-			);
-			path = WebServer;
+			path = Util;
 			sourceTree = "<group>";
 		};
 		FA5C62982D7DD69200973AE0 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				FAC2EE7C2D85C46000697D40 /* ReceiverUI */,
+				FA244A362DA30525006DAD02 /* PeerConnectionManager */,
 				FA4B57912D84F2960059C5E8 /* PluginUI */,
-				FA5C62922D7DD69200973AE0 /* Utils */,
-				FA5C62952D7DD69200973AE0 /* WebServer */,
+				FA36256B2DABF86400DBD1A9 /* ReceiverServer */,
+				FA36255A2DABF82000DBD1A9 /* SignalServer */,
+				FA5C62922D7DD69200973AE0 /* Util */,
 				FA5C62962D7DD69200973AE0 /* MessageHandler.h */,
 				FA5C62972D7DD69200973AE0 /* MessageTags.h */,
+				FA5CC2932DB3E9CE00E3300C /* SignalClient.h */,
+				FA5CC2962DB3EA8D00E3300C /* PeerConnectionRegistry.h */,
 			);
 			name = src;
 			path = ../src;
@@ -1845,6 +1895,7 @@
 				FA5C62AA2D7DD6E200973AE0 /* match.inl */,
 				FA5C62AB2D7DD6E200973AE0 /* md5.inl */,
 				FA5C62AC2D7DD6E200973AE0 /* response.inl */,
+				FA244A212DA2EF00006DAD02 /* sha1.inl */,
 				FA5C62AD2D7DD6E200973AE0 /* sort.inl */,
 			);
 			path = civetweb;
@@ -1868,15 +1919,6 @@
 			path = ../vendor;
 			sourceTree = SOURCE_ROOT;
 		};
-		FAC2EE7C2D85C46000697D40 /* ReceiverUI */ = {
-			isa = PBXGroup;
-			children = (
-				FAC2EE7A2D85C46000697D40 /* ReceiverUI.hpp */,
-				FAC2EE7B2D85C46000697D40 /* ReceiverUI.cpp */,
-			);
-			path = ReceiverUI;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1885,21 +1927,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA4B579F2D85ACAC0059C5E8 /* FirewallManager.h in Headers */,
+				FA5CC2952DB3E9CE00E3300C /* SignalClient.h in Headers */,
 				FA5C62BE2D7DD6E200973AE0 /* json.hpp in Headers */,
-				FAC2EE872D85C46000697D40 /* ReceiverUI.hpp in Headers */,
 				FA5C62BF2D7DD6E200973AE0 /* civetweb.h in Headers */,
 				4F4856862773C3B5005BCF8E /* IPlugAUAudioUnit.h in Headers */,
+				FA36255B2DABF82000DBD1A9 /* Routes.h in Headers */,
+				FA36255C2DABF82000DBD1A9 /* Server.h in Headers */,
+				FA244A382DA30525006DAD02 /* PeerConnectionManager.h in Headers */,
 				4F78BE1222E73DD900AD537E /* StraudioAU.h in Headers */,
 				FA4B57AD2D85B1970059C5E8 /* PluginUI.hpp in Headers */,
 				FA5C62A02D7DD69200973AE0 /* MessageHandler.h in Headers */,
-				FAC100192D87145900A61D45 /* SignallingRoute.h in Headers */,
-				FA5C62A12D7DD69200973AE0 /* WebServer.h in Headers */,
-				FAC100162D87136E00A61D45 /* IndexRoute.h in Headers */,
-				FA5C62A22D7DD69200973AE0 /* ResourceUtils.h in Headers */,
-				FA5C62A32D7DD69200973AE0 /* WebSocketManager.h in Headers */,
+				FA3625572DABDF8800DBD1A9 /* FileUtil.h in Headers */,
+				FA5CC2972DB3EA8D00E3300C /* PeerConnectionRegistry.h in Headers */,
 				FA5C62A42D7DD69200973AE0 /* MessageTags.h in Headers */,
-				FA5C62A52D7DD69200973AE0 /* NetworkUtils.h in Headers */,
+				FA5C62A52D7DD69200973AE0 /* NetworkUtil.h in Headers */,
+				FA3625522DABDEA300DBD1A9 /* Util.h in Headers */,
 				FA5C62A62D7DD69200973AE0 /* Logger.h in Headers */,
+				FA3625762DABF86400DBD1A9 /* Server.h in Headers */,
+				FA3625772DABF86400DBD1A9 /* ReceiverUI.hpp in Headers */,
+				FA3625782DABF86400DBD1A9 /* Routes.h in Headers */,
 				4F4856852773C3B5005BCF8E /* IPlugAUViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1909,23 +1955,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FC3EFF02086CE5700BD11FA /* eventlist.h in Headers */,
+				FA5CC2942DB3E9CE00E3300C /* SignalClient.h in Headers */,
 				4FC3EFF42086CE5700BD11FA /* module.h in Headers */,
 				4F03A58C20A4621100EBDFFB /* IGraphicsNanoVG.h in Headers */,
 				4F03A5D320A4621100EBDFFB /* IGraphicsStructs.h in Headers */,
 				4FC3EFF82086CE5700BD11FA /* optional.h in Headers */,
+				FA36256F2DABF86400DBD1A9 /* Server.h in Headers */,
+				FA3625702DABF86400DBD1A9 /* ReceiverUI.hpp in Headers */,
+				FA3625712DABF86400DBD1A9 /* Routes.h in Headers */,
+				FA36255D2DABF82000DBD1A9 /* Routes.h in Headers */,
+				FA36255E2DABF82000DBD1A9 /* Server.h in Headers */,
 				FA5C62D82D7DD6E200973AE0 /* json.hpp in Headers */,
 				FA5C62D92D7DD6E200973AE0 /* civetweb.h in Headers */,
 				4FC3F0012086CE5700BD11FA /* uid.h in Headers */,
 				FA4B57A02D85ACAC0059C5E8 /* FirewallManager.h in Headers */,
-				FAC100182D87145900A61D45 /* SignallingRoute.h in Headers */,
+				FA3625562DABDF8800DBD1A9 /* FileUtil.h in Headers */,
 				4F03A5B620A4621100EBDFFB /* IGraphics_select.h in Headers */,
+				FA3625512DABDEA300DBD1A9 /* Util.h in Headers */,
 				FA5C62992D7DD69200973AE0 /* MessageHandler.h in Headers */,
-				FA5C629A2D7DD69200973AE0 /* WebServer.h in Headers */,
-				FA5C629B2D7DD69200973AE0 /* ResourceUtils.h in Headers */,
-				FA5C629C2D7DD69200973AE0 /* WebSocketManager.h in Headers */,
 				FA5C629D2D7DD69200973AE0 /* MessageTags.h in Headers */,
 				FA4B57AE2D85B1970059C5E8 /* PluginUI.hpp in Headers */,
-				FA5C629E2D7DD69200973AE0 /* NetworkUtils.h in Headers */,
+				FA5C629E2D7DD69200973AE0 /* NetworkUtil.h in Headers */,
 				FA5C629F2D7DD69200973AE0 /* Logger.h in Headers */,
 				4F03A5AB20A4621100EBDFFB /* IGraphics_include_in_plug_hdr.h in Headers */,
 				4FC3EFF22086CE5700BD11FA /* hostclasses.h in Headers */,
@@ -1934,15 +1984,15 @@
 				4F6369EA20A466470022C370 /* IControl.h in Headers */,
 				4F03A5D520A4621100EBDFFB /* IGraphicsConstants.h in Headers */,
 				4FF3205820B2BFAB00269268 /* IPlugPaths.h in Headers */,
+				FA5CC2982DB3EA8D00E3300C /* PeerConnectionRegistry.h in Headers */,
 				4F03A5B720A4621100EBDFFB /* IGraphics.h in Headers */,
 				4F6FD2B022675B6300FC59E6 /* IGraphicsCoreText.h in Headers */,
-				FAC2EE7D2D85C46000697D40 /* ReceiverUI.hpp in Headers */,
 				4F03A5D220A4621100EBDFFB /* IGraphicsPopupMenu.h in Headers */,
-				FAC100152D87136E00A61D45 /* IndexRoute.h in Headers */,
 				4FC3EFFE2086CE5700BD11FA /* processdata.h in Headers */,
 				4FC3F0002086CE5700BD11FA /* stringconvert.h in Headers */,
 				4F8C10E720BA2796006320CD /* IGraphicsEditorDelegate.h in Headers */,
 				4FC3EFFA2086CE5700BD11FA /* parameterchanges.h in Headers */,
+				FA244A372DA30525006DAD02 /* PeerConnectionManager.h in Headers */,
 				4F03A5B320A4621100EBDFFB /* IGraphics_include_in_plug_src.h in Headers */,
 				4FC3EFFC2086CE5700BD11FA /* plugprovider.h in Headers */,
 			);
@@ -2246,6 +2296,7 @@
 				FA5C62CA2D7DD6E200973AE0 /* handle_form.inl in Resources */,
 				FA5C62CB2D7DD6E200973AE0 /* match.inl in Resources */,
 				FA6155D62D3D6ADA003AB0A9 /* web in Resources */,
+				FA244A292DA2EF00006DAD02 /* sha1.inl in Resources */,
 				FA5CF0B42D3ED5F8001DFD3A /* IPlugAU.r in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2258,6 +2309,7 @@
 				FA5C62DD2D7DD6E200973AE0 /* sort.inl in Resources */,
 				FA5C62DE2D7DD6E200973AE0 /* response.inl in Resources */,
 				FA5C62DF2D7DD6E200973AE0 /* handle_form.inl in Resources */,
+				FA244A282DA2EF00006DAD02 /* sha1.inl in Resources */,
 				FA5C62E02D7DD6E200973AE0 /* match.inl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2272,6 +2324,7 @@
 				FA5C62B52D7DD6E200973AE0 /* handle_form.inl in Resources */,
 				FA5C62B62D7DD6E200973AE0 /* match.inl in Resources */,
 				4F3EE1C0231438D000004786 /* Straudio-macOS-MainMenu.xib in Resources */,
+				FA244A242DA2EF00006DAD02 /* sha1.inl in Resources */,
 				4F037D77261F9DB400A752B5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2284,6 +2337,7 @@
 				FA5C62C12D7DD6E200973AE0 /* md5.inl in Resources */,
 				FA5C62C22D7DD6E200973AE0 /* sort.inl in Resources */,
 				FA5C62C32D7DD6E200973AE0 /* response.inl in Resources */,
+				FA244A262DA2EF00006DAD02 /* sha1.inl in Resources */,
 				FA5C62C42D7DD6E200973AE0 /* handle_form.inl in Resources */,
 				FA5C62C52D7DD6E200973AE0 /* match.inl in Resources */,
 			);
@@ -2297,6 +2351,7 @@
 				FA5C62D22D7DD6E200973AE0 /* md5.inl in Resources */,
 				FA5C62D32D7DD6E200973AE0 /* sort.inl in Resources */,
 				FA5C62D42D7DD6E200973AE0 /* response.inl in Resources */,
+				FA244A272DA2EF00006DAD02 /* sha1.inl in Resources */,
 				FA5C62D52D7DD6E200973AE0 /* handle_form.inl in Resources */,
 				FA5C62D62D7DD6E200973AE0 /* match.inl in Resources */,
 			);
@@ -2310,6 +2365,7 @@
 				FA5C62E12D7DD6E200973AE0 /* md5.inl in Resources */,
 				FA5C62E22D7DD6E200973AE0 /* sort.inl in Resources */,
 				FA5C62E32D7DD6E200973AE0 /* response.inl in Resources */,
+				FA244A232DA2EF00006DAD02 /* sha1.inl in Resources */,
 				FA5C62E42D7DD6E200973AE0 /* handle_form.inl in Resources */,
 				FA5C62E52D7DD6E200973AE0 /* match.inl in Resources */,
 			);
@@ -2323,6 +2379,7 @@
 				FA5C62CD2D7DD6E200973AE0 /* md5.inl in Resources */,
 				FA5C62CE2D7DD6E200973AE0 /* sort.inl in Resources */,
 				FA5C62CF2D7DD6E200973AE0 /* response.inl in Resources */,
+				FA244A222DA2EF00006DAD02 /* sha1.inl in Resources */,
 				FA5C62D02D7DD6E200973AE0 /* handle_form.inl in Resources */,
 				FA5C62D12D7DD6E200973AE0 /* match.inl in Resources */,
 				4F1B4AE42014D33600BC64D4 /* Straudio-macOS-MainMenu.xib in Resources */,
@@ -2338,6 +2395,7 @@
 				FA5C62BA2D7DD6E200973AE0 /* sort.inl in Resources */,
 				FA5C62BB2D7DD6E200973AE0 /* response.inl in Resources */,
 				FA5C62BC2D7DD6E200973AE0 /* handle_form.inl in Resources */,
+				FA244A252DA2EF00006DAD02 /* sha1.inl in Resources */,
 				FA5C62BD2D7DD6E200973AE0 /* match.inl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2508,7 +2566,7 @@
 			files = (
 				4F4856892773CA76005BCF8E /* StraudioAUv3Appex.m in Sources */,
 				FAF3B49A2D2E1A460024724B /* IPlugWebView_mac.mm in Sources */,
-				FAC2EE802D85C46000697D40 /* ReceiverUI.cpp in Sources */,
+				FA3625722DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */,
 				FA4B57A92D85B1970059C5E8 /* PluginUI.cpp in Sources */,
 				FA5C62DB2D7DD6E200973AE0 /* civetweb.c in Sources */,
 			);
@@ -2525,7 +2583,7 @@
 				FAF3B4962D2E1A460024724B /* IPlugWebView_mac.mm in Sources */,
 				4FDAC0ED207D76C600299363 /* IPlugTimer.cpp in Sources */,
 				FA5C62C62D7DD6E200973AE0 /* civetweb.c in Sources */,
-				FAC2EE842D85C46000697D40 /* ReceiverUI.cpp in Sources */,
+				FA36256C2DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */,
 				4F78D94513B63BA50032E0F3 /* IPlugAPIBase.cpp in Sources */,
 				4FD52136202A5BD000A4D22A /* dfx-au-utilities.c in Sources */,
 				4F5F344420C0226200487201 /* IPlugPaths.mm in Sources */,
@@ -2548,7 +2606,7 @@
 				FA5C62B72D7DD6E200973AE0 /* civetweb.c in Sources */,
 				FAF3B49D2D2E1A460024724B /* IPlugWebView_mac.mm in Sources */,
 				4F3EE1C9231438D000004786 /* swellappmain.mm in Sources */,
-				FAC2EE822D85C46000697D40 /* ReceiverUI.cpp in Sources */,
+				FA3625732DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */,
 				4F3EE1CA231438D000004786 /* swell-kb.mm in Sources */,
 				4F3EE1CC231438D000004786 /* IPlugPaths.mm in Sources */,
 				4F3EE1CD231438D000004786 /* swell-miscdlg.mm in Sources */,
@@ -2578,7 +2636,7 @@
 			files = (
 				FAF3B49B2D2E1A460024724B /* IPlugWebView_mac.mm in Sources */,
 				FAB8D75F2D3426640011E751 /* IPlugWebViewEditorDelegate.mm in Sources */,
-				FAC2EE862D85C46000697D40 /* ReceiverUI.cpp in Sources */,
+				FA3625752DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */,
 				4F78BE1422E7406D00AD537E /* Straudio.h in Sources */,
 				4F0D965C23099F6900BFDED0 /* IPlugProcessor.cpp in Sources */,
 				FA4B57AC2D85B1970059C5E8 /* PluginUI.cpp in Sources */,
@@ -2633,7 +2691,7 @@
 				4F81598D205D51F000393585 /* vstaudioeffect.cpp in Sources */,
 				4F81598C205D51CF00393585 /* vstsinglecomponenteffect.cpp in Sources */,
 				4F815984205D50EB00393585 /* updatehandler.cpp in Sources */,
-				FAC2EE832D85C46000697D40 /* ReceiverUI.cpp in Sources */,
+				FA3625792DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */,
 				4F815990205D51F000393585 /* vstcomponent.cpp in Sources */,
 				4F815981205D50EB00393585 /* fstreamer.cpp in Sources */,
 				4F815996205D51F000393585 /* vstrepresentation.cpp in Sources */,
@@ -2662,7 +2720,7 @@
 				4F35DEB1207E5C5A00867D8F /* IPlugPluginBase.cpp in Sources */,
 				FA4B57A62D85B1970059C5E8 /* PluginUI.cpp in Sources */,
 				FA5C62E62D7DD6E200973AE0 /* civetweb.c in Sources */,
-				FAC2EE852D85C46000697D40 /* ReceiverUI.cpp in Sources */,
+				FA36257A2DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */,
 				4F5F344520C0226200487201 /* IPlugPaths.mm in Sources */,
 				4F1A5285205D914A00CF2908 /* IPlugAAX.cpp in Sources */,
 				4F0848292015129A00F9E881 /* IPlugAAX_Parameters.cpp in Sources */,
@@ -2691,7 +2749,7 @@
 				FAF3B4992D2E1A460024724B /* IPlugWebView_mac.mm in Sources */,
 				4F6FD2B722675B6300FC59E6 /* IGraphicsCoreText.mm in Sources */,
 				4F8C10E620BA2796006320CD /* IGraphicsEditorDelegate.cpp in Sources */,
-				FAC2EE7E2D85C46000697D40 /* ReceiverUI.cpp in Sources */,
+				FA36256E2DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */,
 				4FC3EFF92086CE5700BD11FA /* parameterchanges.cpp in Sources */,
 				FA4B57AF2D85B1970059C5E8 /* PluginUI.cpp in Sources */,
 				4FC3EFCE2086C35D00BD11FA /* IPlugPluginBase.cpp in Sources */,
@@ -2716,7 +2774,7 @@
 				FA5C62CC2D7DD6E200973AE0 /* civetweb.c in Sources */,
 				FAF3B4982D2E1A460024724B /* IPlugWebView_mac.mm in Sources */,
 				4F5C5F6921BED05B00E024A7 /* swellappmain.mm in Sources */,
-				FAC2EE7F2D85C46000697D40 /* ReceiverUI.cpp in Sources */,
+				FA3625742DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */,
 				4FD16D3A13B63582001D0217 /* swell-kb.mm in Sources */,
 				4F5F344120C0226200487201 /* IPlugPaths.mm in Sources */,
 				4FD16D3C13B6358C001D0217 /* swell-miscdlg.mm in Sources */,
@@ -2748,7 +2806,7 @@
 				4FFBB90620863B0E00DDD0E7 /* IPlugTimer.cpp in Sources */,
 				4FFBB90720863B0E00DDD0E7 /* Straudio.cpp in Sources */,
 				4FFBB90820863B0E00DDD0E7 /* pluginfactory.cpp in Sources */,
-				FAC2EE812D85C46000697D40 /* ReceiverUI.cpp in Sources */,
+				FA36256D2DABF86400DBD1A9 /* ReceiverUI.cpp in Sources */,
 				4FFBB90920863B0E00DDD0E7 /* vstinitiids.cpp in Sources */,
 				4FFBB90A20863B0E00DDD0E7 /* fdebug.cpp in Sources */,
 				4FFBB90C20863B0E00DDD0E7 /* IPlugAPIBase.cpp in Sources */,
