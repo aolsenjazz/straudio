@@ -8,7 +8,7 @@
 
 class MultiPeerConnectionManager {
 public:
-  std::string mSessionId;
+  std::string mSessionId = "1";
   
   explicit MultiPeerConnectionManager(std::string wsUrl)
   : mWsUrl(std::move(wsUrl)),
@@ -19,8 +19,9 @@ public:
   
   inline bool start() {
     if (mRunning) return true;
-    bool ok = mSignal.connect([this](const nlohmann::json &j) { onSignal(j); });
-    if (!ok) return false;
+    mSignal.connect([this](const nlohmann::json& j) {
+      onSignal(j);
+    });
     
     nlohmann::json createMsg = {{"type", "createSession"},
       {"timeSent", Util::currentTimestamp()},
@@ -41,7 +42,8 @@ private:
   inline void onSignal(const nlohmann::json &j) {
     std::string type = j.value("type", "");
     if (type == "sessionCreated") {
-      mSessionId = j["payload"].value("sessionId", "");
+      // The trivial solution is to hardcode a sessionId; this is acceptable right now.
+//      mSessionId = j["payload"].value("sessionId", "");
       Logger::info("Session created: " + mSessionId);
     } else if (type == "offer") {
       mPeers.handleOffer(j["payload"]);

@@ -7,6 +7,7 @@
 #include "src/ReceiverServer/Server.h"
 #include "src/SignalServer/Server.h"
 #include "src/PeerConnectionManager/PeerConnectionManager.h"
+#include "src/ConnectivityManager.h"
 
 using namespace iplug;
 
@@ -27,5 +28,7 @@ public:
 private:
   void initializeWebServers();
   std::string mPluginFilePath;
+  std::unique_ptr<ConnectivityManager> mConnectivity;
+  void shutdownWebServers();
   ~Straudio();
 };

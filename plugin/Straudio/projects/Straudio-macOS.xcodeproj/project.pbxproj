@@ -368,6 +368,12 @@
 		FA6155D52D3D6AD1003AB0A9 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 4FC46E57231440B4000045E7 /* web */; };
 		FA6155D62D3D6ADA003AB0A9 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 4FC46E57231440B4000045E7 /* web */; };
 		FA6155D72D3D6AE5003AB0A9 /* web in Resources */ = {isa = PBXBuildFile; fileRef = 4FC46E57231440B4000045E7 /* web */; };
+		FA93B5D42DE4A9DD0052248F /* AudioStreamer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA93B5D32DE4A9DD0052248F /* AudioStreamer.h */; };
+		FA93B5D52DE4A9DD0052248F /* AudioStreamer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA93B5D32DE4A9DD0052248F /* AudioStreamer.h */; };
+		FA93B5D72DE4AA090052248F /* AudioRing.h in Headers */ = {isa = PBXBuildFile; fileRef = FA93B5D62DE4AA090052248F /* AudioRing.h */; };
+		FA93B5D82DE4AA090052248F /* AudioRing.h in Headers */ = {isa = PBXBuildFile; fileRef = FA93B5D62DE4AA090052248F /* AudioRing.h */; };
+		FA93B5DA2DE50C5A0052248F /* ConnectivityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA93B5D92DE50C5A0052248F /* ConnectivityManager.h */; };
+		FA93B5DB2DE50C5A0052248F /* ConnectivityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = FA93B5D92DE50C5A0052248F /* ConnectivityManager.h */; };
 		FAB8D75C2D3423920011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAB8D75D2D3424C60011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
 		FAB8D75E2D3425660011E751 /* IPlugWebViewEditorDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4F7C49BA255DE0E200DF7588 /* IPlugWebViewEditorDelegate.mm */; };
@@ -931,6 +937,9 @@
 		FA5C62AF2D7DD6E200973AE0 /* json.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
 		FA5CC2932DB3E9CE00E3300C /* SignalClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignalClient.h; sourceTree = "<group>"; };
 		FA5CC2962DB3EA8D00E3300C /* PeerConnectionRegistry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PeerConnectionRegistry.h; sourceTree = "<group>"; };
+		FA93B5D32DE4A9DD0052248F /* AudioStreamer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
+		FA93B5D62DE4AA090052248F /* AudioRing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioRing.h; sourceTree = "<group>"; };
+		FA93B5D92DE50C5A0052248F /* ConnectivityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectivityManager.h; sourceTree = "<group>"; };
 		FAC1001B2D8720C100A61D45 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = ../vendor/libdatachannel/lib/libcrypto.a; sourceTree = "<group>"; };
 		FAC1001C2D8720C100A61D45 /* libusrsctp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libusrsctp.a; path = ../vendor/libdatachannel/lib/libusrsctp.a; sourceTree = "<group>"; };
 		FAC1001D2D8720C100A61D45 /* libjuice.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjuice.a; path = ../vendor/libdatachannel/lib/libjuice.a; sourceTree = "<group>"; };
@@ -1872,6 +1881,7 @@
 		FA5C62982D7DD69200973AE0 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				FA93B5D22DE4A9B90052248F /* Audio */,
 				FA244A362DA30525006DAD02 /* PeerConnectionManager */,
 				FA4B57912D84F2960059C5E8 /* PluginUI */,
 				FA36256B2DABF86400DBD1A9 /* ReceiverServer */,
@@ -1881,6 +1891,7 @@
 				FA5C62972D7DD69200973AE0 /* MessageTags.h */,
 				FA5CC2932DB3E9CE00E3300C /* SignalClient.h */,
 				FA5CC2962DB3EA8D00E3300C /* PeerConnectionRegistry.h */,
+				FA93B5D92DE50C5A0052248F /* ConnectivityManager.h */,
 			);
 			name = src;
 			path = ../src;
@@ -1919,6 +1930,15 @@
 			path = ../vendor;
 			sourceTree = SOURCE_ROOT;
 		};
+		FA93B5D22DE4A9B90052248F /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				FA93B5D32DE4A9DD0052248F /* AudioStreamer.h */,
+				FA93B5D62DE4AA090052248F /* AudioRing.h */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1931,17 +1951,20 @@
 				FA5C62BE2D7DD6E200973AE0 /* json.hpp in Headers */,
 				FA5C62BF2D7DD6E200973AE0 /* civetweb.h in Headers */,
 				4F4856862773C3B5005BCF8E /* IPlugAUAudioUnit.h in Headers */,
+				FA93B5DB2DE50C5A0052248F /* ConnectivityManager.h in Headers */,
 				FA36255B2DABF82000DBD1A9 /* Routes.h in Headers */,
 				FA36255C2DABF82000DBD1A9 /* Server.h in Headers */,
 				FA244A382DA30525006DAD02 /* PeerConnectionManager.h in Headers */,
 				4F78BE1222E73DD900AD537E /* StraudioAU.h in Headers */,
 				FA4B57AD2D85B1970059C5E8 /* PluginUI.hpp in Headers */,
+				FA93B5D72DE4AA090052248F /* AudioRing.h in Headers */,
 				FA5C62A02D7DD69200973AE0 /* MessageHandler.h in Headers */,
 				FA3625572DABDF8800DBD1A9 /* FileUtil.h in Headers */,
 				FA5CC2972DB3EA8D00E3300C /* PeerConnectionRegistry.h in Headers */,
 				FA5C62A42D7DD69200973AE0 /* MessageTags.h in Headers */,
 				FA5C62A52D7DD69200973AE0 /* NetworkUtil.h in Headers */,
 				FA3625522DABDEA300DBD1A9 /* Util.h in Headers */,
+				FA93B5D42DE4A9DD0052248F /* AudioStreamer.h in Headers */,
 				FA5C62A62D7DD69200973AE0 /* Logger.h in Headers */,
 				FA3625762DABF86400DBD1A9 /* Server.h in Headers */,
 				FA3625772DABF86400DBD1A9 /* ReceiverUI.hpp in Headers */,
@@ -1956,6 +1979,8 @@
 			files = (
 				4FC3EFF02086CE5700BD11FA /* eventlist.h in Headers */,
 				FA5CC2942DB3E9CE00E3300C /* SignalClient.h in Headers */,
+				FA93B5D82DE4AA090052248F /* AudioRing.h in Headers */,
+				FA93B5D52DE4A9DD0052248F /* AudioStreamer.h in Headers */,
 				4FC3EFF42086CE5700BD11FA /* module.h in Headers */,
 				4F03A58C20A4621100EBDFFB /* IGraphicsNanoVG.h in Headers */,
 				4F03A5D320A4621100EBDFFB /* IGraphicsStructs.h in Headers */,
@@ -1985,6 +2010,7 @@
 				4F03A5D520A4621100EBDFFB /* IGraphicsConstants.h in Headers */,
 				4FF3205820B2BFAB00269268 /* IPlugPaths.h in Headers */,
 				FA5CC2982DB3EA8D00E3300C /* PeerConnectionRegistry.h in Headers */,
+				FA93B5DA2DE50C5A0052248F /* ConnectivityManager.h in Headers */,
 				4F03A5B720A4621100EBDFFB /* IGraphics.h in Headers */,
 				4F6FD2B022675B6300FC59E6 /* IGraphicsCoreText.h in Headers */,
 				4F03A5D220A4621100EBDFFB /* IGraphicsPopupMenu.h in Headers */,

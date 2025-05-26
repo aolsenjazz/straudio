@@ -20,6 +20,9 @@ using json = nlohmann::json;
 namespace SignallingRoute {
 
 static std::mutex sessionMutex;
+struct PingMeta { bool awaiting{false}; };
+static std::unordered_map<const mg_connection*, PingMeta> pingState;
+
 
 // Simple data for each WebSocket connection
 struct ConnectionInfo {
@@ -36,44 +39,73 @@ struct Session {
 static std::unordered_map<const mg_connection*, ConnectionInfo> connectionToInfo;
 static std::unordered_map<std::string, Session> sessionIdToSession;
 
-////////////////////////////////////////////////////////////////////////////////
-// A background thread that sends pings every 5 seconds
-////////////////////////////////////////////////////////////////////////////////
+static std::thread               gPingThread;
+static std::atomic<bool>         gKeepPinging{false};
+static std::condition_variable   gPingCv;
+static std::mutex                gPingMx;
 
-static std::thread gPingThread;
-static std::atomic<bool> gKeepPinging{false};
-static std::atomic<bool> gPingThreadStarted{false};
+void websocketCloseHandler(const struct mg_connection* conn, void* cbdata);
+
+
+inline void dropConn(mg_connection* c)
+{
+  mg_websocket_write(c, MG_WEBSOCKET_OPCODE_CONNECTION_CLOSE, "", 0);
+
+  {
+    std::lock_guard<std::mutex> lock(sessionMutex);
+    pingState.erase(c);
+  }
+
+  mg_close_connection(c);
+}
 
 static void startPingThread()
 {
-  bool alreadyStarted = gPingThreadStarted.exchange(true);
-  if (alreadyStarted) {
-    return;
-  }
-  gKeepPinging.store(true);
+  if (gKeepPinging.exchange(true)) return;
+  
   gPingThread = std::thread([] {
-    while (gKeepPinging.load()) {
-      {
-        std::lock_guard<std::mutex> lock(sessionMutex);
-        for (auto &kv : connectionToInfo) {
-          mg_connection* conn = const_cast<mg_connection*>(kv.first);
-          json pingMsg = {
-            {"type", "ping"},
-            {"timeSent", Util::currentTimestamp()}
-          };
-          std::string msgStr = pingMsg.dump();
-          mg_websocket_write(conn, MG_WEBSOCKET_OPCODE_TEXT,
-                             msgStr.c_str(), msgStr.size());
+    std::unique_lock lk(gPingMx);
+    while (gKeepPinging) {
+      if (gPingCv.wait_for(lk, std::chrono::seconds(5),
+                           [] { return !gKeepPinging.load(); }))
+        break;
+      
+      std::vector<mg_connection*> toDrop;
+      
+      { /* gather under sessionMutex */
+        std::lock_guard<std::mutex> guard(sessionMutex);
+        for (auto& kv : connectionToInfo) {
+          const mg_connection* c = kv.first;
+          auto& meta = pingState[c];
+          
+          if (meta.awaiting) {
+            toDrop.push_back(const_cast<mg_connection*>(c));
+            continue;
+          }
+          json ping = {{"type","ping"},{"timeSent",Util::currentTimestamp()}};
+          std::string s = ping.dump();
+          mg_websocket_write(const_cast<mg_connection*>(c),
+                             MG_WEBSOCKET_OPCODE_TEXT, s.c_str(), s.size());
+          meta.awaiting = true;
         }
       }
-      std::this_thread::sleep_for(std::chrono::seconds(5));
+      
+      for (auto* c : toDrop) {
+        Logger::info("Unanswered ping. Closing...");
+        dropConn(c);
+      }
     }
   });
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// Utility function to find the host's clientId in a session
-////////////////////////////////////////////////////////////////////////////////
+
+inline void stopPingThread()
+{
+  gKeepPinging.store(false);
+  gPingCv.notify_all();
+  if (gPingThread.joinable())
+    gPingThread.join();
+}
 
 static std::string getHostIdFromSession(const Session &session) {
   for (mg_connection* cl : session.clientConnections) {
@@ -84,10 +116,6 @@ static std::string getHostIdFromSession(const Session &session) {
   }
   return "";
 }
-
-////////////////////////////////////////////////////////////////////////////////
-// Routes an incoming message to the correct target client
-////////////////////////////////////////////////////////////////////////////////
 
 static void routeSignalingMessage(const std::string &sessionId,
                                   mg_connection* sender,
@@ -128,10 +156,6 @@ static void routeSignalingMessage(const std::string &sessionId,
   }
 }
 
-////////////////////////////////////////////////////////////////////////////////
-// CivetWeb Handlers
-////////////////////////////////////////////////////////////////////////////////
-
 int websocketConnectHandler(const struct mg_connection *conn, void *cbdata) {
   Logger::info("Received new WebSocket connection request. Accepting...");
   return 0;
@@ -147,7 +171,6 @@ void websocketReadyHandler(struct mg_connection *conn, void *cbdata) {
     connectionToInfo[conn] = info;
   }
   
-  // Start the ping thread once
   startPingThread();
 }
 
@@ -163,7 +186,7 @@ int websocketDataHandler(struct mg_connection *conn,
   }
   
   std::string message(data, len);
-  Logger::info("Received message: " + message);
+  Logger::verbose("Received message: " + message);
   
   try {
     json j = json::parse(message);
@@ -260,15 +283,14 @@ int websocketDataHandler(struct mg_connection *conn,
       routeSignalingMessage(connInfo.sessionId, conn, updatedMsg, targetClientId);
     }
     else if (type == "ping") {
-      long long timeSent = j.value("timeSent", 0LL);
-      Logger::info("Received ping with timeSent=" + std::to_string(timeSent));
       json pongMsg;
       pongMsg["type"] = "pong";
       pongMsg["timeSent"] = Util::currentTimestamp();
       std::string pongStr = pongMsg.dump();
-//      mg_websocket_write(conn, MG_WEBSOCKET_OPCODE_TEXT, pongStr.c_str(), pongStr.size());
+      mg_websocket_write(conn, MG_WEBSOCKET_OPCODE_TEXT, pongStr.c_str(), pongStr.size());
     } else if (type == "pong") {
-      // no-op
+      std::lock_guard<std::mutex> lock(sessionMutex);
+      pingState[conn].awaiting = false;
     }
     else {
       Logger::error("Unknown signaling type: " + type);
@@ -308,3 +330,5 @@ void websocketCloseHandler(const struct mg_connection *conn, void *cbdata) {
 }
 
 }
+
+

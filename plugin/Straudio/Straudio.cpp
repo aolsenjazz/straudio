@@ -12,11 +12,15 @@
 #include "src/SignalServer/Server.h"
 #include "src/PeerConnectionManager/PeerConnectionManager.h"
 #include "src/MessageHandler.h"
+#include "src/Util/Logger.h"
+#include "src/Util/NetworkUtil.h"
 
 using json = nlohmann::json;
 
 Straudio::Straudio(const InstanceInfo& info)
 : Plugin(info, MakeConfig(0, 0)) {
+  Logger::setMinLevel(Logger::Level::INFO);
+  
   //#ifdef DEBUG
   SetEnableDevTools(true);
   //#endif
@@ -28,11 +32,17 @@ Straudio::Straudio(const InstanceInfo& info)
   };
   
   mPluginFilePath = AppDataFileHelper::WriteDataToAppDir("plugin-ui.html", PLUGIN_UI, PLUGIN_UI_length);
-  initializeWebServers();
+  
+  mConnectivity = std::make_unique<ConnectivityManager>(
+                                                        [this]{ shutdownWebServers(); },
+                                                        [this]{ initializeWebServers(); }
+                                                        );
+  mConnectivity->start();
 }
 
 Straudio::~Straudio()
 {
+  if (mConnectivity) mConnectivity->stop();
   if (mPeerConnectionManager) mPeerConnectionManager->stop();
   if (mSignalServer)         mSignalServer->stop();
   if (mFrontendServer)       mFrontendServer->stop();
@@ -68,6 +78,15 @@ void Straudio::initializeWebServers() {
   if (!peerSuccess) {
     abort();
   }
+  
+  MessageHandler::HandleUrlRequest(this);
+}
+
+void Straudio::shutdownWebServers()
+{
+  if (mPeerConnectionManager) { mPeerConnectionManager->stop(); }
+  if (mSignalServer)         { mSignalServer->stop(); }
+  if (mFrontendServer)       { mFrontendServer->stop(); }
 }
 
 void Straudio::OnMessageFromWebView(const char* jsonStr) {

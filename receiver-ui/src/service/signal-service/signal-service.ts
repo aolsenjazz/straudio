@@ -19,11 +19,10 @@ export class SignalService {
   private static instance: SignalService;
   private ws: WebSocket | null = null;
   private connectionTimeoutId: number | null = null;
-  private pingIntervalId: number | null = null;
-  private pingTimeoutId: number | null = null; // timeout for pong response
+  private pingIntervalId: ReturnType<typeof setInterval> | null = null;
+  private pingWaiting = false;
 
   private defaultConnectTimeoutMs = 5000;
-  private pingTimeoutMs = 3000; // 3 seconds to wait for pong
 
   private listeners: {
     [K in PublicSignalEvents]?: Set<Listener<SignalEventMap[K]>>;
@@ -230,37 +229,26 @@ export class SignalService {
 
   private handlePing(msg: PingMessage) {
     logger.verbose(`Received ping at ${msg.timeSent}; sending pong`);
-    // Respond to the ping
     this.send('pong', { timestamp: Date.now() }, false);
-    // Clear any ping timeout; receiving a ping implies liveness.
-    this.clearPingTimeout();
   }
 
   private handlePong(msg: PongMessage) {
     logger.verbose(`Received pong at ${msg.timeSent}`);
-    // Clear any ping timeout because pong arrived.
-    this.clearPingTimeout();
+    this.pingWaiting = false;
   }
 
   private startClientPingLoop() {
     if (this.pingIntervalId) return;
-    this.pingIntervalId = window.setInterval(() => {
-      if (this.isOpen()) {
-        // If a previous ping timeout is still active, that means no pong was received.
-        if (this.pingTimeoutId !== null) {
-          logger.error('Ping timeout: no pong received. Disconnecting.');
-          this.disconnect(4000, 'Ping timeout');
-          return;
-        }
-        this.send('ping', { timestamp: Date.now() }, false);
+    this.pingIntervalId = setInterval(() => {
+      if (!this.isOpen()) return;
 
-        this.pingTimeoutId = window.setTimeout(() => {
-          logger.error(
-            'Ping timeout (setTimeout fired): no pong received. Disconnecting.'
-          );
-          this.disconnect(4000, 'Ping timeout');
-        }, this.pingTimeoutMs);
+      if (this.pingWaiting) {
+        logger.error('Ping timeout: no pong received. Disconnecting.');
+        this.disconnect(4000, 'Ping timeout');
+        return;
       }
+      this.send('ping', { timestamp: Date.now() }, false);
+      this.pingWaiting = true;
     }, 5000);
   }
 
@@ -268,14 +256,6 @@ export class SignalService {
     if (this.pingIntervalId !== null) {
       clearInterval(this.pingIntervalId);
       this.pingIntervalId = null;
-    }
-    this.clearPingTimeout();
-  }
-
-  private clearPingTimeout() {
-    if (this.pingTimeoutId !== null) {
-      clearTimeout(this.pingTimeoutId);
-      this.pingTimeoutId = null;
     }
   }
 
