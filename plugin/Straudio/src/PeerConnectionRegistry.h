@@ -2,8 +2,8 @@
 #include <functional>
 #include <memory>
 #include <unordered_map>
-#include <rtc/rtc.hpp>
-#include <nlohmann/json.hpp>
+#include "vendor/libdatachannel/include/rtc/rtc.hpp"
+#include "vendor/nlohmann/json.hpp"
 #include "src/Util/Util.h"
 #include "src/Util/Logger.h"
 

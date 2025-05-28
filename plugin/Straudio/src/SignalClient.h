@@ -6,7 +6,7 @@
 #include <condition_variable>
 #include <chrono>
 #include "vendor/civetweb/civetweb.h"
-#include <nlohmann/json.hpp>
+#include "vendor/nlohmann/json.hpp"
 #include "src/Util/Util.h"
 #include "src/Util/Logger.h"
 
