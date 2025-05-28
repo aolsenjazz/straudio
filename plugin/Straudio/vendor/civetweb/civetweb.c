@@ -22,7 +22,11 @@
 
 #define NO_SSL
 #define NO_MD5
-#define NO_SSL_DL
+// I don't really have any idea what this flag does, but when this
+// is set, sha1.inl doesn't end up getting import, so it fails to build.
+// Maybe commenting it out isn't the right solution, but maybe it is?
+// Not well-documented.
+// #define NO_SSL_DL
 
 
 #if defined(__GNUC__) || defined(__MINGW32__)

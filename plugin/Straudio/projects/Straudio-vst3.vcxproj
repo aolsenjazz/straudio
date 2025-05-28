@@ -164,13 +164,14 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>$(VST3_DEFS);$(DEBUG_DEFS);$(EXTRA_DEBUG_DEFS);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(VST3_DEFS);$(DEBUG_DEFS);$(EXTRA_DEBUG_DEFS);USE_WEBSOCKET=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(VST3_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>datachannel.lib;juice.lib;libcrypto.lib;libssl.lib;usrsctp.lib;srtp2.lib;Crypt32.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\vendor\libdatachannel\win\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -200,7 +201,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>$(VST3_DEFS);$(RELEASE_DEFS);$(EXTRA_RELEASE_DEFS);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(VST3_DEFS);$(RELEASE_DEFS);$(EXTRA_RELEASE_DEFS);USE_WEBSOCKET=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <AdditionalIncludeDirectories>$(VST3_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -209,7 +210,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>datachannel.lib;juice.lib;libcrypto.lib;libssl.lib;usrsctp.lib;srtp2.lib;Crypt32.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\vendor\libdatachannel\win\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent />
   </ItemDefinitionGroup>
@@ -303,7 +305,9 @@
     <ClInclude Include="..\src\MessageHandler.h" />
     <ClInclude Include="..\src\MessageTags.h" />
     <ClInclude Include="..\src\PluginUI\PluginUI.hpp" />
-    <ClInclude Include="..\src\ReceiverUI\ReceiverUI.hpp" />
+    <ClInclude Include="..\src\ReceiverServer\ReceiverUI\ReceiverUI.hpp" />
+    <ClInclude Include="..\src\SignalServer\Routes.h" />
+    <ClInclude Include="..\src\SignalServer\Server.h" />
     <ClInclude Include="..\src\Utils\Logger.h" />
     <ClInclude Include="..\src\Utils\NetworkUtils.h" />
     <ClInclude Include="..\src\Utils\ResourceUtils.h" />
@@ -361,7 +365,7 @@
     <ClCompile Include="..\..\iPlug2\IPlug\VST3\IPlugVST3.cpp" />
     <ClCompile Include="..\..\iPlug2\IPlug\VST3\IPlugVST3_ProcessorBase.cpp" />
     <ClCompile Include="..\src\PluginUI\PluginUI.cpp" />
-    <ClCompile Include="..\src\ReceiverUI\ReceiverUI.cpp" />
+    <ClCompile Include="..\src\ReceiverServer\ReceiverUI\ReceiverUI.cpp" />
     <ClCompile Include="..\Straudio.cpp" />
     <ClCompile Include="..\vendor\civetweb\civetweb.c" />
   </ItemGroup>

@@ -15,6 +15,7 @@ export default tseslint.config(
       '@typescript-eslint/consistent-type-definitions': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-invalid-void-type': 'off',
+      '@typescript-eslint/no-dynamic-delete': 'off',
 
       'import/no-unresolved': 'off',
 

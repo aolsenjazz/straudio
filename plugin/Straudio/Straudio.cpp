@@ -6,28 +6,46 @@
 #include "IPlug_include_in_plug_src.h"
 #include "IPlugPaths.h"
 #include "src/PluginUI/PluginUI.hpp"
-#include "src/Utils/FileUtils.h"
+#include "src/Util/FileUtil.h"
 
-#include "src/WebServer/WebServer.h"
+#include "src/ReceiverServer/Server.h"
+#include "src/SignalServer/Server.h"
+#include "src/PeerConnectionManager/PeerConnectionManager.h"
 #include "src/MessageHandler.h"
+#include "src/Util/Logger.h"
+#include "src/Util/NetworkUtil.h"
 
 using json = nlohmann::json;
 
-
 Straudio::Straudio(const InstanceInfo& info)
-  : Plugin(info, MakeConfig(0, 0)) {
-//#ifdef DEBUG
-  SetEnableDevTools(true);
-//#endif
+: Plugin(info, MakeConfig(0, 0)) {
+  Logger::setMinLevel(Logger::Level::INFO);
   
-
+  //#ifdef DEBUG
+  SetEnableDevTools(true);
+  //#endif
+  
   mEditorInitFunc = [&]() {
-    LoadFile(mPluginFilePath.c_str(), nullptr);
+    //    LoadFile(mPluginFilePath.c_str(), nullptr);
+    LoadURL("http://localhost:5173");
     EnableScroll(false);
   };
-    
+  
   mPluginFilePath = AppDataFileHelper::WriteDataToAppDir("plugin-ui.html", PLUGIN_UI, PLUGIN_UI_length);
-  initializeWebServer();
+  
+  mConnectivity = std::make_unique<ConnectivityManager>(
+                                                        [this]{ shutdownWebServers(); },
+                                                        [this]{ initializeWebServers(); }
+                                                        );
+  mConnectivity->start();
+}
+
+Straudio::~Straudio()
+{
+  if (mConnectivity) mConnectivity->stop();
+  if (mPeerConnectionManager) mPeerConnectionManager->stop();
+  if (mSignalServer)         mSignalServer->stop();
+  if (mFrontendServer)       mFrontendServer->stop();
 }
 
 void Straudio::ProcessBlock(sample** inputs, sample** outputs, int nFrames) {
@@ -41,14 +59,36 @@ void Straudio::OnReset() {}
 
 void Straudio::OnIdle() {}
 
-void Straudio::initializeWebServer() {
-  mWebServer = std::make_unique<WebServer>();
-    mWebServer->start();
+void Straudio::initializeWebServers() {
+  mFrontendServer = std::make_unique<ReceiverServer>();
+  bool frontendSuccess = mFrontendServer->start();
   
+  mSignalServer = std::make_unique<SignalServer>();
+  bool signalSuccess = mSignalServer->start();
+  
+  if (!frontendSuccess || !signalSuccess) {
+    // long-term the correct thing todo will be pass error to
+    // frontend, to be handled and give user feedback
+    abort();
+  }
+  
+  mPeerConnectionManager = std::make_unique<MultiPeerConnectionManager>(mSignalServer->getFullUrl());
+  bool peerSuccess = mPeerConnectionManager->start();
+  
+  if (!peerSuccess) {
+    abort();
+  }
+  
+  MessageHandler::HandleUrlRequest(this);
+}
+
+void Straudio::shutdownWebServers()
+{
+  if (mPeerConnectionManager) { mPeerConnectionManager->stop(); }
+  if (mSignalServer)         { mSignalServer->stop(); }
+  if (mFrontendServer)       { mFrontendServer->stop(); }
 }
 
 void Straudio::OnMessageFromWebView(const char* jsonStr) {
-    auto port = mWebServer->getPort();
-    Logger::info(std::to_string(port));
   MessageHandler::HandleMessage(this, jsonStr);
 }

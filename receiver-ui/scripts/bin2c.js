@@ -16,6 +16,7 @@ const FINAL_DEST_DIR = path.join(
   'plugin',
   'Straudio',
   'src',
+  'ReceiverServer',
   'ReceiverUI'
 );
 

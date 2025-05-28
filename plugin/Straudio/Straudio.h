@@ -4,7 +4,10 @@
 #include "Oscillator.h"
 #include "Smoothers.h"
 #include "ISender.h"
-#include "src/WebServer/WebServer.h"
+#include "src/ReceiverServer/Server.h"
+#include "src/SignalServer/Server.h"
+#include "src/PeerConnectionManager/PeerConnectionManager.h"
+#include "src/ConnectivityManager.h"
 
 using namespace iplug;
 
@@ -17,10 +20,15 @@ public:
   void OnReset() override;
   void OnIdle() override;
   void OnMessageFromWebView(const char* json) override;
+  ~Straudio();
   
-  std::unique_ptr<WebServer> mWebServer;
+  std::unique_ptr<ReceiverServer> mFrontendServer;
+  std::unique_ptr<SignalServer> mSignalServer;
+  std::unique_ptr<MultiPeerConnectionManager> mPeerConnectionManager;
 
 private:
-  void initializeWebServer();
+  void initializeWebServers();
   std::string mPluginFilePath;
+  std::unique_ptr<ConnectivityManager> mConnectivity;
+  void shutdownWebServers();
 };
