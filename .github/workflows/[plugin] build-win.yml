@@ -10,6 +10,9 @@ jobs:
       - name: Check out
         uses: actions/checkout@v3
 
+      - name: Pull LFS files
+        run: git lfs pull
+
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v2
 
