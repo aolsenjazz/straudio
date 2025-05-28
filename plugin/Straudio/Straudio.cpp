@@ -61,10 +61,10 @@ void Straudio::OnIdle() {}
 
 void Straudio::initializeWebServers() {
   mFrontendServer = std::make_unique<ReceiverServer>();
-  Boolean frontendSuccess = mFrontendServer->start();
+  bool frontendSuccess = mFrontendServer->start();
   
   mSignalServer = std::make_unique<SignalServer>();
-  Boolean signalSuccess = mSignalServer->start();
+  bool signalSuccess = mSignalServer->start();
   
   if (!frontendSuccess || !signalSuccess) {
     // long-term the correct thing todo will be pass error to
@@ -73,7 +73,7 @@ void Straudio::initializeWebServers() {
   }
   
   mPeerConnectionManager = std::make_unique<MultiPeerConnectionManager>(mSignalServer->getFullUrl());
-  Boolean peerSuccess = mPeerConnectionManager->start();
+  bool peerSuccess = mPeerConnectionManager->start();
   
   if (!peerSuccess) {
     abort();

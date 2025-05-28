@@ -160,13 +160,14 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>$(APP_DEFS);$(DEBUG_DEFS);$(EXTRA_DEBUG_DEFS);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(APP_DEFS);$(DEBUG_DEFS);$(EXTRA_DEBUG_DEFS);USE_WEBSOCKET=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(APP_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(APP_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(APP_LIBS);datachannel.lib;juice.lib;libcrypto.lib;libssl.lib;usrsctp.lib;srtp2.lib;Crypt32.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\vendor\libdatachannel\win\debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ResourceCompile />
     <ResourceCompile>
@@ -200,7 +201,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>$(APP_DEFS);$(RELEASE_DEFS);$(EXTRA_RELEASE_DEFS);%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>$(APP_DEFS);$(RELEASE_DEFS);$(EXTRA_RELEASE_DEFS);USE_WEBSOCKET=1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(APP_INC_PATHS);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
@@ -208,8 +209,9 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>$(APP_LIBS);%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(APP_LIBS);datachannel.lib;juice.lib;libcrypto.lib;libssl.lib;usrsctp.lib;srtp2.lib;Crypt32.lib;bcrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>$(ProjectDir)..\vendor\libdatachannel\win\release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ResourceCompile>
       <PreprocessorDefinitions>SA_API</PreprocessorDefinitions>
@@ -296,7 +298,7 @@
     <ClInclude Include="..\src\MessageHandler.h" />
     <ClInclude Include="..\src\MessageTags.h" />
     <ClInclude Include="..\src\PluginUI\PluginUI.hpp" />
-    <ClInclude Include="..\src\ReceiverUI\ReceiverUI.hpp" />
+    <ClInclude Include="..\src\ReceiverServer\ReceiverUI\ReceiverUI.hpp" />
     <ClInclude Include="..\src\Utils\FileUtils.h" />
     <ClInclude Include="..\src\Utils\GetHMODULE.h" />
     <ClInclude Include="..\src\Utils\Logger.h" />
@@ -329,7 +331,7 @@
     <ClCompile Include="..\..\iPlug2\IPlug\IPlugTimer.cpp" />
     <ClCompile Include="..\src\FirewallHelper.cpp" />
     <ClCompile Include="..\src\PluginUI\PluginUI.cpp" />
-    <ClCompile Include="..\src\ReceiverUI\ReceiverUI.cpp" />
+    <ClCompile Include="..\src\ReceiverServer\ReceiverUI\ReceiverUI.cpp" />
     <ClCompile Include="..\Straudio.cpp" />
     <ClCompile Include="..\vendor\civetweb\civetweb.c" />
   </ItemGroup>

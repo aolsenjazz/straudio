@@ -112,7 +112,7 @@
     <ClCompile Include="..\..\iPlug2\IPlug\Extras\WebView\IPlugWebView_win.cpp" />
     <ClCompile Include="..\vendor\civetweb\civetweb.c" />
     <ClCompile Include="..\src\PluginUI\PluginUI.cpp" />
-    <ClCompile Include="..\src\ReceiverUI\ReceiverUI.cpp" />
+    <ClCompile Include="..\src\ReceiverServer\ReceiverUI\ReceiverUI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="../config.h" />
@@ -268,7 +268,9 @@
     <ClInclude Include="..\vendor\civetweb\civetweb.h" />
     <ClInclude Include="..\vendor\nlohmann\json.hpp" />
     <ClInclude Include="..\src\PluginUI\PluginUI.hpp" />
-    <ClInclude Include="..\src\ReceiverUI\ReceiverUI.hpp" />
+    <ClInclude Include="..\src\ReceiverServer\ReceiverUI\ReceiverUI.hpp" />
+    <ClInclude Include="..\src\SignalServer\Routes.h" />
+    <ClInclude Include="..\src\SignalServer\Server.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="resources">
