@@ -20,6 +20,7 @@ public:
   void OnReset() override;
   void OnIdle() override;
   void OnMessageFromWebView(const char* json) override;
+  ~Straudio();
   
   std::unique_ptr<ReceiverServer> mFrontendServer;
   std::unique_ptr<SignalServer> mSignalServer;
@@ -30,5 +31,4 @@ private:
   std::string mPluginFilePath;
   std::unique_ptr<ConnectivityManager> mConnectivity;
   void shutdownWebServers();
-  ~Straudio();
 };
